@@ -44,6 +44,11 @@
 					</div>
 
 					<a class="fw-bold text-nowrap text-truncate" href="{{{ if ./user.userslug }}}{config.relative_path}/user/{./user.userslug}{{{ else }}}#{{{ end }}}" data-username="{posts.user.username}" data-uid="{posts.user.uid}">{posts.user.displayname}</a>
+					<!-- {{{ if posts.urgent }}} -->
+						<span component="topic/urgent" class="badge bg-danger ms-2">
+							<i class="fa fa-exclamation-circle me-1"></i>[[topic:urgent]]
+						</span>
+                    <!-- {{{ end }}} -->
 				</div>
 
 				{{{ each posts.user.selectedGroups }}}
