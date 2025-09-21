@@ -61,6 +61,16 @@ define('forum/topic/threadTools', [
 			return false;
 		});
 
+		topicContainer.on('click', '[component="topic/mark-urgent"]', function () {
+			toggleUrgency(true);
+			return false;
+		});
+
+		topicContainer.on('click', '[component="topic/mark-not-urgent"]', function () {
+			toggleUrgency(false);
+			return false;
+		});
+
 		topicContainer.on('click', '[component="topic/mark-unread"]', function () {
 			topicCommand('del', '/read', undefined, () => {
 				if (app.previousUrl && !app.previousUrl.match('^/topic')) {

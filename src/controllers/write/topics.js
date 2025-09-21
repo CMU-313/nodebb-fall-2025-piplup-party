@@ -220,3 +220,11 @@ Topics.move = async (req, res) => {
 
 	helpers.formatApiResponse(200, res);
 };
+
+Topics.setUrgency = async (req, res) => {
+	const result = await api.topics.setUrgency(req, {
+		tid: req.params.tid,
+		urgent: req.body.urgent,
+	});
+	helpers.formatApiResponse(200, res, result);
+};
