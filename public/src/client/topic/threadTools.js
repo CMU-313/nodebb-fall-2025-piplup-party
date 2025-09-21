@@ -61,6 +61,16 @@ define('forum/topic/threadTools', [
 			return false;
 		});
 
+		topicContainer.on('click', '[component="topic/mark-urgent"]', function () {
+			toggleUrgency(true);
+			return false;
+		});
+
+		topicContainer.on('click', '[component="topic/mark-not-urgent"]', function () {
+			toggleUrgency(false);
+			return false;
+		});
+
 		topicContainer.on('click', '[component="topic/mark-unread"]', function () {
 			topicCommand('del', '/read', undefined, () => {
 				if (app.previousUrl && !app.previousUrl.match('^/topic')) {
@@ -415,6 +425,39 @@ define('forum/topic/threadTools', [
 		components.get('topic/ignoring/check').toggleClass('fa-check', state === 'ignore');
 	}
 
+	function toggleUrgency(urgent) {
+		api.put(`/topics/${ajaxify.data.tid}/urgency`, { urgent: urgent }, function (err) {
+			if (err) {
+				return alerts.error(err);
+			}
+
+			// Update the topic urgent badge
+			const urgentBadge = $('[component="topic/urgent"]');
+			if (urgent) {
+				urgentBadge.removeClass('hidden');
+			} else {
+				urgentBadge.addClass('hidden');
+			}
+
+			// Update topic labels visibility
+			const topicLabels = $('[component="topic/labels"]');
+			const hasVisibleLabels = topicLabels.find('.badge:not(.hidden)').length > 0;
+			topicLabels.toggleClass('hidden', !hasVisibleLabels);
+
+			// Fire hook for plugins
+			hooks.fire('action:topic.toggleUrgent', {
+				tid: ajaxify.data.tid,
+				urgent: urgent,
+			});
+
+			alerts.success(urgent ? '[[topic:topic-marked-urgent]]' : '[[topic:topic-marked-not-urgent]]');
+			
+			// Refresh the page to update all UI elements
+			setTimeout(() => {
+				window.location.reload();
+			}, 1000);
+		});
+	}
 
 	return ThreadTools;
 });

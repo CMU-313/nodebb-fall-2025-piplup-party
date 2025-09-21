@@ -51,5 +51,7 @@ module.exports = function () {
 
 	setupApiRoute(router, 'put', '/:tid/move', [...middlewares, middleware.assert.topic], controllers.write.topics.move);
 
+	setupApiRoute(router, 'put', '/:tid/urgency', [...middlewares, middleware.checkRequired.bind(null, ['urgent']), middleware.assert.topic], controllers.write.topics.setUrgency);
+
 	return router;
 };
