@@ -13,8 +13,10 @@ const intFields = [
 	'viewcount', 'postercount', 'followercount',
 	'deleted', 'locked', 'pinned', 'pinExpiry',
 	'timestamp', 'upvotes', 'downvotes',
-	'lastposttime', 'deleterUid', 'urgent',
+	'lastposttime', 'deleterUid',
 ];
+
+const boolFields = ['urgent'];
 
 module.exports = function (Topics) {
 	Topics.getTopicsFields = async function (tids, fields) {
@@ -97,6 +99,13 @@ function modifyTopic(topic, fields) {
 	}
 
 	db.parseIntFields(topic, intFields, fields);
+	
+	// Parse boolean fields properly
+	boolFields.forEach(field => {
+		if (topic.hasOwnProperty(field)) {
+			topic[field] = topic[field] === true || topic[field] === 'true' || topic[field] === 1 || topic[field] === '1';
+		}
+	});
 
 	if (topic.hasOwnProperty('title')) {
 		topic.titleRaw = topic.title;

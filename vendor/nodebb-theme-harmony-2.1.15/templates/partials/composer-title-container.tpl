@@ -28,7 +28,7 @@
 		<button class="btn btn-sm btn-link composer-discard text-body fw-semibold" data-action="discard"><i class="fa fa-trash"></i> <span class="d-none d-md-inline">[[topic:composer.discard]]</button>
 		{{{ if isTopicOrMain }}}
 		<label class="form-check-label ms-2 text-body fw-semibold d-flex align-items-center gap-1">
-			<input type="checkbox" class="form-check-input" id="composer-urgent">
+			<input type="checkbox" class="form-check-input" id="composer-urgent" name="urgent" value="true">
 			<span class="d-none d-md-inline">Mark Topic Urgent</span>
 			<i class="fa fa-exclamation-triangle d-md-none" title="Mark Topic Urgent"></i>
 		</label>
