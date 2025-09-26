@@ -71,8 +71,9 @@ exports.post = async function (req, res) {
 		} else if (body.cid) {
 			data.cid = body.cid;
 			data.title = body.title;
-			data.tags = [];
-			data.thumb = '';
+			data.tags = body.tags || [];
+			data.thumb = body.thumb || '';
+			data.urgent = body.urgent === 'true';
 			result = await queueOrPost(topics.post, data);
 		} else {
 			throw new Error('[[error:invalid-data]]');
