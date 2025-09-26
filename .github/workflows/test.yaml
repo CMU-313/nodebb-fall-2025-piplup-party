@@ -85,6 +85,11 @@ jobs:
       - name: Build NodeBB
         run: ./nodebb build
 
+      - name: Create required directories
+        run: |
+          mkdir -p logs
+          touch logs/output.log
+
       - name: Node tests
         run: npm test
 
