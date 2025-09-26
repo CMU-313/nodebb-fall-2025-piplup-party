@@ -71,7 +71,9 @@ jobs:
               "redis:database": 0,
 
               "email:smtpTransport:enabled": false,
-              "email:promiseBasedSending": false
+              "email:promiseBasedSending": false,
+              "requireEmailConfirmation": false,
+              "email:custom:enabled": false
             }
           CI: >-
             {
