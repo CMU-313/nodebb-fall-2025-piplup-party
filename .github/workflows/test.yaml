@@ -82,6 +82,9 @@ jobs:
       - name: Run ESLint
         run: npm run lint
 
+      - name: Build NodeBB
+        run: ./nodebb build
+
       - name: Node tests
         run: npm test
 
