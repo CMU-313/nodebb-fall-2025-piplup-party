@@ -370,7 +370,7 @@ describe('ActivityPub integration', () => {
 						status: function () { return this; },
 						json: () => { },
 						set: () => { },
-						req: { method: 'POST', loggedIn: false }
+						req: { method: 'POST', loggedIn: false },
 					};
 
 					await controllers.activitypub.postInbox({
