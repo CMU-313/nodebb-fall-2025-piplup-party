@@ -15,7 +15,8 @@
 	],
 	"modules": {
 		"../admin/plugins/harmony.js": "public/admin.js",
-		"../client/account/theme.js": "public/settings.js"
+		"../client/account/theme.js": "public/settings.js",
+		"composer-urgent.js": "static/lib/composer-urgent.js"
 	},
 	"staticDirs": {
 		"inter": "node_modules/@fontsource/inter/files",

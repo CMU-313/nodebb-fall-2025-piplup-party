@@ -184,6 +184,11 @@ describe('API', async () => {
 			return;
 		}
 
+		// Mock email sending to prevent timeouts in CI
+		const emailer = require('../src/emailer');
+		const originalSend = emailer.send;
+		emailer.send = async () => { /* Mock: do nothing */ };
+
 		// Create sample users
 		const adminUid = await user.create({ username: 'admin', password: '123456' });
 		const unprivUid = await user.create({ username: 'unpriv', password: '123456' });

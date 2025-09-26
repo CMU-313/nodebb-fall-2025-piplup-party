@@ -364,13 +364,22 @@ describe('ActivityPub integration', () => {
 					activitypub._cache.set(`0;${id}`, remoteNote);
 					activitypub._cache.set(`0;https://example.org/user/foobar`, remoteUser);
 					await db.sortedSetAdd(`followersRemote:${remoteUser.id}`, Date.now(), 1); // fake a follow
+
+					const res = {
+						sendStatus: () => { },
+						status: function () { return this; },
+						json: () => { },
+						set: () => { },
+						req: { method: 'POST', loggedIn: false },
+					};
+
 					await controllers.activitypub.postInbox({
 						body: {
 							type: 'Create',
 							actor: 'https://example.org/user/foobar',
 							object: remoteNote,
 						},
-					}, { sendStatus: () => {} });
+					}, res);
 				});
 
 				it('should create a new topic if Note is at root-level or its parent has not been seen before', async () => {
