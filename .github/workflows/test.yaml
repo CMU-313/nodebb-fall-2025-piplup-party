@@ -96,6 +96,8 @@ jobs:
           touch logs/output.log
 
       - name: Node tests
+        env:
+          SKIP_EMAIL: true
         run: npm test
 
       - name: Extract coverage info
