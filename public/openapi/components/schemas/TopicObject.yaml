@@ -278,6 +278,9 @@ TopicObjectSlim:
               url:
                 type: string
                 description: Relative path to the topic thumbnail
+        urgent:
+          type: number
+          description: Whether this topic is marked as urgent (1) or not (0)
     - type: object
       description: Optional properties that may or may not be present (except for `tid`, which is always present, and is only here as a hack to pass validation)
       properties:
