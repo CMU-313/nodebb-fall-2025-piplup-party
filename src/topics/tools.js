@@ -313,39 +313,4 @@ module.exports = function (Topics) {
 			db.sortedSetAdd(set, timestamp, tid),
 		]);
 	};
-
-	topicTools.setUrgency = async function (tid, urgent, uid) {
-		// Validate urgent is boolean
-		if (typeof urgent !== 'boolean') {
-			throw new Error('[[error:invalid-data]]');
-		}
-
-		// Ensure topic exists
-		const topicData = await Topics.getTopicFields(tid, ['tid', 'uid', 'cid']);
-		if (!topicData || !topicData.tid) {
-			throw new Error('[[error:no-topic]]');
-		}
-
-		// Check permissions (author, moderator, admin)
-		const [isAuthor, canEdit] = await Promise.all([
-			parseInt(topicData.uid, 10) === parseInt(uid, 10),
-			privileges.topics.canEdit(tid, uid),
-		]);
-
-		if (!isAuthor && !canEdit.flag) {
-			throw new Error('[[error:no-privileges]]');
-		}
-
-		// Update with topics.setTopicField
-		await Topics.setTopicField(tid, 'urgent', urgent ? 1 : 0);
-
-		// Fire plugin hook
-		plugins.hooks.fire('action:topic.setUrgency', {
-			tid: tid,
-			uid: uid,
-			urgent: urgent,
-		});
-
-		return { tid, urgent };
-	};
 };

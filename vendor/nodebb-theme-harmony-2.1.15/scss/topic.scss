@@ -113,7 +113,7 @@ body.template-topic {
 	}
 
 
-	[component="topic/thumb/list"] > a {
+	[component="topic/thumb/list"] > a{
 		height: calc($font-size-base * 4);
 	}
 }
@@ -140,36 +140,5 @@ body.template-topic {
 				}
 			}
 		}
-	}
-}
-
-// Topic urgency styles
-.topic-urgent {
-	background-color: #dc3545 !important;
-	color: white !important;
-	font-size: 0.75rem;
-	font-weight: 600;
-	border-radius: 0.25rem;
-	padding: 0.25rem 0.5rem;
-	display: inline-flex;
-	align-items: center;
-	gap: 0.25rem;
-	animation: urgent-pulse 2s infinite;
-
-	i {
-		font-size: 0.75rem;
-	}
-}
-
-// Urgent badge animation
-@keyframes urgent-pulse {
-	0% {
-		box-shadow: 0 0 0 0 rgba(220, 53, 69, 0.7);
-	}
-	70% {
-		box-shadow: 0 0 0 10px rgba(220, 53, 69, 0);
-	}
-	100% {
-		box-shadow: 0 0 0 0 rgba(220, 53, 69, 0);
 	}
 }

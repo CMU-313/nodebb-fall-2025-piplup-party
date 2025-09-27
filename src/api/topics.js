@@ -357,15 +357,3 @@ topicsAPI.move = async (caller, { tid, cid }) => {
 
 	await categories.onTopicsMoved(cids);
 };
-
-topicsAPI.setUrgency = async function (caller, data) {
-	if (!data || !data.tid || typeof data.urgent !== 'boolean') {
-		throw new Error('[[error:invalid-data]]');
-	}
-	if (!caller.uid) {
-		throw new Error('[[error:not-logged-in]]');
-	}
-
-	const result = await topics.tools.setUrgency(data.tid, data.urgent, caller.uid);
-	return result;
-};

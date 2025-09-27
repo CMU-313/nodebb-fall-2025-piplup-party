@@ -68,12 +68,7 @@ jobs:
               "redis:host": "127.0.0.1",
               "redis:port": 6379,
               "redis:password": "",
-              "redis:database": 0,
-
-              "email:smtpTransport:enabled": false,
-              "email:promiseBasedSending": false,
-              "requireEmailConfirmation": false,
-              "email:custom:enabled": false
+              "redis:database": 0
             }
           CI: >-
             {
@@ -87,17 +82,7 @@ jobs:
       - name: Run ESLint
         run: npm run lint
 
-      - name: Build NodeBB
-        run: ./nodebb build
-
-      - name: Create required directories
-        run: |
-          mkdir -p logs
-          touch logs/output.log
-
       - name: Node tests
-        env:
-          SKIP_EMAIL: true
         run: npm test
 
       - name: Extract coverage info

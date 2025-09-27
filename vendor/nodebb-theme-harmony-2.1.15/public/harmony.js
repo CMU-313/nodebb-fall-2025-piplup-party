@@ -26,7 +26,7 @@ $(document).ready(function () {
 		});
 	}
 
-	require(['hooks', 'composer-urgent'], function (hooks, composerUrgent) {
+	require(['hooks'], function (hooks) {
 		$(window).on('action:composer.resize action:sidebar.toggle', function () {
 			const isRtl = $('html').attr('data-dir') === 'rtl';
 			const css = {
@@ -42,9 +42,6 @@ $(document).ready(function () {
 			hookData.modal = config.theme.chatModals && !utils.isMobile();
 			return hookData;
 		});
-
-		// Initialize composer urgent functionality
-		composerUrgent.init();
 	});
 
 	function setupMobileMenu() {
