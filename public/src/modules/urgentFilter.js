@@ -1,6 +1,6 @@
 'use strict';
 
-define('urgentFilter', ['utils', 'hooks'], function (utils, hooks) {
+define('urgentFilter', [], function () {
 	const urgentFilter = {};
 
 	urgentFilter.init = function () {
