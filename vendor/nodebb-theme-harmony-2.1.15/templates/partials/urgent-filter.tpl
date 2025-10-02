@@ -5,6 +5,6 @@
 			type="button" 
 			aria-label="[[topic:urgent-filter]]">
 		<i class="fa fa-fw fa-exclamation-triangle text-primary"></i>
-		<span class="visible-md-inline visible-lg-inline fw-semibold" component="urgent/label">[[topic:urgent-only]]</span>
+		<span class="visible-md-inline visible-lg-inline fw-semibold" component="urgent/label">Urgent Only</span>
 	</button>
 </div>

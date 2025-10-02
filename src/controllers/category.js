@@ -101,6 +101,7 @@ categoryController.get = async function (req, res, next) {
 		settings: userSettings,
 		query: req.query,
 		tag: req.query.tag,
+		filter: req.query.filter,
 		targetUid: targetUid,
 	});
 	if (!categoryData) {

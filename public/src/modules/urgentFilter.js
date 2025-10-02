@@ -29,10 +29,10 @@ define('urgentFilter', ['utils', 'hooks'], function (utils, hooks) {
 		
 		if (isActive) {
 			urgentToggle.addClass('active-filter');
-			urgentLabel.text('[[topic:all-topics]]');
+			urgentLabel.text('All Topics');
 		} else {
 			urgentToggle.removeClass('active-filter');
-			urgentLabel.text('[[topic:urgent-only]]');
+			urgentLabel.text('Urgent Only');
 		}
 	};
 
@@ -55,7 +55,7 @@ define('urgentFilter', ['utils', 'hooks'], function (utils, hooks) {
 		const newUrl = window.location.pathname + (urlParams.toString() ? '?' + urlParams.toString() : '');
 		
 		// Navigate to new URL
-		ajaxify.go(newUrl);
+		window.location.href = newUrl;
 	};
 
 	return urgentFilter;
