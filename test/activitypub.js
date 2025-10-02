@@ -20,6 +20,13 @@ const activitypub = require('../src/activitypub');
 
 describe('ActivityPub integration', () => {
 	before(async () => {
+		// Mock email sending to prevent timeouts in CI
+		if (process.env.SKIP_EMAIL) {
+			const emailer = require('../src/emailer');
+			const originalSend = emailer.send;
+			emailer.send = async () => { /* Mock: do nothing */ };
+		}
+
 		meta.config.activitypubEnabled = 1;
 		meta.config.activitypubAllowLoopback = 1;
 		await install.giveWorldPrivileges();
