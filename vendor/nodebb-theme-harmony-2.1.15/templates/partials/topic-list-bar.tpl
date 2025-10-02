@@ -5,6 +5,7 @@
 				{{{ if (template.category || template.world) }}}
 				<!-- IMPORT partials/category/watch.tpl -->
 				<!-- IMPORT partials/tags/filter-dropdown-left.tpl -->
+				<!-- IMPORT partials/urgent-filter.tpl -->
 				<!-- IMPORT partials/category/sort.tpl -->
 				{{{ end }}}
 				{{{ if (template.popular || template.top)}}}
