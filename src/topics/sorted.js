@@ -245,15 +245,12 @@ module.exports = function (Topics) {
 	async function filterTids(tids, params) {
 		const { filter, uid } = params;
 
-		console.log('DEBUG: filter value received:', filter, 'type:', typeof filter);
 		if (filter === 'new') {
 			tids = await Topics.filterNewTids(tids, uid);
 		} else if (filter === 'unreplied') {
 			tids = await Topics.filterUnrepliedTids(tids);
 		} else if (filter === 'urgent') {
-			console.log('DEBUG: urgent filter detected, calling filterUrgentTids with tids:', tids);
 			tids = await Topics.filterUrgentTids(tids);
-			console.log('DEBUG: filterUrgentTids returned:', tids);
 		} else {
 			tids = await Topics.filterNotIgnoredTids(tids, uid);
 		}
