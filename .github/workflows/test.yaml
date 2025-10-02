@@ -93,6 +93,7 @@ jobs:
       - name: Create required directories
         run: |
           mkdir -p logs
+          mkdir -p build/export
           touch logs/output.log
 
       - name: Node tests
