@@ -95,6 +95,12 @@ helpers.buildFilters = function (url, filter, query) {
 		selected: filter === 'unreplied',
 		filter: 'unreplied',
 		icon: 'fa-reply',
+	}, {
+		name: '[[topic:urgent-only]]',
+		url: url + helpers.buildQueryString(query, 'filter', 'urgent'),
+		selected: filter === 'urgent',
+		filter: 'urgent',
+		icon: 'fa-exclamation-triangle',
 	}];
 };
 

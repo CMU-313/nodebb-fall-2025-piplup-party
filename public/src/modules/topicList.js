@@ -7,8 +7,9 @@ define('topicList', [
 	'categoryFilter',
 	'tagFilter',
 	'forum/category/tools',
+	'urgentFilter',
 	'hooks',
-], function (infinitescroll, handleBack, topicSelect, categoryFilter, tagFilter, categoryTools, hooks) {
+], function (infinitescroll, handleBack, topicSelect, categoryFilter, tagFilter, categoryTools, urgentFilter, hooks) {
 	const TopicList = {};
 	let templateName = '';
 
@@ -46,6 +47,7 @@ define('topicList', [
 		});
 
 		tagFilter.init($('[component="tag/filter"]'));
+		urgentFilter.init();
 
 		if (!config.usePagination) {
 			infinitescroll.init(TopicList.loadMoreTopics);

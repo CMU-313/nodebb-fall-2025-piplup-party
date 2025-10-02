@@ -413,4 +413,15 @@ module.exports = function (Topics) {
 		const scores = await db.sortedSetScores('topics:posts', tids);
 		return tids.filter((tid, index) => tid && scores[index] !== null && scores[index] <= 1);
 	};
+
+	Topics.filterUrgentTids = async function (tids) {
+		if (!tids || !tids.length) {
+			return [];
+		}
+		const topicData = await Topics.getTopicsFields(tids, ['urgent']);
+		return tids.filter((tid, index) => {
+			const topic = topicData[index];
+			return topic && topic.urgent === true;
+		});
+	};
 };

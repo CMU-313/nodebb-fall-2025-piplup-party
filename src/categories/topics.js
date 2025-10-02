@@ -69,7 +69,34 @@ module.exports = function (Categories) {
 			normalTids = await db.getSortedSetRevRange(set, start, stop);
 		}
 		normalTids = normalTids.filter(tid => !pinnedTids.includes(tid));
-		return pinnedTidsOnPage.concat(normalTids);
+		const allTids = pinnedTidsOnPage.concat(normalTids);
+		
+		// Apply urgent filter if requested
+		if (data.filter === 'urgent') {
+			// Get ALL topics first (not paginated)
+			let allNormalTids;
+			if (Array.isArray(set)) {
+				const weights = set.map((s, index) => (index ? 0 : 1));
+				allNormalTids = await db.getSortedSetRevIntersect({ sets: set, start: 0, stop: -1, weights: weights });
+			} else {
+				allNormalTids = await db.getSortedSetRevRange(set, 0, -1);
+			}
+			allNormalTids = allNormalTids.filter(tid => !pinnedTids.includes(tid));
+			
+			// Combine with pinned topics
+			let allTidsForFiltering = pinnedTids.concat(allNormalTids);
+			
+			// Apply urgent filter to ALL topics
+			allTidsForFiltering = await topics.filterUrgentTids(allTidsForFiltering);
+			
+			// Apply pagination to filtered results
+			const start = data.start || 0;
+			const stop = data.stop === -1 ? -1 : (data.stop || 20);
+			return allTidsForFiltering.slice(start, stop + 1);
+		}
+		
+		// Return paginated results for normal case
+		return allTids;
 	};
 
 	Categories.getTopicCount = async function (data) {
@@ -80,6 +107,13 @@ module.exports = function (Categories) {
 			});
 			return result && result.topicCount;
 		}
+		
+		// Handle urgent filter for topic count
+		if (data.filter === 'urgent') {
+			const tids = await Categories.getTopicIds({ ...data, start: 0, stop: -1 });
+			return tids.length;
+		}
+		
 		const set = await Categories.buildTopicsSortedSet(data);
 		if (Array.isArray(set)) {
 			return await db.sortedSetIntersectCard(set);
@@ -121,6 +155,8 @@ module.exports = function (Categories) {
 			set.delete(mainSet);
 			set.add(`uid:${uid}:inbox`);
 		}
+		
+		
 		const setValue = Array.from(set);
 		const result = await plugins.hooks.fire('filter:categories.buildTopicsSortedSet', {
 			set: set.size > 1 ? setValue : setValue[0],
