@@ -63,7 +63,7 @@ define('forum/topic/threadTools', [
 
 		topicContainer.on('click', '[component="topic/mark-urgent"]', function () {
 			topicCommand('put', '/urgency', 'mark-urgent', () => {
-				alerts.success('[[topic:topic-marked-urgent]]');
+				alerts.success('Topic marked as urgent.');
 				// Update UI to show urgent state
 				components.get('topic/mark-urgent').addClass('hidden').parent().attr('hidden', '');
 				components.get('topic/mark-not-urgent').removeClass('hidden').parent().removeAttr('hidden');
@@ -75,7 +75,7 @@ define('forum/topic/threadTools', [
 
 		topicContainer.on('click', '[component="topic/mark-not-urgent"]', function () {
 			topicCommand('put', '/urgency', 'mark-not-urgent', () => {
-				alerts.success('[[topic:topic-marked-not-urgent]]');
+				alerts.success('Topic marked as not urgent.');
 				// Update UI to show non-urgent state
 				components.get('topic/mark-not-urgent').addClass('hidden').parent().attr('hidden', '');
 				components.get('topic/mark-urgent').removeClass('hidden').parent().removeAttr('hidden');

@@ -96,10 +96,6 @@
 	"markAsUnreadForAll.success" : "Topic marked as unread for all.",
 	"mark-unread": "Mark unread",
 	"mark-unread.success": "Topic marked as unread.",
-	"topic-marked-urgent": "Topic marked as urgent.",
-	"topic-marked-not-urgent": "Topic marked as not urgent.",
-
-	"urgent": "Urgent",
 
 	"watch": "Watch",
 	"unwatch": "Unwatch",
@@ -119,8 +115,6 @@
 	"thread-tools.unpin": "Unpin Topic",
 	"thread-tools.lock": "Lock Topic",
 	"thread-tools.unlock": "Unlock Topic",
-	"thread-tools.mark-urgent": "Mark Topic Urgent",
-	"thread-tools.mark-not-urgent": "Mark Topic Not Urgent",
 	"thread-tools.move": "Move Topic",
 	"thread-tools.move-posts": "Move Posts",
 	"thread-tools.move-all": "Move All",

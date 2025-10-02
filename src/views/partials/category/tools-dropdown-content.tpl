@@ -33,12 +33,12 @@
 
 	<li>
 		<a component="topic/mark-urgent" href="#" class="dropdown-item rounded-1 d-flex align-items-center gap-2" role="menuitem">
-			<i class="fa fa-fw fa-exclamation-triangle text-secondary"></i> [[topic:thread-tools.mark-urgent]]
+			<i class="fa fa-fw fa-exclamation-triangle text-secondary"></i> Mark Topic Urgent
 		</a>
 	</li>
 	<li>
 		<a component="topic/mark-not-urgent" href="#" class="hidden dropdown-item rounded-1 d-flex align-items-center gap-2" role="menuitem">
-			<i class="fa fa-fw fa-exclamation text-secondary"></i> [[topic:thread-tools.mark-not-urgent]]
+			<i class="fa fa-fw fa-exclamation text-secondary"></i> Mark Topic Not Urgent
 		</a>
 	</li>
 
