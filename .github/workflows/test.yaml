@@ -95,6 +95,8 @@ jobs:
           mkdir -p logs
           mkdir -p build/export
           touch logs/output.log
+          # Create dummy CSV files for export tests
+          echo 'username,email,uid' > build/export/users.csv
 
       - name: Node tests
         env:
