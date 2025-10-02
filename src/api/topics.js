@@ -367,5 +367,10 @@ topicsAPI.setUrgency = async function (caller, data) {
 	}
 
 	const result = await topics.tools.setUrgency(data.tid, data.urgent, caller.uid);
+	
+	// Emit socket event for urgency change
+	const eventName = data.urgent ? 'event:topic_urgent' : 'event:topic_not_urgent';
+	socketHelpers.emitToUids(eventName, { tid: data.tid, urgent: data.urgent }, [caller.uid]);
+	
 	return result;
 };
