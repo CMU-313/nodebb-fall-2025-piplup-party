@@ -4,58 +4,51 @@ define('urgentFilter', ['utils', 'hooks'], function (utils, hooks) {
 	const urgentFilter = {};
 
 	urgentFilter.init = function () {
-		const urgentToggle = $('[component="urgent/toggle"]');
-		if (!urgentToggle.length) {
+		const urgentDropdown = $('[component="urgent/dropdown"]');
+		if (!urgentDropdown.length) {
 			return;
 		}
 
-		// Check if urgent filter is currently active
-		const urlParams = new URLSearchParams(window.location.search);
-		const isUrgentActive = urlParams.get('filter') === 'urgent';
-		
-		// Update button state
-		urgentFilter.updateButtonState(isUrgentActive);
+		// Update UI state based on current filter
+		urgentFilter.updateUI();
 
-		// Handle button clicks
-		urgentToggle.on('click', function (e) {
+		// Handle dropdown item clicks
+		$('[component="urgent/filter"]').on('click', function (e) {
 			e.preventDefault();
-			urgentFilter.toggleUrgentFilter();
+			const href = $(this).attr('href');
+			if (href && href !== '#') {
+				window.location.href = href;
+			}
 		});
 	};
 
-	urgentFilter.updateButtonState = function (isActive) {
-		const urgentToggle = $('[component="urgent/toggle"]');
-		const urgentLabel = $('[component="urgent/label"]');
-		
-		if (isActive) {
-			urgentToggle.addClass('active-filter');
-			urgentLabel.text('All Topics');
-		} else {
-			urgentToggle.removeClass('active-filter');
-			urgentLabel.text('Urgent Only');
-		}
-	};
-
-	urgentFilter.toggleUrgentFilter = function () {
+	urgentFilter.updateUI = function () {
+		// Check if urgent filter is active
 		const urlParams = new URLSearchParams(window.location.search);
 		const isUrgentActive = urlParams.get('filter') === 'urgent';
 		
+		const buttonIcon = $('[component="urgent/button/icon"]');
+		const buttonLabel = $('[component="urgent/button/label"]');
+		const allCheck = $('[component="urgent/select/all"]');
+		const urgentCheck = $('[component="urgent/select/urgent"]');
+		
 		if (isUrgentActive) {
-			// Remove urgent filter
-			urlParams.delete('filter');
+			// Update button to show urgent state
+			buttonIcon.removeClass('fa-list').addClass('fa-exclamation-triangle');
+			buttonLabel.text('Urgent Only');
+			
+			// Update checkmarks
+			allCheck.hide();
+			urgentCheck.show();
 		} else {
-			// Add urgent filter
-			urlParams.set('filter', 'urgent');
+			// Update button to show all topics state
+			buttonIcon.removeClass('fa-exclamation-triangle').addClass('fa-list');
+			buttonLabel.text('All Topics');
+			
+			// Update checkmarks
+			allCheck.show();
+			urgentCheck.hide();
 		}
-		
-		// Remove page parameter to go to first page
-		urlParams.delete('page');
-		
-		// Build new URL
-		const newUrl = window.location.pathname + (urlParams.toString() ? '?' + urlParams.toString() : '');
-		
-		// Navigate to new URL
-		window.location.href = newUrl;
 	};
 
 	return urgentFilter;

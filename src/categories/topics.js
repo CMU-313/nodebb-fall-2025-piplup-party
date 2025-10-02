@@ -69,13 +69,33 @@ module.exports = function (Categories) {
 			normalTids = await db.getSortedSetRevRange(set, start, stop);
 		}
 		normalTids = normalTids.filter(tid => !pinnedTids.includes(tid));
-		let allTids = pinnedTidsOnPage.concat(normalTids);
+		const allTids = pinnedTidsOnPage.concat(normalTids);
 		
 		// Apply urgent filter if requested
 		if (data.filter === 'urgent') {
-			allTids = await topics.filterUrgentTids(allTids);
+			// Get ALL topics first (not paginated)
+			let allNormalTids;
+			if (Array.isArray(set)) {
+				const weights = set.map((s, index) => (index ? 0 : 1));
+				allNormalTids = await db.getSortedSetRevIntersect({ sets: set, start: 0, stop: -1, weights: weights });
+			} else {
+				allNormalTids = await db.getSortedSetRevRange(set, 0, -1);
+			}
+			allNormalTids = allNormalTids.filter(tid => !pinnedTids.includes(tid));
+			
+			// Combine with pinned topics
+			let allTidsForFiltering = pinnedTids.concat(allNormalTids);
+			
+			// Apply urgent filter to ALL topics
+			allTidsForFiltering = await topics.filterUrgentTids(allTidsForFiltering);
+			
+			// Apply pagination to filtered results
+			const start = data.start || 0;
+			const stop = data.stop === -1 ? -1 : (data.stop || 20);
+			return allTidsForFiltering.slice(start, stop + 1);
 		}
 		
+		// Return paginated results for normal case
 		return allTids;
 	};
 
