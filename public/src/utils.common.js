@@ -461,11 +461,19 @@ const utils = {
 			return '';
 		}
 
-		// Prevent too-high values to be passed to Date object
-		timestamp = Math.min(timestamp, 8640000000000000);
+		// Check if timestamp is within valid Date range
+		const maxValidDate = 8640000000000000;
+		const minValidDate = -8640000000000000;
+		if (timestamp > maxValidDate || timestamp < minValidDate) {
+			return timestamp;
+		}
 
 		try {
-			return new Date(parseInt(timestamp, 10)).toISOString();
+			const date = new Date(parseInt(timestamp, 10));
+			if (isNaN(date.getTime())) {
+				return timestamp;
+			}
+			return date.toISOString();
 		} catch (err) {
 			console.error(err);
 			return timestamp;
