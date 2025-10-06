@@ -29,7 +29,7 @@ async function runTests() {
 		
 		const testProcess = spawn('npx', ['mocha', testFile, '--timeout', '30000'], {
 			stdio: 'inherit',
-			cwd: path.resolve(__dirname)
+			cwd: path.resolve(__dirname),
 		});
 
 		await new Promise((resolve, reject) => {
