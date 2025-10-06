@@ -8,6 +8,8 @@ const meta = require('../meta');
 const pagination = require('../pagination');
 const helpers = require('./helpers');
 const privileges = require('../privileges');
+const db = require('../database');
+const topics = require('../topics');
 
 const categoriesController = module.exports;
 
@@ -36,6 +38,11 @@ categoriesController.list = async function (req, res) {
 		categories.getRecentTopicReplies(categoryData, req.uid, req.query),
 		categories.setUnread(tree, pageCids.concat(childCids), req.uid),
 	]);
+	
+	// Add urgent topics count only for categories list page
+	if (req.originalUrl.includes('/categories')) {
+		await getUrgentTopicsCount(tree);
+	}
 
 	const data = {
 		title: meta.config.homePageTitle || '[[pages:home]]',
@@ -62,3 +69,59 @@ categoriesController.list = async function (req, res) {
 
 	res.render('categories', data);
 };
+
+async function getUrgentTopicsCount(tree) {
+	try {
+		// Get all category IDs from the tree
+		const allCids = [];
+		function extractCids(categories) {
+			categories.forEach((category) => {
+				if (category && category.cid) {
+					allCids.push(category.cid);
+					if (category.children) {
+						extractCids(category.children);
+					}
+				}
+			});
+		}
+		extractCids(tree);
+
+		// Get urgent topics count for each category
+		const urgentCounts = {};
+		await Promise.all(allCids.map(async (cid) => {
+			try {
+				// Get all topics in this category
+				const topicIds = await db.getSortedSetRevRange(`cid:${cid}:tids`, 0, -1);
+				
+				if (topicIds.length === 0) {
+					urgentCounts[cid] = 0;
+					return;
+				}
+
+				// Get topic data to check urgent status
+				const topicData = await topics.getTopicsByTids(topicIds);
+				const urgentCount = topicData.filter(topic => topic && topic.urgent === true).length;
+				urgentCounts[cid] = urgentCount;
+			} catch (err) {
+				urgentCounts[cid] = 0;
+			}
+		}));
+
+		// Add urgent count to each category in the tree
+		function addUrgentCount(categories) {
+			categories.forEach((category) => {
+				if (category && category.cid) {
+					category.urgentCount = urgentCounts[category.cid] || 0;
+					if (category.children) {
+						addUrgentCount(category.children);
+					}
+				}
+			});
+		}
+		addUrgentCount(tree);
+
+	} catch (err) {
+		// If there's an error, just continue without urgent counts
+		console.error('Error getting urgent topics count:', err);
+	}
+}

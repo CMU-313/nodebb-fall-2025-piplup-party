@@ -88,7 +88,14 @@ CategoryObject:
       properties:
         cid:
           type: number
-          description: A category identifier
+        urgentCount:
+          type: number
+          description: The number of urgent topics in the category
+        children:
+          type: array
+          description: Array of child categories
+          items:
+            $ref: '#/CategoryObject'
         backgroundImage:
           type: string
           description: Relative URL to the category's background image

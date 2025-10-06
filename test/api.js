@@ -73,6 +73,18 @@ describe('API', async () => {
 					example: '', // to be defined later...
 				},
 			],
+			'/users/{uid}/exports/{type}': [
+				{
+					in: 'path',
+					name: 'uid',
+					example: 1,
+				},
+				{
+					in: 'path',
+					name: 'type',
+					example: 'posts',
+				},
+			],
 		},
 		put: {
 			'/groups/{slug}/pending/{uid}': [
