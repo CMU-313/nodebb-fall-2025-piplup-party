@@ -345,7 +345,7 @@ module.exports = function (Topics) {
 				try {
 					const [fullTopicData, postData] = await Promise.all([
 						Topics.getTopicData(tid),
-						Topics.getMainPost(tid, 'posts:pid')
+						Topics.getMainPost(tid, 'posts:pid'),
 					]);
 
 					if (fullTopicData && postData) {
