@@ -339,6 +339,24 @@ module.exports = function (Topics) {
 		// Update with topics.setTopicField
 		await Topics.setTopicField(tid, 'urgent', urgent ? 1 : 0);
 
+		// Send urgent notification if toggling from false to true
+		if (urgent) {
+			setImmediate(async () => {
+				try {
+					const [fullTopicData, postData] = await Promise.all([
+						Topics.getTopicData(tid),
+						Topics.getMainPost(tid, 'posts:pid')
+					]);
+
+					if (fullTopicData && postData) {
+						await user.notifications.sendUrgentTopicNotification(topicData.uid, fullTopicData, postData);
+					}
+				} catch (err) {
+					console.error('Urgent notification failed:', err.message);
+				}
+			});
+		}
+
 		// Fire plugin hook
 		plugins.hooks.fire('action:topic.setUrgency', {
 			tid: tid,
