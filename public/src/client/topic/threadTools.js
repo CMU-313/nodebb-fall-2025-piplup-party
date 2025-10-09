@@ -61,6 +61,30 @@ define('forum/topic/threadTools', [
 			return false;
 		});
 
+		topicContainer.on('click', '[component="topic/mark-urgent"]', function () {
+			topicCommand('put', '/urgency', 'mark-urgent', () => {
+				alerts.success('Topic marked as urgent.');
+				// Update UI to show urgent state
+				components.get('topic/mark-urgent').addClass('hidden').parent().attr('hidden', '');
+				components.get('topic/mark-not-urgent').removeClass('hidden').parent().removeAttr('hidden');
+				// Add urgent badge to topic labels
+				$('[component="topic/labels"]').append('<span component="topic/urgent" class="badge bg-danger text-white ms-1" title="Urgent"><i class="fa fa-exclamation-triangle"></i> Urgent</span>');
+			});
+			return false;
+		});
+
+		topicContainer.on('click', '[component="topic/mark-not-urgent"]', function () {
+			topicCommand('put', '/urgency', 'mark-not-urgent', () => {
+				alerts.success('Topic marked as not urgent.');
+				// Update UI to show non-urgent state
+				components.get('topic/mark-not-urgent').addClass('hidden').parent().attr('hidden', '');
+				components.get('topic/mark-urgent').removeClass('hidden').parent().removeAttr('hidden');
+				// Remove urgent badge from topic labels
+				$('[component="topic/urgent"]').remove();
+			});
+			return false;
+		});
+
 		topicContainer.on('click', '[component="topic/mark-unread"]', function () {
 			topicCommand('del', '/read', undefined, () => {
 				if (app.previousUrl && !app.previousUrl.match('^/topic')) {
@@ -259,6 +283,16 @@ define('forum/topic/threadTools', [
 				ThreadTools.requestPinExpiry(body, execute.bind(null, true));
 				break;
 
+			case 'mark-urgent':
+				body.urgent = true;
+				execute(true);
+				break;
+
+			case 'mark-not-urgent':
+				body.urgent = false;
+				execute(true);
+				break;
+
 			default:
 				execute(true);
 				break;
@@ -384,6 +418,21 @@ define('forum/topic/threadTools', [
 			));
 		}
 		ajaxify.data.pinned = data.pinned;
+
+		posts.addTopicEvents(data.events);
+	};
+
+	ThreadTools.setUrgencyState = function (data) {
+		const threadEl = components.get('topic');
+		if (String(data.tid) !== threadEl.attr('data-tid')) {
+			return;
+		}
+
+		components.get('topic/mark-urgent').toggleClass('hidden', data.urgent).parent().attr('hidden', data.urgent ? '' : null);
+		components.get('topic/mark-not-urgent').toggleClass('hidden', !data.urgent).parent().attr('hidden', !data.urgent ? '' : null);
+		const icon = $('[component="topic/labels"] [component="topic/urgent"]');
+		icon.toggleClass('hidden', !data.urgent);
+		ajaxify.data.urgent = data.urgent;
 
 		posts.addTopicEvents(data.events);
 	};
