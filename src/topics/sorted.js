@@ -249,6 +249,8 @@ module.exports = function (Topics) {
 			tids = await Topics.filterNewTids(tids, uid);
 		} else if (filter === 'unreplied') {
 			tids = await Topics.filterUnrepliedTids(tids);
+		} else if (filter === 'urgent') {
+			tids = await Topics.filterUrgentTids(tids);
 		} else {
 			tids = await Topics.filterNotIgnoredTids(tids, uid);
 		}
