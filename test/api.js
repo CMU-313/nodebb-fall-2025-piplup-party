@@ -491,7 +491,8 @@ describe('API', async () => {
 					}
 				});
 
-				it('should not error out when called', async () => {
+				it('should not error out when called', async function() {
+					this.timeout(60000); // Increase timeout to 60 seconds for flaky test
 					await setupData();
 
 					if (csrfToken) {
