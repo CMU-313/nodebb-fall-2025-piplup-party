@@ -189,7 +189,7 @@ describe('Topics Urgent Filter', () => {
 			});
 			
 			// Should return at least some urgent topics
-			assert(result.topics.length >= 3, 'Should return at least 3 urgent topics');
+			assert(result.topics.length >= urgentTopicData.length, `Should return at least ${urgentTopicData.length} urgent topics, got ${result.topics.length}`);
 		});
 
 		it('should return all topics when filter is not urgent', async () => {
@@ -206,7 +206,8 @@ describe('Topics Urgent Filter', () => {
 			assert(Array.isArray(result.topics));
 			
 			// Should return both urgent and normal topics
-			assert(result.topics.length >= 6, 'Should return at least 6 topics (3 urgent + 3 normal)');
+			const expectedMin = urgentTopicData.length + 3; // urgent + normal topics
+			assert(result.topics.length >= expectedMin, `Should return at least ${expectedMin} topics (${urgentTopicData.length} urgent + 3 normal), got ${result.topics.length}`);
 		});
 
 		it('should work with different sort orders and urgent filter', async () => {

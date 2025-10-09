@@ -106,8 +106,11 @@ describe('Categories Urgent Filter', () => {
 			const tids = await Categories.getTopicIds(data);
 			
 			// Should return all topics (urgent + normal)
-			assert(Array.isArray(tids));
-			assert(tids.length >= 4, 'Should return at least 4 topics (2 urgent + 2 normal)');
+			assert(Array.isArray(tids), 'Should return an array');
+			
+			// Calculate expected minimum based on created topics
+			const expectedMin = urgentTopicData.length + 2; // urgent + normal topics
+			assert(tids.length >= expectedMin, `Should return at least ${expectedMin} topics (${urgentTopicData.length} urgent + 2 normal), got ${tids.length}`);
 		});
 
 		it('should apply pagination correctly with urgent filter', async () => {
@@ -187,8 +190,11 @@ describe('Categories Urgent Filter', () => {
 			const count = await Categories.getTopicCount(data);
 			
 			// Should return total topic count
-			assert(typeof count === 'number');
-			assert(count >= 4, 'Should count all topics (urgent + normal)');
+			assert(typeof count === 'number', 'Should return a number');
+			
+			// Calculate expected minimum based on created topics
+			const expectedMin = urgentTopicData.length + 2; // urgent + normal topics
+			assert(count >= expectedMin, `Should count at least ${expectedMin} topics (${urgentTopicData.length} urgent + 2 normal), got ${count}`);
 		});
 	});
 

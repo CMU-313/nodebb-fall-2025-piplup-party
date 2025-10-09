@@ -123,7 +123,8 @@ describe('Frontend Urgent Filter', () => {
 			
 			if (body.topics && Array.isArray(body.topics)) {
 				// Should return both urgent and normal topics
-				assert(body.topics.length >= 4, 'Should return at least 4 topics');
+				const expectedMin = urgentTopicData.length + 2; // urgent + normal topics
+				assert(body.topics.length >= expectedMin, `Should return at least ${expectedMin} topics, got ${body.topics.length}`);
 			}
 		});
 
@@ -176,7 +177,8 @@ describe('Frontend Urgent Filter', () => {
 			assert(Array.isArray(result.topics));
 			
 			// Should return both urgent and normal topics
-			assert(result.topics.length >= 4, 'Should return at least 4 topics');
+			const expectedMin = urgentTopicData.length + 2; // urgent + normal topics
+			assert(result.topics.length >= expectedMin, `Should return at least ${expectedMin} topics, got ${result.topics.length}`);
 		});
 	});
 

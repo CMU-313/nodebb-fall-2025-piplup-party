@@ -119,7 +119,7 @@ describe('Integration Tests - Urgent Filter Workflow', () => {
 				});
 				
 				// Should return at least some urgent topics
-				assert(apiResponse.body.topics.length >= 3, 'Should return at least 3 urgent topics');
+				assert(apiResponse.body.topics.length >= urgentTopicData.length, `Should return at least ${urgentTopicData.length} urgent topics, got ${apiResponse.body.topics.length}`);
 			}
 		});
 
