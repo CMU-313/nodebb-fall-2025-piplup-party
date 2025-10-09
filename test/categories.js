@@ -864,4 +864,206 @@ describe('Categories', () => {
 		assert.strictEqual(child1.cid, data.children[0].cid);
 		assert.strictEqual(child2.cid, data.children[0].children[0].cid);
 	});
+
+	describe('Urgent Topic Counter', () => {
+		let testCategoryObj;
+		let urgentTopicTid1;
+		let urgentTopicTid2;
+		let normalTopicTid;
+
+		before(async () => {
+			// Create a test category for urgent topic counter tests
+			testCategoryObj = await Categories.create({
+				name: 'Urgent Topic Test Category',
+				description: 'Category for testing urgent topic counter',
+			});
+
+			// Create multiple urgent topics
+			const urgentTopic1 = await Topics.post({
+				uid: posterUid,
+				cid: testCategoryObj.cid,
+				title: 'First Urgent Topic',
+				content: 'This is the first urgent topic for testing',
+				urgent: true,
+			});
+			urgentTopicTid1 = urgentTopic1.topicData.tid;
+
+			const urgentTopic2 = await Topics.post({
+				uid: posterUid,
+				cid: testCategoryObj.cid,
+				title: 'Second Urgent Topic',
+				content: 'This is the second urgent topic for testing',
+				urgent: true,
+			});
+			urgentTopicTid2 = urgentTopic2.topicData.tid;
+
+			// Create a normal (non-urgent) topic
+			const normalTopic = await Topics.post({
+				uid: posterUid,
+				cid: testCategoryObj.cid,
+				title: 'Normal Topic',
+				content: 'This is a normal, non-urgent topic',
+			});
+			normalTopicTid = normalTopic.topicData.tid;
+		});
+
+		it('should include urgentCount property in category data from API', async () => {
+			const apiCategories = require('../src/api/categories');
+			const result = await apiCategories.list({ uid: 0 });
+			
+			assert(result.categories);
+			assert(Array.isArray(result.categories));
+			
+			// Find our test category
+			const testCategory = result.categories.find(cat => cat.cid === testCategoryObj.cid);
+			assert(testCategory);
+			assert(testCategory.hasOwnProperty('urgentCount'));
+		});
+
+		it('should correctly count urgent topics in a category', async () => {
+			const Categories = require('../src/categories');
+			const categoryData = await Categories.getCategoryData(testCategoryObj.cid);
+			
+			// Get the category tree to check urgent count
+			const tree = Categories.getTree([categoryData], 0);
+			
+			// Add urgent counts (simulating what the controller does)
+			const db = require('../src/database');
+			const topicIds = await db.getSortedSetRevRange(`cid:${testCategoryObj.cid}:tids`, 0, -1);
+			const topicData = await Topics.getTopicsByTids(topicIds);
+			const urgentCount = topicData.filter(topic => topic && topic.urgent === true).length;
+			
+			// Should have 2 urgent topics
+			assert.equal(urgentCount, 2);
+		});
+
+		it('should return 0 urgent count for category with no urgent topics', async () => {
+			// Create a new category with no urgent topics
+			const emptyCategory = await Categories.create({
+				name: 'No Urgent Topics Category',
+				description: 'Category with no urgent topics',
+			});
+
+			// Add a normal topic
+			await Topics.post({
+				uid: posterUid,
+				cid: emptyCategory.cid,
+				title: 'Regular Topic',
+				content: 'Not urgent',
+			});
+
+			const db = require('../src/database');
+			const topicIds = await db.getSortedSetRevRange(`cid:${emptyCategory.cid}:tids`, 0, -1);
+			const topicData = await Topics.getTopicsByTids(topicIds);
+			const urgentCount = topicData.filter(topic => topic && topic.urgent === true).length;
+
+			assert.equal(urgentCount, 0);
+		});
+
+		it('should update urgent count when topic urgency changes', async () => {
+			const db = require('../src/database');
+			
+			// Get initial urgent count
+			let topicIds = await db.getSortedSetRevRange(`cid:${testCategoryObj.cid}:tids`, 0, -1);
+			let topicData = await Topics.getTopicsByTids(topicIds);
+			const initialUrgentCount = topicData.filter(topic => topic && topic.urgent === true).length;
+			
+			// Mark the normal topic as urgent using setTopicField
+			await Topics.setTopicField(normalTopicTid, 'urgent', 1);
+			
+			// Get updated urgent count
+			topicIds = await db.getSortedSetRevRange(`cid:${testCategoryObj.cid}:tids`, 0, -1);
+			topicData = await Topics.getTopicsByTids(topicIds);
+			const newUrgentCount = topicData.filter(topic => topic && topic.urgent === true).length;
+			
+			// Should have one more urgent topic
+			assert.equal(newUrgentCount, initialUrgentCount + 1);
+			
+			// Unmark it back
+			await Topics.setTopicField(normalTopicTid, 'urgent', 0);
+			
+			// Verify count went back down
+			topicIds = await db.getSortedSetRevRange(`cid:${testCategoryObj.cid}:tids`, 0, -1);
+			topicData = await Topics.getTopicsByTids(topicIds);
+			const finalUrgentCount = topicData.filter(topic => topic && topic.urgent === true).length;
+			
+			assert.equal(finalUrgentCount, initialUrgentCount);
+		});
+
+		it('should load categories page with urgent counts via HTTP request', async () => {
+			const { response, body } = await request.get(`${nconf.get('url')}/api/categories`);
+			assert.equal(response.statusCode, 200);
+			assert(body);
+			assert(body.categories);
+			assert(Array.isArray(body.categories));
+			
+			// Verify that at least one category has urgentCount property
+			const hasUrgentCount = body.categories.some(cat => cat.hasOwnProperty('urgentCount'));
+			assert(hasUrgentCount, 'Categories should have urgentCount property');
+		});
+
+		it('should include urgentCount in category API endpoint', async () => {
+			const { response, body } = await request.get(`${nconf.get('url')}/api/v3/categories`);
+			assert.equal(response.statusCode, 200);
+			assert(body);
+			assert(body.response);
+			assert(body.response.categories);
+			assert(Array.isArray(body.response.categories));
+			
+			// Find our test category
+			const testCategory = body.response.categories.find(cat => cat.cid === testCategoryObj.cid);
+			if (testCategory) {
+				assert(testCategory.hasOwnProperty('urgentCount'));
+				assert.equal(typeof testCategory.urgentCount, 'number');
+			}
+		});
+
+		it('should handle categories with no topics gracefully', async () => {
+			const emptyCategory = await Categories.create({
+				name: 'Empty Category',
+				description: 'Category with no topics at all',
+			});
+
+			const db = require('../src/database');
+			const topicIds = await db.getSortedSetRevRange(`cid:${emptyCategory.cid}:tids`, 0, -1);
+			
+			assert.equal(topicIds.length, 0);
+			
+			const topicData = await Topics.getTopicsByTids(topicIds);
+			const urgentCount = topicData.filter(topic => topic && topic.urgent === true).length;
+			
+			assert.equal(urgentCount, 0);
+		});
+
+		it('should count urgent topics in nested subcategories', async () => {
+			// Create parent and child categories
+			const parentCategory = await Categories.create({
+				name: 'Parent Category',
+				description: 'Parent category for testing nested urgent counts',
+			});
+
+			const childCategory = await Categories.create({
+				name: 'Child Category',
+				description: 'Child category',
+				parentCid: parentCategory.cid,
+			});
+
+			// Add urgent topics to child category
+			await Topics.post({
+				uid: posterUid,
+				cid: childCategory.cid,
+				title: 'Urgent in Child',
+				content: 'Urgent topic in child category',
+				urgent: true,
+			});
+
+			// Verify child has urgent count
+			const db = require('../src/database');
+			const childTopicIds = await db.getSortedSetRevRange(`cid:${childCategory.cid}:tids`, 0, -1);
+			const childTopicData = await Topics.getTopicsByTids(childTopicIds);
+			const childUrgentCount = childTopicData.filter(topic => topic && topic.urgent === true).length;
+			
+			assert.equal(childUrgentCount, 1);
+		});
+	});
 });

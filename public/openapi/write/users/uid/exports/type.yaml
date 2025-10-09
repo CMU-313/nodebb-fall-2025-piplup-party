@@ -83,3 +83,14 @@ post:
                 $ref: ../../../../components/schemas/Status.yaml#/Status
               response:
                 type: object
+    '400':
+      description: Bad request - invalid parameters or insufficient permissions
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                $ref: ../../../../components/schemas/Status.yaml#/Status
+              response:
+                type: object
