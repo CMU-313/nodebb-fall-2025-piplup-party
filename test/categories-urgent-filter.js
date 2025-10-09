@@ -50,6 +50,13 @@ describe('Categories Urgent Filter', () => {
 		await Topics.setTopicFields(urgentTopic1.topicData.tid, { urgent: true });
 		await Topics.setTopicFields(urgentTopic2.topicData.tid, { urgent: true });
 		
+		// Verify urgent status was set correctly
+		const urgent1Data = await Topics.getTopicFields(urgentTopic1.topicData.tid, ['urgent']);
+		const urgent2Data = await Topics.getTopicFields(urgentTopic2.topicData.tid, ['urgent']);
+		
+		assert(urgent1Data.urgent === true, 'Topic 1 should be marked as urgent');
+		assert(urgent2Data.urgent === true, 'Topic 2 should be marked as urgent');
+		
 		urgentTopicData = [urgentTopic1.topicData, urgentTopic2.topicData];
 
 		// Create normal (non-urgent) topics
