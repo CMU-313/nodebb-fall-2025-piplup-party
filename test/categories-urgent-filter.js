@@ -161,6 +161,10 @@ describe('Categories Urgent Filter', () => {
 
 	describe('Categories.getTopicCount with urgent filter', () => {
 		it('should return correct count of urgent topics', async () => {
+			// First, verify our urgent topics are actually marked as urgent
+			const urgentTids = await Topics.filterUrgentTids(urgentTopicData.map(t => t.tid));
+			assert(urgentTids.length >= 2, `Should have at least 2 urgent topics, got ${urgentTids.length}`);
+			
 			const data = {
 				cid: categoryObj.cid,
 				filter: 'urgent',
@@ -170,8 +174,8 @@ describe('Categories Urgent Filter', () => {
 			const count = await Categories.getTopicCount(data);
 			
 			// Should return count of urgent topics only
-			assert(typeof count === 'number');
-			assert(count >= 2, 'Should count at least 2 urgent topics');
+			assert(typeof count === 'number', 'Should return a number');
+			assert(count >= 2, `Should count at least 2 urgent topics, got ${count}`);
 		});
 
 		it('should return total topic count when filter is not urgent', async () => {
