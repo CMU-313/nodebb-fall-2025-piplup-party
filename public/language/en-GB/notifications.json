@@ -11,7 +11,7 @@
 	"return-to": "Return to %1",
 	"new-notification": "You have a new notification",
 	"you-have-unread-notifications": "You have unread notifications.",
-
+	"urgent-topic-created": "<strong>%1</strong> has created an urgent topic: <strong>%2</strong>",
 	"all": "All",
 	"topics": "Topics",
 	"tags": "Tags",

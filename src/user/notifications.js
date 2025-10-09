@@ -227,6 +227,32 @@ UserNotifications.sendTopicNotificationToFollowers = async function (uid, topicD
 	}
 };
 
+UserNotifications.sendUrgentTopicNotification = async function (uid, topicData, postData) {
+	try { //deals with permissions; followers will only get notif if they can read the post
+		const allFollowers = await db.getSortedSetRange(`followers:${uid}`, 0, -1);
+		const followers = await privileges.categories.filterUids('read', topicData.cid, allFollowers);
+		if (!followers.length) {
+			return;
+		}
+
+		const notifObj = await notifications.create({
+			type: 'urgent-topic',
+			bodyShort: translator.compile('notifications:urgent-topic-created', postData.user.displayname, topicData.title),
+			bodyLong: postData.content,
+			pid: postData.pid,
+			path: `/post/${postData.pid}`,
+			nid: `urgent-topic:${postData.tid}:uid:${uid}`,
+			tid: postData.tid,
+			from: uid,
+		});
+
+
+		await notifications.push(notifObj, followers);
+	} catch (err) {
+		winston.error(err.stack);
+	}
+};
+
 UserNotifications.sendWelcomeNotification = async function (uid) {
 	if (!meta.config.welcomeNotification) {
 		return;
