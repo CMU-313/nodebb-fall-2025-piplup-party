@@ -162,7 +162,11 @@ module.exports = function (Topics) {
 						// New topic notifications only sent for local-to-local follows only
 						await user.notifications.sendTopicNotificationToFollowers(uid, topicData, postData);
 					}
-
+					// Send urgent topic notifications if topic is marked as urgent
+					if (topicData.urgent) {
+						await user.notifications.sendUrgentTopicNotification(uid, topicData, postData);
+					}
+					
 					await Topics.notifyTagFollowers(postData, uid);
 					await categories.notifyCategoryFollowers(postData, uid);
 				} catch (err) {

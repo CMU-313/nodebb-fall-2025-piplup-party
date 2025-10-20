@@ -56,6 +56,16 @@ define('forum/category/tools', [
 			return false;
 		});
 
+		components.get('topic/mark-urgent').on('click', function () {
+			categoryCommand('put', '/urgency', 'mark-urgent', onCommandComplete);
+			return false;
+		});
+
+		components.get('topic/mark-not-urgent').on('click', function () {
+			categoryCommand('put', '/urgency', 'mark-not-urgent', onCommandComplete);
+			return false;
+		});
+
 		// todo: should also use categoryCommand, but no write api call exists for this yet
 		components.get('topic/mark-unread-for-all').on('click', function () {
 			const tids = topicSelect.getSelectedTids();
@@ -136,6 +146,8 @@ define('forum/category/tools', [
 		socket.on('event:topic_unlocked', setLockedState);
 		socket.on('event:topic_pinned', setPinnedState);
 		socket.on('event:topic_unpinned', setPinnedState);
+		socket.on('event:topic_urgent', setUrgencyState);
+		socket.on('event:topic_not_urgent', setUrgencyState);
 		socket.on('event:topic_moved', onTopicMoved);
 	};
 
@@ -168,6 +180,16 @@ define('forum/category/tools', [
 				threadTools.requestPinExpiry(body, execute.bind(null, true));
 				break;
 
+			case 'mark-urgent':
+				body.urgent = true;
+				execute(true);
+				break;
+
+			case 'mark-not-urgent':
+				body.urgent = false;
+				execute(true);
+				break;
+
 			default:
 				execute(true);
 				break;
@@ -182,6 +204,8 @@ define('forum/category/tools', [
 		socket.removeListener('event:topic_unlocked', setLockedState);
 		socket.removeListener('event:topic_pinned', setPinnedState);
 		socket.removeListener('event:topic_unpinned', setPinnedState);
+		socket.removeListener('event:topic_urgent', setUrgencyState);
+		socket.removeListener('event:topic_not_urgent', setUrgencyState);
 		socket.removeListener('event:topic_moved', onTopicMoved);
 	};
 
@@ -213,6 +237,7 @@ define('forum/category/tools', [
 		const isAnyLocked = isAny(isTopicLocked, tids);
 		const isAnyScheduled = isAny(isTopicScheduled, tids);
 		const areAllScheduled = areAll(isTopicScheduled, tids);
+		const isAnyUrgent = isAny(isTopicUrgent, tids);
 
 		components.get('topic/delete').toggleClass('hidden', isAnyDeleted);
 		components.get('topic/restore').toggleClass('hidden', isAnyScheduled || !isAnyDeleted);
@@ -223,6 +248,9 @@ define('forum/category/tools', [
 
 		components.get('topic/pin').toggleClass('hidden', areAllScheduled || isAnyPinned);
 		components.get('topic/unpin').toggleClass('hidden', areAllScheduled || !isAnyPinned);
+
+		components.get('topic/mark-urgent').toggleClass('hidden', isAnyUrgent);
+		components.get('topic/mark-not-urgent').toggleClass('hidden', !isAnyUrgent);
 
 		components.get('topic/merge').toggleClass('hidden', isAnyScheduled);
 	}
@@ -261,6 +289,10 @@ define('forum/category/tools', [
 		return getTopicEl(tid).hasClass('scheduled');
 	}
 
+	function isTopicUrgent(tid) {
+		return getTopicEl(tid).hasClass('urgent');
+	}
+
 	function getTopicEl(tid) {
 		return components.get('category/topic', 'tid', tid);
 	}
@@ -282,6 +314,12 @@ define('forum/category/tools', [
 		const topic = getTopicEl(data.tid);
 		topic.toggleClass('locked', data.isLocked);
 		topic.find('[component="topic/locked"]').toggleClass('hidden', !data.isLocked);
+	}
+
+	function setUrgencyState(data) {
+		const topic = getTopicEl(data.tid);
+		topic.toggleClass('urgent', data.urgent);
+		topic.find('[component="topic/urgent"]').toggleClass('hidden', !data.urgent);
 	}
 
 	function onTopicMoved(data) {

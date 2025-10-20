@@ -16,6 +16,10 @@
 			{{{ end }}}
 			{{{ if !./link }}}
 			<div class="d-flex gap-1 d-block d-lg-none w-100">
+				<span class="badge {{{ if ./urgentCount }}}bg-danger{{{ else }}}bg-secondary{{{ end }}} text-white stats text-xs">
+					<i class="fa fa-fw fa-exclamation-triangle"></i>
+					<span class="fw-normal">{humanReadableNumber(./urgentCount, 0)}</span>
+				</span>
 				<span class="badge text-body border stats text-xs text-muted">
 					<i class="fa fa-fw fa-list"></i>
 					<span class="fw-normal">{humanReadableNumber(./totalTopicCount, 0)}</span>
@@ -49,7 +53,12 @@
 	</div>
 	{{{ if !./link }}}
 	<div class="d-flex col-lg-5 col-12 align-content-stretch">
-		<div class="meta stats d-none d-lg-grid col-6 gap-1 pe-2 text-muted" style="grid-template-columns: 1fr 1fr;">
+		<div class="meta stats d-none d-lg-grid col-6 gap-1 pe-2 text-muted" style="grid-template-columns: 1fr 1fr 1fr;">
+			<div class="card card-header border-0 p-2 overflow-hidden rounded-1 d-flex flex-column align-items-center" style="background-color: {{{ if ./urgentCount }}}#dc3545{{{ else }}}#6c757d{{{ end }}}; color: white;">
+				<span class="fs-5 ff-secondary lh-1" title="Urgent: {./urgentCount}">{humanReadableNumber(./urgentCount, 0)}</span>
+				<span class="d-none d-xl-flex text-lowercase text-xs">[[global:urgent]]</span>
+				<i class="d-xl-none fa fa-fw text-xs fa-exclamation-triangle"></i>
+			</div>
 			<div class="card card-header border-0 p-2 overflow-hidden rounded-1 d-flex flex-column align-items-center">
 				<span class="fs-5 ff-secondary lh-1" title="{./totalTopicCount}">{humanReadableNumber(./totalTopicCount, 0)}</span>
 				<span class="d-none d-xl-flex text-lowercase text-xs">[[global:topics]]</span>

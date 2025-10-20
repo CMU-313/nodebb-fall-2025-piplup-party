@@ -430,4 +430,5 @@ describe('Notifications', () => {
 			});
 		});
 	});
+
 });
