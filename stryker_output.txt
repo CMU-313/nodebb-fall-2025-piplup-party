@@ -1,0 +1,3052 @@
+[33m22:45:10 (26768) WARN OptionsValidator[39m DEPRECATED. Use of "maxConcurrentTestRunners" is deprecated. Please use "concurrency" instead.
+[33m22:45:10 (26768) WARN OptionsValidator[39m DEPRECATED. Use of "maxConcurrentTestRunners" is deprecated. Please use "concurrency" instead.
+[32m22:45:10 (26768) INFO ProjectReader[39m Found 3 of 1147 file(s) to be mutated.
+[32m22:45:11 (26768) INFO Instrumenter[39m Instrumented 3 source file(s) with 433 mutant(s)
+[32m22:45:11 (26768) INFO ConcurrencyTokenProvider[39m Creating 2 test runner process(es).
+[32m22:45:12 (26768) INFO BroadcastReporter[39m Detected that current console does not support the "progress" reporter, downgrading to "progress-append-only" reporter
+[32m22:45:12 (26768) INFO DryRunExecutor[39m Starting initial test run (command test runner with "off" coverage analysis). This may take a while.
+[32m22:45:12 (26768) INFO DryRunExecutor[39m Initial test run succeeded. Ran 1 tests in 0 seconds (net 51 ms, overhead 0 ms).
+Mutation testing 78% (elapsed: <1m, remaining: <1m) 340/433 tested (340 survived, 0 timed out)
+
+All tests
+  ✘ All tests (covered 0)
+
+[Survived] BlockStatement
+src/posts/create.js:14:35
+-   module.exports = function (Posts) {
+-   	Posts.create = async function (data) {
+-   		// This is an internal method, consider using Topics.reply instead
+-   		const { uid, tid, _activitypub, sourceContent } = data;
+-   		const content = data.content.toString();
+-   		const timestamp = data.timestamp || Date.now();
+-   		const isMain = data.isMain || false;
+-   		if (!uid && parseInt(uid, 10) !== 0) {
+-   			throw new Error('[[error:invalid-uid]]');
+-   		}
+-   		if (data.toPid) {
+-   			await checkToPid(data.toPid, uid);
+-   		}
+-   		const pid = data.pid || await db.incrObjectField('global', 'nextPid');
+-   		let postData = { pid, uid, tid, content, sourceContent, timestamp };
+-   		if (data.toPid) {
+-   			postData.toPid = data.toPid;
+-   		}
+-   		if (data.ip && meta.config.trackIpPerPost) {
+-   			postData.ip = data.ip;
+-   		}
+-   		if (data.handle && !parseInt(uid, 10)) {
+-   			postData.handle = data.handle;
+-   		}
+-   		if (_activitypub) {
+-   			if (_activitypub.url) {
+-   				postData.url = _activitypub.url;
+-   			}
+-   			if (_activitypub.audience) {
+-   				postData.audience = _activitypub.audience;
+-   			}
+-   		}
+-   		// Rewrite emoji references to inline image assets
+-   		if (_activitypub && _activitypub.tag && Array.isArray(_activitypub.tag)) {
+-   			_activitypub.tag
+-   				.filter(tag => tag.type === 'Emoji' &&
+-   					tag.icon && tag.icon.type === 'Image')
+-   				.forEach((tag) => {
+-   					if (!tag.name.startsWith(':')) {
+-   						tag.name = `:${tag.name}`;
+-   					}
+-   					if (!tag.name.endsWith(':')) {
+-   						tag.name = `${tag.name}:`;
+-   					}
+-   					postData.content = postData.content.replace(new RegExp(tag.name, 'g'), `<img class="not-responsive emoji" src="${tag.icon.url}" title="${tag.name}" />`);
+-   				});
+-   		}
+-   		({ post: postData } = await plugins.hooks.fire('filter:post.create', { post: postData, data: data }));
+-   		await db.setObject(`post:${postData.pid}`, postData);
+-   		const topicData = await topics.getTopicFields(tid, ['cid', 'pinned']);
+-   		postData.cid = topicData.cid;
+-   		await Promise.all([
+-   			db.sortedSetAdd('posts:pid', timestamp, postData.pid),
+-   			utils.isNumber(pid) ? db.incrObjectField('global', 'postCount') : null,
+-   			user.onNewPostMade(postData),
+-   			topics.onNewPostMade(postData),
+-   			categories.onNewPostMade(topicData.cid, topicData.pinned, postData),
+-   			groups.onNewPostMade(postData),
+-   			addReplyTo(postData, timestamp),
+-   			Posts.uploads.sync(postData.pid),
+-   		]);
+-   		const result = await plugins.hooks.fire('filter:post.get', { post: postData, uid: data.uid });
+-   		result.post.isMain = isMain;
+-   		plugins.hooks.fire('action:post.save', { post: { ...result.post, _activitypub } });
+-   		return result.post;
+-   	};
+-   	async function addReplyTo(postData, timestamp) {
+-   		if (!postData.toPid) {
+-   			return;
+-   		}
+-   		await Promise.all([
+-   			db.sortedSetAdd(`pid:${postData.toPid}:replies`, timestamp, postData.pid),
+-   			db.incrObjectField(`post:${postData.toPid}`, 'replies'),
+-   		]);
+-   	}
+-   	async function checkToPid(toPid, uid) {
+-   		if (!utils.isNumber(toPid) && !activitypub.helpers.isUri(toPid)) {
+-   			throw new Error('[[error:invalid-pid]]');
+-   		}
+-   		const [toPost, canViewToPid] = await Promise.all([
+-   			Posts.getPostFields(toPid, ['pid', 'deleted']),
+-   			privileges.posts.can('posts:view_deleted', toPid, uid),
+-   		]);
+-   		const toPidExists = !!toPost.pid;
+-   		if (!toPidExists || (toPost.deleted && !canViewToPid)) {
+-   			throw new Error('[[error:invalid-pid]]');
+-   		}
+-   	}
+-   };
++   module.exports = function (Posts) {};
+
+[Survived] BlockStatement
+src/posts/create.js:15:39
+-   	Posts.create = async function (data) {
+-   		// This is an internal method, consider using Topics.reply instead
+-   		const { uid, tid, _activitypub, sourceContent } = data;
+-   		const content = data.content.toString();
+-   		const timestamp = data.timestamp || Date.now();
+-   		const isMain = data.isMain || false;
+-   		if (!uid && parseInt(uid, 10) !== 0) {
+-   			throw new Error('[[error:invalid-uid]]');
+-   		}
+-   		if (data.toPid) {
+-   			await checkToPid(data.toPid, uid);
+-   		}
+-   		const pid = data.pid || await db.incrObjectField('global', 'nextPid');
+-   		let postData = { pid, uid, tid, content, sourceContent, timestamp };
+-   		if (data.toPid) {
+-   			postData.toPid = data.toPid;
+-   		}
+-   		if (data.ip && meta.config.trackIpPerPost) {
+-   			postData.ip = data.ip;
+-   		}
+-   		if (data.handle && !parseInt(uid, 10)) {
+-   			postData.handle = data.handle;
+-   		}
+-   		if (_activitypub) {
+-   			if (_activitypub.url) {
+-   				postData.url = _activitypub.url;
+-   			}
+-   			if (_activitypub.audience) {
+-   				postData.audience = _activitypub.audience;
+-   			}
+-   		}
+-   		// Rewrite emoji references to inline image assets
+-   		if (_activitypub && _activitypub.tag && Array.isArray(_activitypub.tag)) {
+-   			_activitypub.tag
+-   				.filter(tag => tag.type === 'Emoji' &&
+-   					tag.icon && tag.icon.type === 'Image')
+-   				.forEach((tag) => {
+-   					if (!tag.name.startsWith(':')) {
+-   						tag.name = `:${tag.name}`;
+-   					}
+-   					if (!tag.name.endsWith(':')) {
+-   						tag.name = `${tag.name}:`;
+-   					}
+-   					postData.content = postData.content.replace(new RegExp(tag.name, 'g'), `<img class="not-responsive emoji" src="${tag.icon.url}" title="${tag.name}" />`);
+-   				});
+-   		}
+-   		({ post: postData } = await plugins.hooks.fire('filter:post.create', { post: postData, data: data }));
+-   		await db.setObject(`post:${postData.pid}`, postData);
+-   		const topicData = await topics.getTopicFields(tid, ['cid', 'pinned']);
+-   		postData.cid = topicData.cid;
+-   		await Promise.all([
+-   			db.sortedSetAdd('posts:pid', timestamp, postData.pid),
+-   			utils.isNumber(pid) ? db.incrObjectField('global', 'postCount') : null,
+-   			user.onNewPostMade(postData),
+-   			topics.onNewPostMade(postData),
+-   			categories.onNewPostMade(topicData.cid, topicData.pinned, postData),
+-   			groups.onNewPostMade(postData),
+-   			addReplyTo(postData, timestamp),
+-   			Posts.uploads.sync(postData.pid),
+-   		]);
+-   		const result = await plugins.hooks.fire('filter:post.get', { post: postData, uid: data.uid });
+-   		result.post.isMain = isMain;
+-   		plugins.hooks.fire('action:post.save', { post: { ...result.post, _activitypub } });
+-   		return result.post;
+-   	};
++   	Posts.create = async function (data) {};
+
+[Survived] ConditionalExpression
+src/posts/create.js:19:21
+-   		const timestamp = data.timestamp || Date.now();
++   		const timestamp = true;
+
+[Survived] ConditionalExpression
+src/posts/create.js:19:21
+-   		const timestamp = data.timestamp || Date.now();
++   		const timestamp = false;
+
+[Survived] LogicalOperator
+src/posts/create.js:19:21
+-   		const timestamp = data.timestamp || Date.now();
++   		const timestamp = data.timestamp && Date.now();
+
+[Survived] ConditionalExpression
+src/posts/create.js:20:18
+-   		const isMain = data.isMain || false;
++   		const isMain = false;
+
+[Survived] ConditionalExpression
+src/posts/create.js:20:18
+-   		const isMain = data.isMain || false;
++   		const isMain = true;
+
+[Survived] LogicalOperator
+src/posts/create.js:20:18
+-   		const isMain = data.isMain || false;
++   		const isMain = data.isMain && false;
+
+[Survived] BooleanLiteral
+src/posts/create.js:20:33
+-   		const isMain = data.isMain || false;
++   		const isMain = data.isMain || true;
+
+[Survived] ConditionalExpression
+src/posts/create.js:22:7
+-   		if (!uid && parseInt(uid, 10) !== 0) {
++   		if (true) {
+
+[Survived] ConditionalExpression
+src/posts/create.js:22:7
+-   		if (!uid && parseInt(uid, 10) !== 0) {
++   		if (false) {
+
+[Survived] LogicalOperator
+src/posts/create.js:22:7
+-   		if (!uid && parseInt(uid, 10) !== 0) {
++   		if (!uid || parseInt(uid, 10) !== 0) {
+
+[Survived] BooleanLiteral
+src/posts/create.js:22:7
+-   		if (!uid && parseInt(uid, 10) !== 0) {
++   		if (uid && parseInt(uid, 10) !== 0) {
+
+[Survived] ConditionalExpression
+src/posts/create.js:22:15
+-   		if (!uid && parseInt(uid, 10) !== 0) {
++   		if (!uid && true) {
+
+[Survived] EqualityOperator
+src/posts/create.js:22:15
+-   		if (!uid && parseInt(uid, 10) !== 0) {
++   		if (!uid && parseInt(uid, 10) === 0) {
+
+[Survived] BlockStatement
+src/posts/create.js:22:40
+-   		if (!uid && parseInt(uid, 10) !== 0) {
+-   			throw new Error('[[error:invalid-uid]]');
+-   		}
++   		if (!uid && parseInt(uid, 10) !== 0) {}
+
+[Survived] StringLiteral
+src/posts/create.js:23:20
+-   			throw new Error('[[error:invalid-uid]]');
++   			throw new Error("");
+
+[Survived] ConditionalExpression
+src/posts/create.js:26:7
+-   		if (data.toPid) {
++   		if (true) {
+
+[Survived] ConditionalExpression
+src/posts/create.js:26:7
+-   		if (data.toPid) {
++   		if (false) {
+
+[Survived] BlockStatement
+src/posts/create.js:26:19
+-   		if (data.toPid) {
+-   			await checkToPid(data.toPid, uid);
+-   		}
++   		if (data.toPid) {}
+
+[Survived] ConditionalExpression
+src/posts/create.js:30:15
+-   		const pid = data.pid || await db.incrObjectField('global', 'nextPid');
++   		const pid = true;
+
+[Survived] ConditionalExpression
+src/posts/create.js:30:15
+-   		const pid = data.pid || await db.incrObjectField('global', 'nextPid');
++   		const pid = false;
+
+[Survived] LogicalOperator
+src/posts/create.js:30:15
+-   		const pid = data.pid || await db.incrObjectField('global', 'nextPid');
++   		const pid = data.pid && (await db.incrObjectField('global', 'nextPid'));
+
+[Survived] StringLiteral
+src/posts/create.js:30:52
+-   		const pid = data.pid || await db.incrObjectField('global', 'nextPid');
++   		const pid = data.pid || await db.incrObjectField("", 'nextPid');
+
+[Survived] StringLiteral
+src/posts/create.js:30:62
+-   		const pid = data.pid || await db.incrObjectField('global', 'nextPid');
++   		const pid = data.pid || await db.incrObjectField('global', "");
+
+[Survived] ConditionalExpression
+src/posts/create.js:33:7
+-   		if (data.toPid) {
++   		if (true) {
+
+[Survived] ObjectLiteral
+src/posts/create.js:31:18
+-   		let postData = { pid, uid, tid, content, sourceContent, timestamp };
++   		let postData = {};
+
+[Survived] ConditionalExpression
+src/posts/create.js:33:7
+-   		if (data.toPid) {
++   		if (false) {
+
+[Survived] BlockStatement
+src/posts/create.js:33:19
+-   		if (data.toPid) {
+-   			postData.toPid = data.toPid;
+-   		}
++   		if (data.toPid) {}
+
+[Survived] ConditionalExpression
+src/posts/create.js:36:7
+-   		if (data.ip && meta.config.trackIpPerPost) {
++   		if (true) {
+
+[Survived] ConditionalExpression
+src/posts/create.js:36:7
+-   		if (data.ip && meta.config.trackIpPerPost) {
++   		if (false) {
+
+[Survived] LogicalOperator
+src/posts/create.js:36:7
+-   		if (data.ip && meta.config.trackIpPerPost) {
++   		if (data.ip || meta.config.trackIpPerPost) {
+
+[Survived] BlockStatement
+src/posts/create.js:36:46
+-   		if (data.ip && meta.config.trackIpPerPost) {
+-   			postData.ip = data.ip;
+-   		}
++   		if (data.ip && meta.config.trackIpPerPost) {}
+
+[Survived] ConditionalExpression
+src/posts/create.js:39:7
+-   		if (data.handle && !parseInt(uid, 10)) {
++   		if (true) {
+
+[Survived] ConditionalExpression
+src/posts/create.js:39:7
+-   		if (data.handle && !parseInt(uid, 10)) {
++   		if (false) {
+
+[Survived] LogicalOperator
+src/posts/create.js:39:7
+-   		if (data.handle && !parseInt(uid, 10)) {
++   		if (data.handle || !parseInt(uid, 10)) {
+
+[Survived] BooleanLiteral
+src/posts/create.js:39:22
+-   		if (data.handle && !parseInt(uid, 10)) {
++   		if (data.handle && parseInt(uid, 10)) {
+
+[Survived] BlockStatement
+src/posts/create.js:39:42
+-   		if (data.handle && !parseInt(uid, 10)) {
+-   			postData.handle = data.handle;
+-   		}
++   		if (data.handle && !parseInt(uid, 10)) {}
+
+[Survived] ConditionalExpression
+src/posts/create.js:42:7
+-   		if (_activitypub) {
++   		if (true) {
+
+[Survived] ConditionalExpression
+src/posts/create.js:42:7
+-   		if (_activitypub) {
++   		if (false) {
+
+[Survived] BlockStatement
+src/posts/create.js:42:21
+-   		if (_activitypub) {
+-   			if (_activitypub.url) {
+-   				postData.url = _activitypub.url;
+-   			}
+-   			if (_activitypub.audience) {
+-   				postData.audience = _activitypub.audience;
+-   			}
+-   		}
++   		if (_activitypub) {}
+
+[Survived] ConditionalExpression
+src/posts/create.js:43:8
+-   			if (_activitypub.url) {
++   			if (true) {
+
+[Survived] ConditionalExpression
+src/posts/create.js:43:8
+-   			if (_activitypub.url) {
++   			if (false) {
+
+[Survived] BlockStatement
+src/posts/create.js:43:26
+-   			if (_activitypub.url) {
+-   				postData.url = _activitypub.url;
+-   			}
++   			if (_activitypub.url) {}
+
+[Survived] ConditionalExpression
+src/posts/create.js:46:8
+-   			if (_activitypub.audience) {
++   			if (true) {
+
+[Survived] ConditionalExpression
+src/posts/create.js:46:8
+-   			if (_activitypub.audience) {
++   			if (false) {
+
+[Survived] BlockStatement
+src/posts/create.js:46:31
+-   			if (_activitypub.audience) {
+-   				postData.audience = _activitypub.audience;
+-   			}
++   			if (_activitypub.audience) {}
+
+[Survived] ConditionalExpression
+src/posts/create.js:52:7
+-   		if (_activitypub && _activitypub.tag && Array.isArray(_activitypub.tag)) {
++   		if (true) {
+
+[Survived] ConditionalExpression
+src/posts/create.js:52:7
+-   		if (_activitypub && _activitypub.tag && Array.isArray(_activitypub.tag)) {
++   		if (false) {
+
+[Survived] LogicalOperator
+src/posts/create.js:52:7
+-   		if (_activitypub && _activitypub.tag && Array.isArray(_activitypub.tag)) {
++   		if (_activitypub && _activitypub.tag || Array.isArray(_activitypub.tag)) {
+
+[Survived] ConditionalExpression
+src/posts/create.js:52:7
+-   		if (_activitypub && _activitypub.tag && Array.isArray(_activitypub.tag)) {
++   		if (true && Array.isArray(_activitypub.tag)) {
+
+[Survived] LogicalOperator
+src/posts/create.js:52:7
+-   		if (_activitypub && _activitypub.tag && Array.isArray(_activitypub.tag)) {
++   		if (_activitypub || _activitypub.tag && Array.isArray(_activitypub.tag)) {
+
+[Survived] BlockStatement
+src/posts/create.js:52:76
+-   		if (_activitypub && _activitypub.tag && Array.isArray(_activitypub.tag)) {
+-   			_activitypub.tag
+-   				.filter(tag => tag.type === 'Emoji' &&
+-   					tag.icon && tag.icon.type === 'Image')
+-   				.forEach((tag) => {
+-   					if (!tag.name.startsWith(':')) {
+-   						tag.name = `:${tag.name}`;
+-   					}
+-   					if (!tag.name.endsWith(':')) {
+-   						tag.name = `${tag.name}:`;
+-   					}
+-   					postData.content = postData.content.replace(new RegExp(tag.name, 'g'), `<img class="not-responsive emoji" src="${tag.icon.url}" title="${tag.name}" />`);
+-   				});
+-   		}
++   		if (_activitypub && _activitypub.tag && Array.isArray(_activitypub.tag)) {}
+
+[Survived] ArrowFunction
+src/posts/create.js:54:13
+-   				.filter(tag => tag.type === 'Emoji' &&
+-   					tag.icon && tag.icon.type === 'Image')
++   				.filter(() => undefined)
+
+[Survived] MethodExpression
+src/posts/create.js:53:4
+-   			_activitypub.tag
+-   				.filter(tag => tag.type === 'Emoji' &&
+-   					tag.icon && tag.icon.type === 'Image')
++   			_activitypub.tag
+
+[Survived] ConditionalExpression
+src/posts/create.js:54:20
+-   				.filter(tag => tag.type === 'Emoji' &&
+-   					tag.icon && tag.icon.type === 'Image')
++   				.filter(tag => false)
+
+[Survived] ConditionalExpression
+src/posts/create.js:54:20
+-   				.filter(tag => tag.type === 'Emoji' &&
+-   					tag.icon && tag.icon.type === 'Image')
++   				.filter(tag => true)
+
+[Survived] ConditionalExpression
+src/posts/create.js:54:20
+-   				.filter(tag => tag.type === 'Emoji' &&
+-   					tag.icon && tag.icon.type === 'Image')
++   				.filter(tag => true && tag.icon.type === 'Image')
+
+[Survived] LogicalOperator
+src/posts/create.js:54:20
+-   				.filter(tag => tag.type === 'Emoji' &&
+-   					tag.icon && tag.icon.type === 'Image')
++   				.filter(tag => tag.type === 'Emoji' && tag.icon || tag.icon.type === 'Image')
+
+[Survived] LogicalOperator
+src/posts/create.js:54:20
+-   				.filter(tag => tag.type === 'Emoji' &&
+-   					tag.icon && tag.icon.type === 'Image')
++   				.filter(tag => tag.type === 'Emoji' || tag.icon && tag.icon.type === 'Image')
+
+[Survived] ConditionalExpression
+src/posts/create.js:54:20
+-   				.filter(tag => tag.type === 'Emoji' &&
++   				.filter(tag => true &&
+
+[Survived] EqualityOperator
+src/posts/create.js:54:20
+-   				.filter(tag => tag.type === 'Emoji' &&
++   				.filter(tag => tag.type !== 'Emoji' &&
+
+[Survived] StringLiteral
+src/posts/create.js:54:33
+-   				.filter(tag => tag.type === 'Emoji' &&
++   				.filter(tag => tag.type === "" &&
+
+[Survived] ConditionalExpression
+src/posts/create.js:55:18
+-   					tag.icon && tag.icon.type === 'Image')
++   					tag.icon && true)
+
+[Survived] StringLiteral
+src/posts/create.js:55:36
+-   					tag.icon && tag.icon.type === 'Image')
++   					tag.icon && tag.icon.type === "")
+
+[Survived] EqualityOperator
+src/posts/create.js:55:18
+-   					tag.icon && tag.icon.type === 'Image')
++   					tag.icon && tag.icon.type !== 'Image')
+
+[Survived] BlockStatement
+src/posts/create.js:56:23
+-   				.forEach((tag) => {
+-   					if (!tag.name.startsWith(':')) {
+-   						tag.name = `:${tag.name}`;
+-   					}
+-   					if (!tag.name.endsWith(':')) {
+-   						tag.name = `${tag.name}:`;
+-   					}
+-   					postData.content = postData.content.replace(new RegExp(tag.name, 'g'), `<img class="not-responsive emoji" src="${tag.icon.url}" title="${tag.name}" />`);
+-   				});
++   				.forEach((tag) => {});
+
+[Survived] BooleanLiteral
+src/posts/create.js:57:10
+-   					if (!tag.name.startsWith(':')) {
++   					if (tag.name.startsWith(':')) {
+
+[Survived] ConditionalExpression
+src/posts/create.js:57:10
+-   					if (!tag.name.startsWith(':')) {
++   					if (false) {
+
+[Survived] ConditionalExpression
+src/posts/create.js:57:10
+-   					if (!tag.name.startsWith(':')) {
++   					if (true) {
+
+[Survived] MethodExpression
+src/posts/create.js:57:11
+-   					if (!tag.name.startsWith(':')) {
++   					if (!tag.name.endsWith(':')) {
+
+[Survived] StringLiteral
+src/posts/create.js:57:31
+-   					if (!tag.name.startsWith(':')) {
++   					if (!tag.name.startsWith("")) {
+
+[Survived] BlockStatement
+src/posts/create.js:57:37
+-   					if (!tag.name.startsWith(':')) {
+-   						tag.name = `:${tag.name}`;
+-   					}
++   					if (!tag.name.startsWith(':')) {}
+
+[Survived] BooleanLiteral
+src/posts/create.js:60:10
+-   					if (!tag.name.endsWith(':')) {
++   					if (tag.name.endsWith(':')) {
+
+[Survived] StringLiteral
+src/posts/create.js:58:18
+-   						tag.name = `:${tag.name}`;
++   						tag.name = ``;
+
+[Survived] ConditionalExpression
+src/posts/create.js:60:10
+-   					if (!tag.name.endsWith(':')) {
++   					if (false) {
+
+[Survived] ConditionalExpression
+src/posts/create.js:60:10
+-   					if (!tag.name.endsWith(':')) {
++   					if (true) {
+
+[Survived] StringLiteral
+src/posts/create.js:60:29
+-   					if (!tag.name.endsWith(':')) {
++   					if (!tag.name.endsWith("")) {
+
+[Survived] MethodExpression
+src/posts/create.js:60:11
+-   					if (!tag.name.endsWith(':')) {
++   					if (!tag.name.startsWith(':')) {
+
+[Survived] StringLiteral
+src/posts/create.js:61:18
+-   						tag.name = `${tag.name}:`;
++   						tag.name = ``;
+
+[Survived] BlockStatement
+src/posts/create.js:60:35
+-   					if (!tag.name.endsWith(':')) {
+-   						tag.name = `${tag.name}:`;
+-   					}
++   					if (!tag.name.endsWith(':')) {}
+
+[Survived] StringLiteral
+src/posts/create.js:64:71
+-   					postData.content = postData.content.replace(new RegExp(tag.name, 'g'), `<img class="not-responsive emoji" src="${tag.icon.url}" title="${tag.name}" />`);
++   					postData.content = postData.content.replace(new RegExp(tag.name, ""), `<img class="not-responsive emoji" src="${tag.icon.url}" title="${tag.name}" />`);
+
+[Survived] StringLiteral
+src/posts/create.js:64:77
+-   					postData.content = postData.content.replace(new RegExp(tag.name, 'g'), `<img class="not-responsive emoji" src="${tag.icon.url}" title="${tag.name}" />`);
++   					postData.content = postData.content.replace(new RegExp(tag.name, 'g'), ``);
+
+[Survived] StringLiteral
+src/posts/create.js:68:50
+-   		({ post: postData } = await plugins.hooks.fire('filter:post.create', { post: postData, data: data }));
++   		({ post: postData } = await plugins.hooks.fire("", { post: postData, data: data }));
+
+[Survived] ObjectLiteral
+src/posts/create.js:68:72
+-   		({ post: postData } = await plugins.hooks.fire('filter:post.create', { post: postData, data: data }));
++   		({ post: postData } = await plugins.hooks.fire('filter:post.create', {}));
+
+[Survived] StringLiteral
+src/posts/create.js:69:22
+-   		await db.setObject(`post:${postData.pid}`, postData);
++   		await db.setObject(``, postData);
+
+[Survived] ArrayDeclaration
+src/posts/create.js:71:54
+-   		const topicData = await topics.getTopicFields(tid, ['cid', 'pinned']);
++   		const topicData = await topics.getTopicFields(tid, []);
+
+[Survived] StringLiteral
+src/posts/create.js:71:55
+-   		const topicData = await topics.getTopicFields(tid, ['cid', 'pinned']);
++   		const topicData = await topics.getTopicFields(tid, ["", 'pinned']);
+
+[Survived] StringLiteral
+src/posts/create.js:71:62
+-   		const topicData = await topics.getTopicFields(tid, ['cid', 'pinned']);
++   		const topicData = await topics.getTopicFields(tid, ['cid', ""]);
+
+[Survived] ArrayDeclaration
+src/posts/create.js:74:21
+-   		await Promise.all([
+-   			db.sortedSetAdd('posts:pid', timestamp, postData.pid),
+-   			utils.isNumber(pid) ? db.incrObjectField('global', 'postCount') : null,
+-   			user.onNewPostMade(postData),
+-   			topics.onNewPostMade(postData),
+-   			categories.onNewPostMade(topicData.cid, topicData.pinned, postData),
+-   			groups.onNewPostMade(postData),
+-   			addReplyTo(postData, timestamp),
+-   			Posts.uploads.sync(postData.pid),
+-   		]);
++   		await Promise.all([]);
+
+[Survived] StringLiteral
+src/posts/create.js:75:20
+-   			db.sortedSetAdd('posts:pid', timestamp, postData.pid),
++   			db.sortedSetAdd("", timestamp, postData.pid),
+
+[Survived] StringLiteral
+src/posts/create.js:76:45
+-   			utils.isNumber(pid) ? db.incrObjectField('global', 'postCount') : null,
++   			utils.isNumber(pid) ? db.incrObjectField("", 'postCount') : null,
+
+[Survived] StringLiteral
+src/posts/create.js:76:55
+-   			utils.isNumber(pid) ? db.incrObjectField('global', 'postCount') : null,
++   			utils.isNumber(pid) ? db.incrObjectField('global', "") : null,
+
+[Survived] StringLiteral
+src/posts/create.js:85:43
+-   		const result = await plugins.hooks.fire('filter:post.get', { post: postData, uid: data.uid });
++   		const result = await plugins.hooks.fire("", { post: postData, uid: data.uid });
+
+[Survived] ObjectLiteral
+src/posts/create.js:85:62
+-   		const result = await plugins.hooks.fire('filter:post.get', { post: postData, uid: data.uid });
++   		const result = await plugins.hooks.fire('filter:post.get', {});
+
+[Survived] StringLiteral
+src/posts/create.js:87:22
+-   		plugins.hooks.fire('action:post.save', { post: { ...result.post, _activitypub } });
++   		plugins.hooks.fire("", { post: { ...result.post, _activitypub } });
+
+[Survived] ObjectLiteral
+src/posts/create.js:87:42
+-   		plugins.hooks.fire('action:post.save', { post: { ...result.post, _activitypub } });
++   		plugins.hooks.fire('action:post.save', {});
+
+[Survived] ObjectLiteral
+src/posts/create.js:87:50
+-   		plugins.hooks.fire('action:post.save', { post: { ...result.post, _activitypub } });
++   		plugins.hooks.fire('action:post.save', { post: {} });
+
+[Survived] BlockStatement
+src/posts/create.js:91:49
+-   	async function addReplyTo(postData, timestamp) {
+-   		if (!postData.toPid) {
+-   			return;
+-   		}
+-   		await Promise.all([
+-   			db.sortedSetAdd(`pid:${postData.toPid}:replies`, timestamp, postData.pid),
+-   			db.incrObjectField(`post:${postData.toPid}`, 'replies'),
+-   		]);
+-   	}
++   	async function addReplyTo(postData, timestamp) {}
+
+[Survived] BooleanLiteral
+src/posts/create.js:92:7
+-   		if (!postData.toPid) {
++   		if (postData.toPid) {
+
+[Survived] ConditionalExpression
+src/posts/create.js:92:7
+-   		if (!postData.toPid) {
++   		if (true) {
+
+[Survived] ConditionalExpression
+src/posts/create.js:92:7
+-   		if (!postData.toPid) {
++   		if (false) {
+
+[Survived] BlockStatement
+src/posts/create.js:92:24
+-   		if (!postData.toPid) {
+-   			return;
+-   		}
++   		if (!postData.toPid) {}
+
+[Survived] ArrayDeclaration
+src/posts/create.js:95:21
+-   		await Promise.all([
+-   			db.sortedSetAdd(`pid:${postData.toPid}:replies`, timestamp, postData.pid),
+-   			db.incrObjectField(`post:${postData.toPid}`, 'replies'),
+-   		]);
++   		await Promise.all([]);
+
+[Survived] StringLiteral
+src/posts/create.js:96:20
+-   			db.sortedSetAdd(`pid:${postData.toPid}:replies`, timestamp, postData.pid),
++   			db.sortedSetAdd(``, timestamp, postData.pid),
+
+[Survived] StringLiteral
+src/posts/create.js:97:23
+-   			db.incrObjectField(`post:${postData.toPid}`, 'replies'),
++   			db.incrObjectField(``, 'replies'),
+
+[Survived] StringLiteral
+src/posts/create.js:97:49
+-   			db.incrObjectField(`post:${postData.toPid}`, 'replies'),
++   			db.incrObjectField(`post:${postData.toPid}`, ""),
+
+[Survived] BlockStatement
+src/posts/create.js:101:40
+-   	async function checkToPid(toPid, uid) {
+-   		if (!utils.isNumber(toPid) && !activitypub.helpers.isUri(toPid)) {
+-   			throw new Error('[[error:invalid-pid]]');
+-   		}
+-   		const [toPost, canViewToPid] = await Promise.all([
+-   			Posts.getPostFields(toPid, ['pid', 'deleted']),
+-   			privileges.posts.can('posts:view_deleted', toPid, uid),
+-   		]);
+-   		const toPidExists = !!toPost.pid;
+-   		if (!toPidExists || (toPost.deleted && !canViewToPid)) {
+-   			throw new Error('[[error:invalid-pid]]');
+-   		}
+-   	}
++   	async function checkToPid(toPid, uid) {}
+
+[Survived] ConditionalExpression
+src/posts/create.js:102:7
+-   		if (!utils.isNumber(toPid) && !activitypub.helpers.isUri(toPid)) {
++   		if (true) {
+
+[Survived] ConditionalExpression
+src/posts/create.js:102:7
+-   		if (!utils.isNumber(toPid) && !activitypub.helpers.isUri(toPid)) {
++   		if (false) {
+
+[Survived] LogicalOperator
+src/posts/create.js:102:7
+-   		if (!utils.isNumber(toPid) && !activitypub.helpers.isUri(toPid)) {
++   		if (!utils.isNumber(toPid) || !activitypub.helpers.isUri(toPid)) {
+
+[Survived] BooleanLiteral
+src/posts/create.js:102:7
+-   		if (!utils.isNumber(toPid) && !activitypub.helpers.isUri(toPid)) {
++   		if (utils.isNumber(toPid) && !activitypub.helpers.isUri(toPid)) {
+
+[Survived] BooleanLiteral
+src/posts/create.js:102:33
+-   		if (!utils.isNumber(toPid) && !activitypub.helpers.isUri(toPid)) {
++   		if (!utils.isNumber(toPid) && activitypub.helpers.isUri(toPid)) {
+
+[Survived] BlockStatement
+src/posts/create.js:102:68
+-   		if (!utils.isNumber(toPid) && !activitypub.helpers.isUri(toPid)) {
+-   			throw new Error('[[error:invalid-pid]]');
+-   		}
++   		if (!utils.isNumber(toPid) && !activitypub.helpers.isUri(toPid)) {}
+
+[Survived] StringLiteral
+src/posts/create.js:103:20
+-   			throw new Error('[[error:invalid-pid]]');
++   			throw new Error("");
+
+[Survived] ArrayDeclaration
+src/posts/create.js:106:52
+-   		const [toPost, canViewToPid] = await Promise.all([
+-   			Posts.getPostFields(toPid, ['pid', 'deleted']),
+-   			privileges.posts.can('posts:view_deleted', toPid, uid),
+-   		]);
++   		const [toPost, canViewToPid] = await Promise.all([]);
+
+[Survived] ArrayDeclaration
+src/posts/create.js:107:31
+-   			Posts.getPostFields(toPid, ['pid', 'deleted']),
++   			Posts.getPostFields(toPid, []),
+
+[Survived] StringLiteral
+src/posts/create.js:107:32
+-   			Posts.getPostFields(toPid, ['pid', 'deleted']),
++   			Posts.getPostFields(toPid, ["", 'deleted']),
+
+[Survived] StringLiteral
+src/posts/create.js:107:39
+-   			Posts.getPostFields(toPid, ['pid', 'deleted']),
++   			Posts.getPostFields(toPid, ['pid', ""]),
+
+[Survived] StringLiteral
+src/posts/create.js:108:25
+-   			privileges.posts.can('posts:view_deleted', toPid, uid),
++   			privileges.posts.can("", toPid, uid),
+
+[Survived] BooleanLiteral
+src/posts/create.js:110:23
+-   		const toPidExists = !!toPost.pid;
++   		const toPidExists = !toPost.pid;
+
+[Survived] BooleanLiteral
+src/posts/create.js:110:24
+-   		const toPidExists = !!toPost.pid;
++   		const toPidExists = !toPost.pid;
+
+[Survived] ConditionalExpression
+src/posts/create.js:111:7
+-   		if (!toPidExists || (toPost.deleted && !canViewToPid)) {
++   		if (true) {
+
+[Survived] ConditionalExpression
+src/posts/create.js:111:7
+-   		if (!toPidExists || (toPost.deleted && !canViewToPid)) {
++   		if (false) {
+
+[Survived] LogicalOperator
+src/posts/create.js:111:7
+-   		if (!toPidExists || (toPost.deleted && !canViewToPid)) {
++   		if (!toPidExists && toPost.deleted && !canViewToPid) {
+
+[Survived] BooleanLiteral
+src/posts/create.js:111:7
+-   		if (!toPidExists || (toPost.deleted && !canViewToPid)) {
++   		if (toPidExists || (toPost.deleted && !canViewToPid)) {
+
+[Survived] ConditionalExpression
+src/posts/create.js:111:24
+-   		if (!toPidExists || (toPost.deleted && !canViewToPid)) {
++   		if (!toPidExists || (false)) {
+
+[Survived] LogicalOperator
+src/posts/create.js:111:24
+-   		if (!toPidExists || (toPost.deleted && !canViewToPid)) {
++   		if (!toPidExists || (toPost.deleted || !canViewToPid)) {
+
+[Survived] BooleanLiteral
+src/posts/create.js:111:42
+-   		if (!toPidExists || (toPost.deleted && !canViewToPid)) {
++   		if (!toPidExists || (toPost.deleted && canViewToPid)) {
+
+[Survived] BlockStatement
+src/posts/create.js:111:58
+-   		if (!toPidExists || (toPost.deleted && !canViewToPid)) {
+-   			throw new Error('[[error:invalid-pid]]');
+-   		}
++   		if (!toPidExists || (toPost.deleted && !canViewToPid)) {}
+
+[Survived] StringLiteral
+src/posts/create.js:112:20
+-   			throw new Error('[[error:invalid-pid]]');
++   			throw new Error("");
+
+[Survived] ArrayDeclaration
+src/posts/data.js:7:19
+-   const intFields = [
+-   	'uid', 'pid', 'tid', 'deleted', 'timestamp',
+-   	'upvotes', 'downvotes', 'deleterUid', 'edited',
+-   	'replies', 'bookmarks', 'announces',
+-   ];
++   const intFields = [];
+
+[Survived] StringLiteral
+src/posts/data.js:8:2
+-   	'uid', 'pid', 'tid', 'deleted', 'timestamp',
++   	"", 'pid', 'tid', 'deleted', 'timestamp',
+
+[Survived] StringLiteral
+src/posts/data.js:8:9
+-   	'uid', 'pid', 'tid', 'deleted', 'timestamp',
++   	'uid', "", 'tid', 'deleted', 'timestamp',
+
+[Survived] StringLiteral
+src/posts/data.js:8:16
+-   	'uid', 'pid', 'tid', 'deleted', 'timestamp',
++   	'uid', 'pid', "", 'deleted', 'timestamp',
+
+[Survived] StringLiteral
+src/posts/data.js:8:23
+-   	'uid', 'pid', 'tid', 'deleted', 'timestamp',
++   	'uid', 'pid', 'tid', "", 'timestamp',
+
+[Survived] StringLiteral
+src/posts/data.js:8:34
+-   	'uid', 'pid', 'tid', 'deleted', 'timestamp',
++   	'uid', 'pid', 'tid', 'deleted', "",
+
+[Survived] StringLiteral
+src/posts/data.js:9:13
+-   	'upvotes', 'downvotes', 'deleterUid', 'edited',
++   	'upvotes', "", 'deleterUid', 'edited',
+
+[Survived] StringLiteral
+src/posts/data.js:9:2
+-   	'upvotes', 'downvotes', 'deleterUid', 'edited',
++   	"", 'downvotes', 'deleterUid', 'edited',
+
+[Survived] StringLiteral
+src/posts/data.js:9:26
+-   	'upvotes', 'downvotes', 'deleterUid', 'edited',
++   	'upvotes', 'downvotes', "", 'edited',
+
+[Survived] StringLiteral
+src/posts/data.js:9:40
+-   	'upvotes', 'downvotes', 'deleterUid', 'edited',
++   	'upvotes', 'downvotes', 'deleterUid', "",
+
+[Survived] StringLiteral
+src/posts/data.js:10:13
+-   	'replies', 'bookmarks', 'announces',
++   	'replies', "", 'announces',
+
+[Survived] StringLiteral
+src/posts/data.js:10:2
+-   	'replies', 'bookmarks', 'announces',
++   	"", 'bookmarks', 'announces',
+
+[Survived] StringLiteral
+src/posts/data.js:10:26
+-   	'replies', 'bookmarks', 'announces',
++   	'replies', 'bookmarks', "",
+
+[Survived] BlockStatement
+src/posts/data.js:13:35
+-   module.exports = function (Posts) {
+-   	Posts.getPostsFields = async function (pids, fields) {
+-   		if (!Array.isArray(pids) || !pids.length) {
+-   			return [];
+-   		}
+-   		const keys = pids.map(pid => `post:${pid}`);
+-   		const postData = await db.getObjects(keys, fields);
+-   		const result = await plugins.hooks.fire('filter:post.getFields', {
+-   			pids: pids,
+-   			posts: postData,
+-   			fields: fields,
+-   		});
+-   		result.posts.forEach(post => modifyPost(post, fields));
+-   		return result.posts;
+-   	};
+-   	Posts.getPostData = async function (pid) {
+-   		const posts = await Posts.getPostsFields([pid], []);
+-   		return posts && posts.length ? posts[0] : null;
+-   	};
+-   	Posts.getPostsData = async function (pids) {
+-   		return await Posts.getPostsFields(pids, []);
+-   	};
+-   	Posts.getPostField = async function (pid, field) {
+-   		const post = await Posts.getPostFields(pid, [field]);
+-   		return post && post.hasOwnProperty(field) ? post[field] : null;
+-   	};
+-   	Posts.getPostFields = async function (pid, fields) {
+-   		const posts = await Posts.getPostsFields([pid], fields);
+-   		return posts ? posts[0] : null;
+-   	};
+-   	Posts.setPostField = async function (pid, field, value) {
+-   		await Posts.setPostFields(pid, { [field]: value });
+-   	};
+-   	Posts.setPostFields = async function (pid, data) {
+-   		await db.setObject(`post:${pid}`, data);
+-   		plugins.hooks.fire('action:post.setFields', { data: { ...data, pid } });
+-   	};
+-   };
++   module.exports = function (Posts) {};
+
+[Survived] BlockStatement
+src/posts/data.js:14:55
+-   	Posts.getPostsFields = async function (pids, fields) {
+-   		if (!Array.isArray(pids) || !pids.length) {
+-   			return [];
+-   		}
+-   		const keys = pids.map(pid => `post:${pid}`);
+-   		const postData = await db.getObjects(keys, fields);
+-   		const result = await plugins.hooks.fire('filter:post.getFields', {
+-   			pids: pids,
+-   			posts: postData,
+-   			fields: fields,
+-   		});
+-   		result.posts.forEach(post => modifyPost(post, fields));
+-   		return result.posts;
+-   	};
++   	Posts.getPostsFields = async function (pids, fields) {};
+
+[Survived] ConditionalExpression
+src/posts/data.js:15:7
+-   		if (!Array.isArray(pids) || !pids.length) {
++   		if (true) {
+
+[Survived] ConditionalExpression
+src/posts/data.js:15:7
+-   		if (!Array.isArray(pids) || !pids.length) {
++   		if (false) {
+
+[Survived] LogicalOperator
+src/posts/data.js:15:7
+-   		if (!Array.isArray(pids) || !pids.length) {
++   		if (!Array.isArray(pids) && !pids.length) {
+
+[Survived] BooleanLiteral
+src/posts/data.js:15:31
+-   		if (!Array.isArray(pids) || !pids.length) {
++   		if (!Array.isArray(pids) || pids.length) {
+
+[Survived] BooleanLiteral
+src/posts/data.js:15:7
+-   		if (!Array.isArray(pids) || !pids.length) {
++   		if (Array.isArray(pids) || !pids.length) {
+
+[Survived] BlockStatement
+src/posts/data.js:15:45
+-   		if (!Array.isArray(pids) || !pids.length) {
+-   			return [];
+-   		}
++   		if (!Array.isArray(pids) || !pids.length) {}
+
+[Survived] ArrowFunction
+src/posts/data.js:18:25
+-   		const keys = pids.map(pid => `post:${pid}`);
++   		const keys = pids.map(() => undefined);
+
+[Survived] ArrayDeclaration
+src/posts/data.js:16:11
+-   			return [];
++   			return ["Stryker was here"];
+
+[Survived] StringLiteral
+src/posts/data.js:18:32
+-   		const keys = pids.map(pid => `post:${pid}`);
++   		const keys = pids.map(pid => ``);
+
+[Survived] StringLiteral
+src/posts/data.js:20:43
+-   		const result = await plugins.hooks.fire('filter:post.getFields', {
++   		const result = await plugins.hooks.fire("", {
+
+[Survived] ObjectLiteral
+src/posts/data.js:20:68
+-   		const result = await plugins.hooks.fire('filter:post.getFields', {
+-   			pids: pids,
+-   			posts: postData,
+-   			fields: fields,
+-   		});
++   		const result = await plugins.hooks.fire('filter:post.getFields', {});
+
+[Survived] ArrowFunction
+src/posts/data.js:25:24
+-   		result.posts.forEach(post => modifyPost(post, fields));
++   		result.posts.forEach(() => undefined);
+
+[Survived] BlockStatement
+src/posts/data.js:29:43
+-   	Posts.getPostData = async function (pid) {
+-   		const posts = await Posts.getPostsFields([pid], []);
+-   		return posts && posts.length ? posts[0] : null;
+-   	};
++   	Posts.getPostData = async function (pid) {};
+
+[Survived] ArrayDeclaration
+src/posts/data.js:30:44
+-   		const posts = await Posts.getPostsFields([pid], []);
++   		const posts = await Posts.getPostsFields([], []);
+
+[Survived] ArrayDeclaration
+src/posts/data.js:30:51
+-   		const posts = await Posts.getPostsFields([pid], []);
++   		const posts = await Posts.getPostsFields([pid], ["Stryker was here"]);
+
+[Survived] ConditionalExpression
+src/posts/data.js:31:10
+-   		return posts && posts.length ? posts[0] : null;
++   		return true ? posts[0] : null;
+
+[Survived] ConditionalExpression
+src/posts/data.js:31:10
+-   		return posts && posts.length ? posts[0] : null;
++   		return false ? posts[0] : null;
+
+[Survived] LogicalOperator
+src/posts/data.js:31:10
+-   		return posts && posts.length ? posts[0] : null;
++   		return posts || posts.length ? posts[0] : null;
+
+[Survived] BlockStatement
+src/posts/data.js:34:45
+-   	Posts.getPostsData = async function (pids) {
+-   		return await Posts.getPostsFields(pids, []);
+-   	};
++   	Posts.getPostsData = async function (pids) {};
+
+[Survived] ArrayDeclaration
+src/posts/data.js:35:43
+-   		return await Posts.getPostsFields(pids, []);
++   		return await Posts.getPostsFields(pids, ["Stryker was here"]);
+
+[Survived] BlockStatement
+src/posts/data.js:38:51
+-   	Posts.getPostField = async function (pid, field) {
+-   		const post = await Posts.getPostFields(pid, [field]);
+-   		return post && post.hasOwnProperty(field) ? post[field] : null;
+-   	};
++   	Posts.getPostField = async function (pid, field) {};
+
+[Survived] ConditionalExpression
+src/posts/data.js:40:10
+-   		return post && post.hasOwnProperty(field) ? post[field] : null;
++   		return true ? post[field] : null;
+
+[Survived] ArrayDeclaration
+src/posts/data.js:39:47
+-   		const post = await Posts.getPostFields(pid, [field]);
++   		const post = await Posts.getPostFields(pid, []);
+
+[Survived] LogicalOperator
+src/posts/data.js:40:10
+-   		return post && post.hasOwnProperty(field) ? post[field] : null;
++   		return post || post.hasOwnProperty(field) ? post[field] : null;
+
+[Survived] ConditionalExpression
+src/posts/data.js:40:10
+-   		return post && post.hasOwnProperty(field) ? post[field] : null;
++   		return false ? post[field] : null;
+
+[Survived] BlockStatement
+src/posts/data.js:43:53
+-   	Posts.getPostFields = async function (pid, fields) {
+-   		const posts = await Posts.getPostsFields([pid], fields);
+-   		return posts ? posts[0] : null;
+-   	};
++   	Posts.getPostFields = async function (pid, fields) {};
+
+[Survived] ArrayDeclaration
+src/posts/data.js:44:44
+-   		const posts = await Posts.getPostsFields([pid], fields);
++   		const posts = await Posts.getPostsFields([], fields);
+
+[Survived] BlockStatement
+src/posts/data.js:48:58
+-   	Posts.setPostField = async function (pid, field, value) {
+-   		await Posts.setPostFields(pid, { [field]: value });
+-   	};
++   	Posts.setPostField = async function (pid, field, value) {};
+
+[Survived] ObjectLiteral
+src/posts/data.js:49:34
+-   		await Posts.setPostFields(pid, { [field]: value });
++   		await Posts.setPostFields(pid, {});
+
+[Survived] BlockStatement
+src/posts/data.js:52:51
+-   	Posts.setPostFields = async function (pid, data) {
+-   		await db.setObject(`post:${pid}`, data);
+-   		plugins.hooks.fire('action:post.setFields', { data: { ...data, pid } });
+-   	};
++   	Posts.setPostFields = async function (pid, data) {};
+
+[Survived] StringLiteral
+src/posts/data.js:53:22
+-   		await db.setObject(`post:${pid}`, data);
++   		await db.setObject(``, data);
+
+[Survived] StringLiteral
+src/posts/data.js:54:22
+-   		plugins.hooks.fire('action:post.setFields', { data: { ...data, pid } });
++   		plugins.hooks.fire("", { data: { ...data, pid } });
+
+[Survived] ObjectLiteral
+src/posts/data.js:54:47
+-   		plugins.hooks.fire('action:post.setFields', { data: { ...data, pid } });
++   		plugins.hooks.fire('action:post.setFields', {});
+
+[Survived] ObjectLiteral
+src/posts/data.js:54:55
+-   		plugins.hooks.fire('action:post.setFields', { data: { ...data, pid } });
++   		plugins.hooks.fire('action:post.setFields', { data: {} });
+
+[Survived] BlockStatement
+src/posts/data.js:58:35
+-   function modifyPost(post, fields) {
+-   	if (post) {
+-   		db.parseIntFields(post, intFields, fields);
+-   		if (post.hasOwnProperty('upvotes') && post.hasOwnProperty('downvotes')) {
+-   			post.votes = post.upvotes - post.downvotes;
+-   		}
+-   		if (post.hasOwnProperty('timestamp')) {
+-   			post.timestampISO = utils.toISOString(post.timestamp);
+-   		}
+-   		if (post.hasOwnProperty('edited')) {
+-   			post.editedISO = post.edited !== 0 ? utils.toISOString(post.edited) : '';
+-   		}
+-   		if (!fields.length || fields.includes('attachments')) {
+-   			post.attachments = (post.attachments || '').split(',').filter(Boolean);
+-   		}
+-   	}
+-   }
++   function modifyPost(post, fields) {}
+
+[Survived] ConditionalExpression
+src/posts/data.js:59:6
+-   	if (post) {
++   	if (true) {
+
+[Survived] ConditionalExpression
+src/posts/data.js:59:6
+-   	if (post) {
++   	if (false) {
+
+[Survived] BlockStatement
+src/posts/data.js:59:12
+-   	if (post) {
+-   		db.parseIntFields(post, intFields, fields);
+-   		if (post.hasOwnProperty('upvotes') && post.hasOwnProperty('downvotes')) {
+-   			post.votes = post.upvotes - post.downvotes;
+-   		}
+-   		if (post.hasOwnProperty('timestamp')) {
+-   			post.timestampISO = utils.toISOString(post.timestamp);
+-   		}
+-   		if (post.hasOwnProperty('edited')) {
+-   			post.editedISO = post.edited !== 0 ? utils.toISOString(post.edited) : '';
+-   		}
+-   		if (!fields.length || fields.includes('attachments')) {
+-   			post.attachments = (post.attachments || '').split(',').filter(Boolean);
+-   		}
+-   	}
++   	if (post) {}
+
+[Survived] ConditionalExpression
+src/posts/data.js:61:7
+-   		if (post.hasOwnProperty('upvotes') && post.hasOwnProperty('downvotes')) {
++   		if (true) {
+
+[Survived] ConditionalExpression
+src/posts/data.js:61:7
+-   		if (post.hasOwnProperty('upvotes') && post.hasOwnProperty('downvotes')) {
++   		if (false) {
+
+[Survived] LogicalOperator
+src/posts/data.js:61:7
+-   		if (post.hasOwnProperty('upvotes') && post.hasOwnProperty('downvotes')) {
++   		if (post.hasOwnProperty('upvotes') || post.hasOwnProperty('downvotes')) {
+
+[Survived] StringLiteral
+src/posts/data.js:61:27
+-   		if (post.hasOwnProperty('upvotes') && post.hasOwnProperty('downvotes')) {
++   		if (post.hasOwnProperty("") && post.hasOwnProperty('downvotes')) {
+
+[Survived] StringLiteral
+src/posts/data.js:61:61
+-   		if (post.hasOwnProperty('upvotes') && post.hasOwnProperty('downvotes')) {
++   		if (post.hasOwnProperty('upvotes') && post.hasOwnProperty("")) {
+
+[Survived] BlockStatement
+src/posts/data.js:61:75
+-   		if (post.hasOwnProperty('upvotes') && post.hasOwnProperty('downvotes')) {
+-   			post.votes = post.upvotes - post.downvotes;
+-   		}
++   		if (post.hasOwnProperty('upvotes') && post.hasOwnProperty('downvotes')) {}
+
+[Survived] ArithmeticOperator
+src/posts/data.js:62:17
+-   			post.votes = post.upvotes - post.downvotes;
++   			post.votes = post.upvotes + post.downvotes;
+
+[Survived] ConditionalExpression
+src/posts/data.js:64:7
+-   		if (post.hasOwnProperty('timestamp')) {
++   		if (true) {
+
+[Survived] StringLiteral
+src/posts/data.js:64:27
+-   		if (post.hasOwnProperty('timestamp')) {
++   		if (post.hasOwnProperty("")) {
+
+[Survived] ConditionalExpression
+src/posts/data.js:64:7
+-   		if (post.hasOwnProperty('timestamp')) {
++   		if (false) {
+
+[Survived] BlockStatement
+src/posts/data.js:64:41
+-   		if (post.hasOwnProperty('timestamp')) {
+-   			post.timestampISO = utils.toISOString(post.timestamp);
+-   		}
++   		if (post.hasOwnProperty('timestamp')) {}
+
+[Survived] ConditionalExpression
+src/posts/data.js:67:7
+-   		if (post.hasOwnProperty('edited')) {
++   		if (true) {
+
+[Survived] StringLiteral
+src/posts/data.js:67:27
+-   		if (post.hasOwnProperty('edited')) {
++   		if (post.hasOwnProperty("")) {
+
+[Survived] ConditionalExpression
+src/posts/data.js:67:7
+-   		if (post.hasOwnProperty('edited')) {
++   		if (false) {
+
+[Survived] BlockStatement
+src/posts/data.js:67:38
+-   		if (post.hasOwnProperty('edited')) {
+-   			post.editedISO = post.edited !== 0 ? utils.toISOString(post.edited) : '';
+-   		}
++   		if (post.hasOwnProperty('edited')) {}
+
+[Survived] ConditionalExpression
+src/posts/data.js:68:21
+-   			post.editedISO = post.edited !== 0 ? utils.toISOString(post.edited) : '';
++   			post.editedISO = true ? utils.toISOString(post.edited) : '';
+
+[Survived] ConditionalExpression
+src/posts/data.js:68:21
+-   			post.editedISO = post.edited !== 0 ? utils.toISOString(post.edited) : '';
++   			post.editedISO = false ? utils.toISOString(post.edited) : '';
+
+[Survived] EqualityOperator
+src/posts/data.js:68:21
+-   			post.editedISO = post.edited !== 0 ? utils.toISOString(post.edited) : '';
++   			post.editedISO = post.edited === 0 ? utils.toISOString(post.edited) : '';
+
+[Survived] StringLiteral
+src/posts/data.js:68:74
+-   			post.editedISO = post.edited !== 0 ? utils.toISOString(post.edited) : '';
++   			post.editedISO = post.edited !== 0 ? utils.toISOString(post.edited) : "Stryker was here!";
+
+[Survived] ConditionalExpression
+src/posts/data.js:70:7
+-   		if (!fields.length || fields.includes('attachments')) {
++   		if (true) {
+
+[Survived] ConditionalExpression
+src/posts/data.js:70:7
+-   		if (!fields.length || fields.includes('attachments')) {
++   		if (false) {
+
+[Survived] LogicalOperator
+src/posts/data.js:70:7
+-   		if (!fields.length || fields.includes('attachments')) {
++   		if (!fields.length && fields.includes('attachments')) {
+
+[Survived] BooleanLiteral
+src/posts/data.js:70:7
+-   		if (!fields.length || fields.includes('attachments')) {
++   		if (fields.length || fields.includes('attachments')) {
+
+[Survived] StringLiteral
+src/posts/data.js:70:41
+-   		if (!fields.length || fields.includes('attachments')) {
++   		if (!fields.length || fields.includes("")) {
+
+[Survived] BlockStatement
+src/posts/data.js:70:57
+-   		if (!fields.length || fields.includes('attachments')) {
+-   			post.attachments = (post.attachments || '').split(',').filter(Boolean);
+-   		}
++   		if (!fields.length || fields.includes('attachments')) {}
+
+[Survived] MethodExpression
+src/posts/data.js:71:23
+-   			post.attachments = (post.attachments || '').split(',').filter(Boolean);
++   			post.attachments = (post.attachments || '').split(',');
+
+[Survived] ConditionalExpression
+src/posts/data.js:71:24
+-   			post.attachments = (post.attachments || '').split(',').filter(Boolean);
++   			post.attachments = (true).split(',').filter(Boolean);
+
+[Survived] ConditionalExpression
+src/posts/data.js:71:24
+-   			post.attachments = (post.attachments || '').split(',').filter(Boolean);
++   			post.attachments = (false).split(',').filter(Boolean);
+
+[Survived] StringLiteral
+src/posts/data.js:71:44
+-   			post.attachments = (post.attachments || '').split(',').filter(Boolean);
++   			post.attachments = (post.attachments || "Stryker was here!").split(',').filter(Boolean);
+
+[Survived] LogicalOperator
+src/posts/data.js:71:24
+-   			post.attachments = (post.attachments || '').split(',').filter(Boolean);
++   			post.attachments = (post.attachments && '').split(',').filter(Boolean);
+
+[Survived] StringLiteral
+src/posts/data.js:71:54
+-   			post.attachments = (post.attachments || '').split(',').filter(Boolean);
++   			post.attachments = (post.attachments || '').split("").filter(Boolean);
+
+[Survived] BlockStatement
+src/posts/delete.js:15:35
+-   module.exports = function (Posts) {
+-   	Posts.delete = async function (pid, uid) {
+-   		return await deleteOrRestore('delete', pid, uid);
+-   	};
+-   	Posts.restore = async function (pid, uid) {
+-   		return await deleteOrRestore('restore', pid, uid);
+-   	};
+-   	async function deleteOrRestore(type, pid, uid) {
+-   		const isDeleting = type === 'delete';
+-   		await plugins.hooks.fire(`filter:post.${type}`, { pid: pid, uid: uid });
+-   		await Posts.setPostFields(pid, {
+-   			deleted: isDeleting ? 1 : 0,
+-   			deleterUid: isDeleting ? uid : 0,
+-   		});
+-   		const postData = await Posts.getPostFields(pid, ['pid', 'tid', 'uid', 'content', 'timestamp', 'deleted']);
+-   		const topicData = await topics.getTopicFields(postData.tid, ['tid', 'cid', 'pinned']);
+-   		postData.cid = topicData.cid;
+-   		await Promise.all([
+-   			topics.updateLastPostTimeFromLastPid(postData.tid),
+-   			topics.updateTeaser(postData.tid),
+-   			isDeleting ?
+-   				db.sortedSetRemove(`cid:${topicData.cid}:pids`, pid) :
+-   				db.sortedSetAdd(`cid:${topicData.cid}:pids`, postData.timestamp, pid),
+-   		]);
+-   		await categories.updateRecentTidForCid(postData.cid);
+-   		plugins.hooks.fire(`action:post.${type}`, { post: _.clone(postData), uid: uid });
+-   		if (type === 'delete') {
+-   			await flags.resolveFlag('post', pid, uid);
+-   		}
+-   		return postData;
+-   	}
+-   	Posts.purge = async function (pids, uid) {
+-   		pids = Array.isArray(pids) ? pids : [pids];
+-   		let postData = await Posts.getPostsData(pids);
+-   		pids = pids.filter((pid, index) => !!postData[index]);
+-   		postData = postData.filter(Boolean);
+-   		if (!postData.length) {
+-   			return;
+-   		}
+-   		const uniqTids = _.uniq(postData.map(p => p.tid));
+-   		const topicData = await topics.getTopicsFields(uniqTids, ['tid', 'cid', 'pinned', 'postcount']);
+-   		const tidToTopic = _.zipObject(uniqTids, topicData);
+-   		postData.forEach((p) => {
+-   			p.topic = tidToTopic[p.tid];
+-   			p.cid = tidToTopic[p.tid] && tidToTopic[p.tid].cid;
+-   		});
+-   		await plugins.hooks.fire('filter:posts.purge', {
+-   			posts: postData,
+-   			pids: postData.map(p => p.pid),
+-   			uid: uid,
+-   		});
+-   		await Promise.all([
+-   			deleteFromTopicUserNotification(postData),
+-   			deleteFromCategoryRecentPosts(postData),
+-   			deleteFromUsersBookmarks(pids),
+-   			deleteFromUsersVotes(pids),
+-   			deleteFromReplies(postData),
+-   			deleteFromGroups(pids),
+-   			deleteDiffs(pids),
+-   			deleteFromUploads(pids),
+-   			db.sortedSetsRemove(['posts:pid', 'posts:votes', 'posts:flagged'], pids),
+-   			Posts.attachments.empty(pids),
+-   			activitypub.notes.delete(pids),
+-   			db.deleteAll(pids.map(pid => `pid:${pid}:editors`)),
+-   		]);
+-   		await resolveFlags(postData, uid);
+-   		plugins.hooks.fire('action:posts.purge', { posts: postData, uid: uid });
+-   		await db.deleteAll(postData.map(p => `post:${p.pid}`));
+-   	};
+-   	async function deleteFromTopicUserNotification(postData) {
+-   		const bulkRemove = [];
+-   		postData.forEach((p) => {
+-   			bulkRemove.push([`tid:${p.tid}:posts`, p.pid]);
+-   			bulkRemove.push([`tid:${p.tid}:posts:votes`, p.pid]);
+-   			bulkRemove.push([`uid:${p.uid}:posts`, p.pid]);
+-   			bulkRemove.push([`cid:${p.cid}:uid:${p.uid}:pids`, p.pid]);
+-   			bulkRemove.push([`cid:${p.cid}:uid:${p.uid}:pids:votes`, p.pid]);
+-   		});
+-   		await db.sortedSetRemoveBulk(bulkRemove);
+-   		const localCount = postData.filter(p => utils.isNumber(p.pid)).length;
+-   		const incrObjectBulk = [['global', { postCount: -localCount }]];
+-   		const postsByCategory = _.groupBy(postData, p => parseInt(p.cid, 10));
+-   		for (const [cid, posts] of Object.entries(postsByCategory)) {
+-   			incrObjectBulk.push([`category:${cid}`, { post_count: -posts.length }]);
+-   		}
+-   		const postsByTopic = _.groupBy(postData, p => String(p.tid));
+-   		const topicPostCountTasks = [];
+-   		const topicTasks = [];
+-   		const zsetIncrBulk = [];
+-   		const tids = [];
+-   		for (const [tid, posts] of Object.entries(postsByTopic)) {
+-   			tids.push(tid);
+-   			incrObjectBulk.push([`topic:${tid}`, { postcount: -posts.length }]);
+-   			if (posts.length && posts[0]) {
+-   				const topicData = posts[0].topic;
+-   				const newPostCount = topicData.postcount - posts.length;
+-   				topicPostCountTasks.push(['topics:posts', newPostCount, tid]);
+-   				if (!topicData.pinned) {
+-   					zsetIncrBulk.push([`cid:${topicData.cid}:tids:posts`, -posts.length, tid]);
+-   				}
+-   			}
+-   			topicTasks.push(topics.updateTeaser(tid));
+-   			topicTasks.push(topics.updateLastPostTimeFromLastPid(tid));
+-   			const postsByUid = _.groupBy(posts, p => parseInt(p.uid, 10));
+-   			for (const [uid, uidPosts] of Object.entries(postsByUid)) {
+-   				zsetIncrBulk.push([`tid:${tid}:posters`, -uidPosts.length, uid]);
+-   			}
+-   			topicTasks.push(db.sortedSetIncrByBulk(zsetIncrBulk));
+-   		}
+-   		await Promise.all([
+-   			db.incrObjectFieldByBulk(incrObjectBulk),
+-   			db.sortedSetAddBulk(topicPostCountTasks),
+-   			...topicTasks,
+-   			user.updatePostCount(_.uniq(postData.map(p => p.uid))),
+-   			notifications.rescind(...postData.map(p => `new_post:tid:${p.tid}:pid:${p.pid}:uid:${p.uid}`)),
+-   		]);
+-   		const tidPosterZsets = tids.map(tid => `tid:${tid}:posters`);
+-   		await db.sortedSetsRemoveRangeByScore(tidPosterZsets, '-inf', 0);
+-   		const posterCounts = await db.sortedSetsCard(tidPosterZsets);
+-   		await db.setObjectBulk(
+-   			tids.map((tid, idx) => (
+-   				[`topic:${tid}`, { postercount: posterCounts[idx] || 0 }]
+-   			))
+-   		);
+-   	}
+-   	async function deleteFromCategoryRecentPosts(postData) {
+-   		const uniqCids = _.uniq(postData.map(p => p.cid));
+-   		const sets = uniqCids.map(cid => `cid:${cid}:pids`);
+-   		await db.sortedSetRemove(sets, postData.map(p => p.pid));
+-   		await Promise.all(uniqCids.map(categories.updateRecentTidForCid));
+-   	}
+-   	async function deleteFromUsersBookmarks(pids) {
+-   		const arrayOfUids = await db.getSetsMembers(pids.map(pid => `pid:${pid}:users_bookmarked`));
+-   		const bulkRemove = [];
+-   		pids.forEach((pid, index) => {
+-   			arrayOfUids[index].forEach((uid) => {
+-   				bulkRemove.push([`uid:${uid}:bookmarks`, pid]);
+-   			});
+-   		});
+-   		await db.sortedSetRemoveBulk(bulkRemove);
+-   		await db.deleteAll(pids.map(pid => `pid:${pid}:users_bookmarked`));
+-   	}
+-   	async function deleteFromUsersVotes(pids) {
+-   		const [upvoters, downvoters] = await Promise.all([
+-   			db.getSetsMembers(pids.map(pid => `pid:${pid}:upvote`)),
+-   			db.getSetsMembers(pids.map(pid => `pid:${pid}:downvote`)),
+-   		]);
+-   		const bulkRemove = [];
+-   		pids.forEach((pid, index) => {
+-   			upvoters[index].forEach((upvoterUid) => {
+-   				bulkRemove.push([`uid:${upvoterUid}:upvote`, pid]);
+-   			});
+-   			downvoters[index].forEach((downvoterUid) => {
+-   				bulkRemove.push([`uid:${downvoterUid}:downvote`, pid]);
+-   			});
+-   		});
+-   		await Promise.all([
+-   			db.sortedSetRemoveBulk(bulkRemove),
+-   			db.deleteAll([
+-   				...pids.map(pid => `pid:${pid}:upvote`),
+-   				...pids.map(pid => `pid:${pid}:downvote`),
+-   			]),
+-   		]);
+-   	}
+-   	async function deleteFromReplies(postData) {
+-   		const arrayOfReplyPids = await db.getSortedSetsMembers(postData.map(p => `pid:${p.pid}:replies`));
+-   		const allReplyPids = _.flatten(arrayOfReplyPids);
+-   		const promises = [
+-   			db.deleteObjectFields(
+-   				allReplyPids.map(pid => `post:${pid}`), ['toPid']
+-   			),
+-   			db.deleteAll(postData.map(p => `pid:${p.pid}:replies`)),
+-   		];
+-   		const postsWithParents = postData.filter(p => parseInt(p.toPid, 10));
+-   		const bulkRemove = postsWithParents.map(p => [`pid:${p.toPid}:replies`, p.pid]);
+-   		promises.push(db.sortedSetRemoveBulk(bulkRemove));
+-   		await Promise.all(promises);
+-   		const parentPids = _.uniq(postsWithParents.map(p => p.toPid));
+-   		const counts = await db.sortedSetsCard(parentPids.map(pid => `pid:${pid}:replies`));
+-   		await db.setObjectBulk(parentPids.map((pid, index) => [`post:${pid}`, { replies: counts[index] }]));
+-   	}
+-   	async function deleteFromGroups(pids) {
+-   		const groupNames = await db.getSortedSetMembers('groups:visible:createtime');
+-   		const keys = groupNames.map(groupName => `group:${groupName}:member:pids`);
+-   		await db.sortedSetRemove(keys, pids);
+-   	}
+-   	async function deleteDiffs(pids) {
+-   		const timestamps = await Promise.all(pids.map(pid => Posts.diffs.list(pid)));
+-   		await db.deleteAll([
+-   			...pids.map(pid => `post:${pid}:diffs`),
+-   			..._.flattenDeep(pids.map((pid, index) => timestamps[index].map(t => `diff:${pid}.${t}`))),
+-   		]);
+-   	}
+-   	async function deleteFromUploads(pids) {
+-   		await Promise.all(pids.map(Posts.uploads.dissociateAll));
+-   	}
+-   	async function resolveFlags(postData, uid) {
+-   		const flaggedPosts = postData.filter(p => p && parseInt(p.flagId, 10));
+-   		await Promise.all(flaggedPosts.map(p => flags.update(p.flagId, uid, { state: 'resolved' })));
+-   	}
+-   };
++   module.exports = function (Posts) {};
+
+[Survived] StringLiteral
+src/posts/delete.js:17:32
+-   		return await deleteOrRestore('delete', pid, uid);
++   		return await deleteOrRestore("", pid, uid);
+
+[Survived] BlockStatement
+src/posts/delete.js:16:43
+-   	Posts.delete = async function (pid, uid) {
+-   		return await deleteOrRestore('delete', pid, uid);
+-   	};
++   	Posts.delete = async function (pid, uid) {};
+
+[Survived] BlockStatement
+src/posts/delete.js:20:44
+-   	Posts.restore = async function (pid, uid) {
+-   		return await deleteOrRestore('restore', pid, uid);
+-   	};
++   	Posts.restore = async function (pid, uid) {};
+
+[Survived] BlockStatement
+src/posts/delete.js:24:49
+-   	async function deleteOrRestore(type, pid, uid) {
+-   		const isDeleting = type === 'delete';
+-   		await plugins.hooks.fire(`filter:post.${type}`, { pid: pid, uid: uid });
+-   		await Posts.setPostFields(pid, {
+-   			deleted: isDeleting ? 1 : 0,
+-   			deleterUid: isDeleting ? uid : 0,
+-   		});
+-   		const postData = await Posts.getPostFields(pid, ['pid', 'tid', 'uid', 'content', 'timestamp', 'deleted']);
+-   		const topicData = await topics.getTopicFields(postData.tid, ['tid', 'cid', 'pinned']);
+-   		postData.cid = topicData.cid;
+-   		await Promise.all([
+-   			topics.updateLastPostTimeFromLastPid(postData.tid),
+-   			topics.updateTeaser(postData.tid),
+-   			isDeleting ?
+-   				db.sortedSetRemove(`cid:${topicData.cid}:pids`, pid) :
+-   				db.sortedSetAdd(`cid:${topicData.cid}:pids`, postData.timestamp, pid),
+-   		]);
+-   		await categories.updateRecentTidForCid(postData.cid);
+-   		plugins.hooks.fire(`action:post.${type}`, { post: _.clone(postData), uid: uid });
+-   		if (type === 'delete') {
+-   			await flags.resolveFlag('post', pid, uid);
+-   		}
+-   		return postData;
+-   	}
++   	async function deleteOrRestore(type, pid, uid) {}
+
+[Survived] StringLiteral
+src/posts/delete.js:21:32
+-   		return await deleteOrRestore('restore', pid, uid);
++   		return await deleteOrRestore("", pid, uid);
+
+[Survived] ConditionalExpression
+src/posts/delete.js:25:22
+-   		const isDeleting = type === 'delete';
++   		const isDeleting = true;
+
+[Survived] ConditionalExpression
+src/posts/delete.js:25:22
+-   		const isDeleting = type === 'delete';
++   		const isDeleting = false;
+
+[Survived] EqualityOperator
+src/posts/delete.js:25:22
+-   		const isDeleting = type === 'delete';
++   		const isDeleting = type !== 'delete';
+
+[Survived] StringLiteral
+src/posts/delete.js:25:31
+-   		const isDeleting = type === 'delete';
++   		const isDeleting = type === "";
+
+[Survived] StringLiteral
+src/posts/delete.js:26:28
+-   		await plugins.hooks.fire(`filter:post.${type}`, { pid: pid, uid: uid });
++   		await plugins.hooks.fire(``, { pid: pid, uid: uid });
+
+[Survived] ObjectLiteral
+src/posts/delete.js:26:51
+-   		await plugins.hooks.fire(`filter:post.${type}`, { pid: pid, uid: uid });
++   		await plugins.hooks.fire(`filter:post.${type}`, {});
+
+[Survived] ObjectLiteral
+src/posts/delete.js:27:34
+-   		await Posts.setPostFields(pid, {
+-   			deleted: isDeleting ? 1 : 0,
+-   			deleterUid: isDeleting ? uid : 0,
+-   		});
++   		await Posts.setPostFields(pid, {});
+
+[Survived] ArrayDeclaration
+src/posts/delete.js:31:51
+-   		const postData = await Posts.getPostFields(pid, ['pid', 'tid', 'uid', 'content', 'timestamp', 'deleted']);
++   		const postData = await Posts.getPostFields(pid, []);
+
+[Survived] StringLiteral
+src/posts/delete.js:31:52
+-   		const postData = await Posts.getPostFields(pid, ['pid', 'tid', 'uid', 'content', 'timestamp', 'deleted']);
++   		const postData = await Posts.getPostFields(pid, ["", 'tid', 'uid', 'content', 'timestamp', 'deleted']);
+
+[Survived] StringLiteral
+src/posts/delete.js:31:59
+-   		const postData = await Posts.getPostFields(pid, ['pid', 'tid', 'uid', 'content', 'timestamp', 'deleted']);
++   		const postData = await Posts.getPostFields(pid, ['pid', "", 'uid', 'content', 'timestamp', 'deleted']);
+
+[Survived] StringLiteral
+src/posts/delete.js:31:66
+-   		const postData = await Posts.getPostFields(pid, ['pid', 'tid', 'uid', 'content', 'timestamp', 'deleted']);
++   		const postData = await Posts.getPostFields(pid, ['pid', 'tid', "", 'content', 'timestamp', 'deleted']);
+
+[Survived] StringLiteral
+src/posts/delete.js:31:73
+-   		const postData = await Posts.getPostFields(pid, ['pid', 'tid', 'uid', 'content', 'timestamp', 'deleted']);
++   		const postData = await Posts.getPostFields(pid, ['pid', 'tid', 'uid', "", 'timestamp', 'deleted']);
+
+[Survived] StringLiteral
+src/posts/delete.js:31:84
+-   		const postData = await Posts.getPostFields(pid, ['pid', 'tid', 'uid', 'content', 'timestamp', 'deleted']);
++   		const postData = await Posts.getPostFields(pid, ['pid', 'tid', 'uid', 'content', "", 'deleted']);
+
+[Survived] StringLiteral
+src/posts/delete.js:31:97
+-   		const postData = await Posts.getPostFields(pid, ['pid', 'tid', 'uid', 'content', 'timestamp', 'deleted']);
++   		const postData = await Posts.getPostFields(pid, ['pid', 'tid', 'uid', 'content', 'timestamp', ""]);
+
+[Survived] ArrayDeclaration
+src/posts/delete.js:32:63
+-   		const topicData = await topics.getTopicFields(postData.tid, ['tid', 'cid', 'pinned']);
++   		const topicData = await topics.getTopicFields(postData.tid, []);
+
+[Survived] StringLiteral
+src/posts/delete.js:32:64
+-   		const topicData = await topics.getTopicFields(postData.tid, ['tid', 'cid', 'pinned']);
++   		const topicData = await topics.getTopicFields(postData.tid, ["", 'cid', 'pinned']);
+
+[Survived] StringLiteral
+src/posts/delete.js:32:71
+-   		const topicData = await topics.getTopicFields(postData.tid, ['tid', 'cid', 'pinned']);
++   		const topicData = await topics.getTopicFields(postData.tid, ['tid', "", 'pinned']);
+
+[Survived] StringLiteral
+src/posts/delete.js:32:78
+-   		const topicData = await topics.getTopicFields(postData.tid, ['tid', 'cid', 'pinned']);
++   		const topicData = await topics.getTopicFields(postData.tid, ['tid', 'cid', ""]);
+
+[Survived] ArrayDeclaration
+src/posts/delete.js:34:21
+-   		await Promise.all([
+-   			topics.updateLastPostTimeFromLastPid(postData.tid),
+-   			topics.updateTeaser(postData.tid),
+-   			isDeleting ?
+-   				db.sortedSetRemove(`cid:${topicData.cid}:pids`, pid) :
+-   				db.sortedSetAdd(`cid:${topicData.cid}:pids`, postData.timestamp, pid),
+-   		]);
++   		await Promise.all([]);
+
+[Survived] StringLiteral
+src/posts/delete.js:38:24
+-   				db.sortedSetRemove(`cid:${topicData.cid}:pids`, pid) :
++   				db.sortedSetRemove(``, pid) :
+
+[Survived] StringLiteral
+src/posts/delete.js:39:21
+-   				db.sortedSetAdd(`cid:${topicData.cid}:pids`, postData.timestamp, pid),
++   				db.sortedSetAdd(``, postData.timestamp, pid),
+
+[Survived] ObjectLiteral
+src/posts/delete.js:42:45
+-   		plugins.hooks.fire(`action:post.${type}`, { post: _.clone(postData), uid: uid });
++   		plugins.hooks.fire(`action:post.${type}`, {});
+
+[Survived] StringLiteral
+src/posts/delete.js:42:22
+-   		plugins.hooks.fire(`action:post.${type}`, { post: _.clone(postData), uid: uid });
++   		plugins.hooks.fire(``, { post: _.clone(postData), uid: uid });
+
+[Survived] ConditionalExpression
+src/posts/delete.js:43:7
+-   		if (type === 'delete') {
++   		if (true) {
+
+[Survived] ConditionalExpression
+src/posts/delete.js:43:7
+-   		if (type === 'delete') {
++   		if (false) {
+
+[Survived] EqualityOperator
+src/posts/delete.js:43:7
+-   		if (type === 'delete') {
++   		if (type !== 'delete') {
+
+[Survived] StringLiteral
+src/posts/delete.js:43:16
+-   		if (type === 'delete') {
++   		if (type === "") {
+
+[Survived] BlockStatement
+src/posts/delete.js:43:26
+-   		if (type === 'delete') {
+-   			await flags.resolveFlag('post', pid, uid);
+-   		}
++   		if (type === 'delete') {}
+
+[Survived] StringLiteral
+src/posts/delete.js:44:28
+-   			await flags.resolveFlag('post', pid, uid);
++   			await flags.resolveFlag("", pid, uid);
+
+[Survived] BlockStatement
+src/posts/delete.js:49:43
+-   	Posts.purge = async function (pids, uid) {
+-   		pids = Array.isArray(pids) ? pids : [pids];
+-   		let postData = await Posts.getPostsData(pids);
+-   		pids = pids.filter((pid, index) => !!postData[index]);
+-   		postData = postData.filter(Boolean);
+-   		if (!postData.length) {
+-   			return;
+-   		}
+-   		const uniqTids = _.uniq(postData.map(p => p.tid));
+-   		const topicData = await topics.getTopicsFields(uniqTids, ['tid', 'cid', 'pinned', 'postcount']);
+-   		const tidToTopic = _.zipObject(uniqTids, topicData);
+-   		postData.forEach((p) => {
+-   			p.topic = tidToTopic[p.tid];
+-   			p.cid = tidToTopic[p.tid] && tidToTopic[p.tid].cid;
+-   		});
+-   		await plugins.hooks.fire('filter:posts.purge', {
+-   			posts: postData,
+-   			pids: postData.map(p => p.pid),
+-   			uid: uid,
+-   		});
+-   		await Promise.all([
+-   			deleteFromTopicUserNotification(postData),
+-   			deleteFromCategoryRecentPosts(postData),
+-   			deleteFromUsersBookmarks(pids),
+-   			deleteFromUsersVotes(pids),
+-   			deleteFromReplies(postData),
+-   			deleteFromGroups(pids),
+-   			deleteDiffs(pids),
+-   			deleteFromUploads(pids),
+-   			db.sortedSetsRemove(['posts:pid', 'posts:votes', 'posts:flagged'], pids),
+-   			Posts.attachments.empty(pids),
+-   			activitypub.notes.delete(pids),
+-   			db.deleteAll(pids.map(pid => `pid:${pid}:editors`)),
+-   		]);
+-   		await resolveFlags(postData, uid);
+-   		plugins.hooks.fire('action:posts.purge', { posts: postData, uid: uid });
+-   		await db.deleteAll(postData.map(p => `post:${p.pid}`));
+-   	};
++   	Posts.purge = async function (pids, uid) {};
+
+[Survived] ArrayDeclaration
+src/posts/delete.js:50:39
+-   		pids = Array.isArray(pids) ? pids : [pids];
++   		pids = Array.isArray(pids) ? pids : [];
+
+[Survived] MethodExpression
+src/posts/delete.js:52:10
+-   		pids = pids.filter((pid, index) => !!postData[index]);
++   		pids = pids;
+
+[Survived] ArrowFunction
+src/posts/delete.js:52:22
+-   		pids = pids.filter((pid, index) => !!postData[index]);
++   		pids = pids.filter(() => undefined);
+
+[Survived] BooleanLiteral
+src/posts/delete.js:52:38
+-   		pids = pids.filter((pid, index) => !!postData[index]);
++   		pids = pids.filter((pid, index) => !postData[index]);
+
+[Survived] BooleanLiteral
+src/posts/delete.js:52:39
+-   		pids = pids.filter((pid, index) => !!postData[index]);
++   		pids = pids.filter((pid, index) => !postData[index]);
+
+[Survived] MethodExpression
+src/posts/delete.js:53:14
+-   		postData = postData.filter(Boolean);
++   		postData = postData;
+
+[Survived] ConditionalExpression
+src/posts/delete.js:54:7
+-   		if (!postData.length) {
++   		if (true) {
+
+[Survived] BooleanLiteral
+src/posts/delete.js:54:7
+-   		if (!postData.length) {
++   		if (postData.length) {
+
+[Survived] ConditionalExpression
+src/posts/delete.js:54:7
+-   		if (!postData.length) {
++   		if (false) {
+
+[Survived] BlockStatement
+src/posts/delete.js:54:25
+-   		if (!postData.length) {
+-   			return;
+-   		}
++   		if (!postData.length) {}
+
+[Survived] ArrowFunction
+src/posts/delete.js:57:40
+-   		const uniqTids = _.uniq(postData.map(p => p.tid));
++   		const uniqTids = _.uniq(postData.map(() => undefined));
+
+[Survived] StringLiteral
+src/posts/delete.js:58:61
+-   		const topicData = await topics.getTopicsFields(uniqTids, ['tid', 'cid', 'pinned', 'postcount']);
++   		const topicData = await topics.getTopicsFields(uniqTids, ["", 'cid', 'pinned', 'postcount']);
+
+[Survived] ArrayDeclaration
+src/posts/delete.js:58:60
+-   		const topicData = await topics.getTopicsFields(uniqTids, ['tid', 'cid', 'pinned', 'postcount']);
++   		const topicData = await topics.getTopicsFields(uniqTids, []);
+
+[Survived] StringLiteral
+src/posts/delete.js:58:68
+-   		const topicData = await topics.getTopicsFields(uniqTids, ['tid', 'cid', 'pinned', 'postcount']);
++   		const topicData = await topics.getTopicsFields(uniqTids, ['tid', "", 'pinned', 'postcount']);
+
+[Survived] StringLiteral
+src/posts/delete.js:58:75
+-   		const topicData = await topics.getTopicsFields(uniqTids, ['tid', 'cid', 'pinned', 'postcount']);
++   		const topicData = await topics.getTopicsFields(uniqTids, ['tid', 'cid', "", 'postcount']);
+
+[Survived] StringLiteral
+src/posts/delete.js:58:85
+-   		const topicData = await topics.getTopicsFields(uniqTids, ['tid', 'cid', 'pinned', 'postcount']);
++   		const topicData = await topics.getTopicsFields(uniqTids, ['tid', 'cid', 'pinned', ""]);
+
+[Survived] BlockStatement
+src/posts/delete.js:61:27
+-   		postData.forEach((p) => {
+-   			p.topic = tidToTopic[p.tid];
+-   			p.cid = tidToTopic[p.tid] && tidToTopic[p.tid].cid;
+-   		});
++   		postData.forEach((p) => {});
+
+[Survived] ConditionalExpression
+src/posts/delete.js:63:12
+-   			p.cid = tidToTopic[p.tid] && tidToTopic[p.tid].cid;
++   			p.cid = false;
+
+[Survived] ConditionalExpression
+src/posts/delete.js:63:12
+-   			p.cid = tidToTopic[p.tid] && tidToTopic[p.tid].cid;
++   			p.cid = true;
+
+[Survived] LogicalOperator
+src/posts/delete.js:63:12
+-   			p.cid = tidToTopic[p.tid] && tidToTopic[p.tid].cid;
++   			p.cid = tidToTopic[p.tid] || tidToTopic[p.tid].cid;
+
+[Survived] StringLiteral
+src/posts/delete.js:66:28
+-   		await plugins.hooks.fire('filter:posts.purge', {
++   		await plugins.hooks.fire("", {
+
+[Survived] ObjectLiteral
+src/posts/delete.js:66:50
+-   		await plugins.hooks.fire('filter:posts.purge', {
+-   			posts: postData,
+-   			pids: postData.map(p => p.pid),
+-   			uid: uid,
+-   		});
++   		await plugins.hooks.fire('filter:posts.purge', {});
+
+[Survived] ArrowFunction
+src/posts/delete.js:68:23
+-   			pids: postData.map(p => p.pid),
++   			pids: postData.map(() => undefined),
+
+[Survived] ArrayDeclaration
+src/posts/delete.js:72:21
+-   		await Promise.all([
+-   			deleteFromTopicUserNotification(postData),
+-   			deleteFromCategoryRecentPosts(postData),
+-   			deleteFromUsersBookmarks(pids),
+-   			deleteFromUsersVotes(pids),
+-   			deleteFromReplies(postData),
+-   			deleteFromGroups(pids),
+-   			deleteDiffs(pids),
+-   			deleteFromUploads(pids),
+-   			db.sortedSetsRemove(['posts:pid', 'posts:votes', 'posts:flagged'], pids),
+-   			Posts.attachments.empty(pids),
+-   			activitypub.notes.delete(pids),
+-   			db.deleteAll(pids.map(pid => `pid:${pid}:editors`)),
+-   		]);
++   		await Promise.all([]);
+
+[Survived] ArrayDeclaration
+src/posts/delete.js:81:24
+-   			db.sortedSetsRemove(['posts:pid', 'posts:votes', 'posts:flagged'], pids),
++   			db.sortedSetsRemove([], pids),
+
+[Survived] StringLiteral
+src/posts/delete.js:81:25
+-   			db.sortedSetsRemove(['posts:pid', 'posts:votes', 'posts:flagged'], pids),
++   			db.sortedSetsRemove(["", 'posts:votes', 'posts:flagged'], pids),
+
+[Survived] StringLiteral
+src/posts/delete.js:81:53
+-   			db.sortedSetsRemove(['posts:pid', 'posts:votes', 'posts:flagged'], pids),
++   			db.sortedSetsRemove(['posts:pid', 'posts:votes', ""], pids),
+
+[Survived] StringLiteral
+src/posts/delete.js:81:38
+-   			db.sortedSetsRemove(['posts:pid', 'posts:votes', 'posts:flagged'], pids),
++   			db.sortedSetsRemove(['posts:pid', "", 'posts:flagged'], pids),
+
+[Survived] ArrowFunction
+src/posts/delete.js:84:26
+-   			db.deleteAll(pids.map(pid => `pid:${pid}:editors`)),
++   			db.deleteAll(pids.map(() => undefined)),
+
+[Survived] StringLiteral
+src/posts/delete.js:84:33
+-   			db.deleteAll(pids.map(pid => `pid:${pid}:editors`)),
++   			db.deleteAll(pids.map(pid => ``)),
+
+[Survived] StringLiteral
+src/posts/delete.js:89:22
+-   		plugins.hooks.fire('action:posts.purge', { posts: postData, uid: uid });
++   		plugins.hooks.fire("", { posts: postData, uid: uid });
+
+[Survived] ObjectLiteral
+src/posts/delete.js:89:44
+-   		plugins.hooks.fire('action:posts.purge', { posts: postData, uid: uid });
++   		plugins.hooks.fire('action:posts.purge', {});
+
+[Survived] ArrowFunction
+src/posts/delete.js:91:35
+-   		await db.deleteAll(postData.map(p => `post:${p.pid}`));
++   		await db.deleteAll(postData.map(() => undefined));
+
+[Survived] StringLiteral
+src/posts/delete.js:91:40
+-   		await db.deleteAll(postData.map(p => `post:${p.pid}`));
++   		await db.deleteAll(postData.map(p => ``));
+
+[Survived] BlockStatement
+src/posts/delete.js:94:59
+-   	async function deleteFromTopicUserNotification(postData) {
+-   		const bulkRemove = [];
+-   		postData.forEach((p) => {
+-   			bulkRemove.push([`tid:${p.tid}:posts`, p.pid]);
+-   			bulkRemove.push([`tid:${p.tid}:posts:votes`, p.pid]);
+-   			bulkRemove.push([`uid:${p.uid}:posts`, p.pid]);
+-   			bulkRemove.push([`cid:${p.cid}:uid:${p.uid}:pids`, p.pid]);
+-   			bulkRemove.push([`cid:${p.cid}:uid:${p.uid}:pids:votes`, p.pid]);
+-   		});
+-   		await db.sortedSetRemoveBulk(bulkRemove);
+-   		const localCount = postData.filter(p => utils.isNumber(p.pid)).length;
+-   		const incrObjectBulk = [['global', { postCount: -localCount }]];
+-   		const postsByCategory = _.groupBy(postData, p => parseInt(p.cid, 10));
+-   		for (const [cid, posts] of Object.entries(postsByCategory)) {
+-   			incrObjectBulk.push([`category:${cid}`, { post_count: -posts.length }]);
+-   		}
+-   		const postsByTopic = _.groupBy(postData, p => String(p.tid));
+-   		const topicPostCountTasks = [];
+-   		const topicTasks = [];
+-   		const zsetIncrBulk = [];
+-   		const tids = [];
+-   		for (const [tid, posts] of Object.entries(postsByTopic)) {
+-   			tids.push(tid);
+-   			incrObjectBulk.push([`topic:${tid}`, { postcount: -posts.length }]);
+-   			if (posts.length && posts[0]) {
+-   				const topicData = posts[0].topic;
+-   				const newPostCount = topicData.postcount - posts.length;
+-   				topicPostCountTasks.push(['topics:posts', newPostCount, tid]);
+-   				if (!topicData.pinned) {
+-   					zsetIncrBulk.push([`cid:${topicData.cid}:tids:posts`, -posts.length, tid]);
+-   				}
+-   			}
+-   			topicTasks.push(topics.updateTeaser(tid));
+-   			topicTasks.push(topics.updateLastPostTimeFromLastPid(tid));
+-   			const postsByUid = _.groupBy(posts, p => parseInt(p.uid, 10));
+-   			for (const [uid, uidPosts] of Object.entries(postsByUid)) {
+-   				zsetIncrBulk.push([`tid:${tid}:posters`, -uidPosts.length, uid]);
+-   			}
+-   			topicTasks.push(db.sortedSetIncrByBulk(zsetIncrBulk));
+-   		}
+-   		await Promise.all([
+-   			db.incrObjectFieldByBulk(incrObjectBulk),
+-   			db.sortedSetAddBulk(topicPostCountTasks),
+-   			...topicTasks,
+-   			user.updatePostCount(_.uniq(postData.map(p => p.uid))),
+-   			notifications.rescind(...postData.map(p => `new_post:tid:${p.tid}:pid:${p.pid}:uid:${p.uid}`)),
+-   		]);
+-   		const tidPosterZsets = tids.map(tid => `tid:${tid}:posters`);
+-   		await db.sortedSetsRemoveRangeByScore(tidPosterZsets, '-inf', 0);
+-   		const posterCounts = await db.sortedSetsCard(tidPosterZsets);
+-   		await db.setObjectBulk(
+-   			tids.map((tid, idx) => (
+-   				[`topic:${tid}`, { postercount: posterCounts[idx] || 0 }]
+-   			))
+-   		);
+-   	}
++   	async function deleteFromTopicUserNotification(postData) {}
+
+[Survived] ArrayDeclaration
+src/posts/delete.js:95:22
+-   		const bulkRemove = [];
++   		const bulkRemove = ["Stryker was here"];
+
+[Survived] BlockStatement
+src/posts/delete.js:96:27
+-   		postData.forEach((p) => {
+-   			bulkRemove.push([`tid:${p.tid}:posts`, p.pid]);
+-   			bulkRemove.push([`tid:${p.tid}:posts:votes`, p.pid]);
+-   			bulkRemove.push([`uid:${p.uid}:posts`, p.pid]);
+-   			bulkRemove.push([`cid:${p.cid}:uid:${p.uid}:pids`, p.pid]);
+-   			bulkRemove.push([`cid:${p.cid}:uid:${p.uid}:pids:votes`, p.pid]);
+-   		});
++   		postData.forEach((p) => {});
+
+[Survived] ArrayDeclaration
+src/posts/delete.js:97:20
+-   			bulkRemove.push([`tid:${p.tid}:posts`, p.pid]);
++   			bulkRemove.push([]);
+
+[Survived] StringLiteral
+src/posts/delete.js:97:21
+-   			bulkRemove.push([`tid:${p.tid}:posts`, p.pid]);
++   			bulkRemove.push([``, p.pid]);
+
+[Survived] ArrayDeclaration
+src/posts/delete.js:98:20
+-   			bulkRemove.push([`tid:${p.tid}:posts:votes`, p.pid]);
++   			bulkRemove.push([]);
+
+[Survived] StringLiteral
+src/posts/delete.js:98:21
+-   			bulkRemove.push([`tid:${p.tid}:posts:votes`, p.pid]);
++   			bulkRemove.push([``, p.pid]);
+
+[Survived] ArrayDeclaration
+src/posts/delete.js:99:20
+-   			bulkRemove.push([`uid:${p.uid}:posts`, p.pid]);
++   			bulkRemove.push([]);
+
+[Survived] StringLiteral
+src/posts/delete.js:99:21
+-   			bulkRemove.push([`uid:${p.uid}:posts`, p.pid]);
++   			bulkRemove.push([``, p.pid]);
+
+[Survived] ArrayDeclaration
+src/posts/delete.js:100:20
+-   			bulkRemove.push([`cid:${p.cid}:uid:${p.uid}:pids`, p.pid]);
++   			bulkRemove.push([]);
+
+[Survived] ArrayDeclaration
+src/posts/delete.js:101:20
+-   			bulkRemove.push([`cid:${p.cid}:uid:${p.uid}:pids:votes`, p.pid]);
++   			bulkRemove.push([]);
+
+[Survived] StringLiteral
+src/posts/delete.js:100:21
+-   			bulkRemove.push([`cid:${p.cid}:uid:${p.uid}:pids`, p.pid]);
++   			bulkRemove.push([``, p.pid]);
+
+[Survived] StringLiteral
+src/posts/delete.js:101:21
+-   			bulkRemove.push([`cid:${p.cid}:uid:${p.uid}:pids:votes`, p.pid]);
++   			bulkRemove.push([``, p.pid]);
+
+[Survived] MethodExpression
+src/posts/delete.js:105:22
+-   		const localCount = postData.filter(p => utils.isNumber(p.pid)).length;
++   		const localCount = postData.length;
+
+[Survived] ArrowFunction
+src/posts/delete.js:105:38
+-   		const localCount = postData.filter(p => utils.isNumber(p.pid)).length;
++   		const localCount = postData.filter(() => undefined).length;
+
+[Survived] ArrayDeclaration
+src/posts/delete.js:106:26
+-   		const incrObjectBulk = [['global', { postCount: -localCount }]];
++   		const incrObjectBulk = [];
+
+[Survived] ArrayDeclaration
+src/posts/delete.js:106:27
+-   		const incrObjectBulk = [['global', { postCount: -localCount }]];
++   		const incrObjectBulk = [[]];
+
+[Survived] StringLiteral
+src/posts/delete.js:106:28
+-   		const incrObjectBulk = [['global', { postCount: -localCount }]];
++   		const incrObjectBulk = [["", { postCount: -localCount }]];
+
+[Survived] ObjectLiteral
+src/posts/delete.js:106:38
+-   		const incrObjectBulk = [['global', { postCount: -localCount }]];
++   		const incrObjectBulk = [['global', {}]];
+
+[Survived] UnaryOperator
+src/posts/delete.js:106:51
+-   		const incrObjectBulk = [['global', { postCount: -localCount }]];
++   		const incrObjectBulk = [['global', { postCount: +localCount }]];
+
+[Survived] ArrowFunction
+src/posts/delete.js:108:47
+-   		const postsByCategory = _.groupBy(postData, p => parseInt(p.cid, 10));
++   		const postsByCategory = _.groupBy(postData, () => undefined);
+
+[Survived] BlockStatement
+src/posts/delete.js:109:63
+-   		for (const [cid, posts] of Object.entries(postsByCategory)) {
+-   			incrObjectBulk.push([`category:${cid}`, { post_count: -posts.length }]);
+-   		}
++   		for (const [cid, posts] of Object.entries(postsByCategory)) {}
+
+[Survived] ArrayDeclaration
+src/posts/delete.js:110:24
+-   			incrObjectBulk.push([`category:${cid}`, { post_count: -posts.length }]);
++   			incrObjectBulk.push([]);
+
+[Survived] StringLiteral
+src/posts/delete.js:110:25
+-   			incrObjectBulk.push([`category:${cid}`, { post_count: -posts.length }]);
++   			incrObjectBulk.push([``, { post_count: -posts.length }]);
+
+[Survived] ObjectLiteral
+src/posts/delete.js:110:44
+-   			incrObjectBulk.push([`category:${cid}`, { post_count: -posts.length }]);
++   			incrObjectBulk.push([`category:${cid}`, {}]);
+
+[Survived] UnaryOperator
+src/posts/delete.js:110:58
+-   			incrObjectBulk.push([`category:${cid}`, { post_count: -posts.length }]);
++   			incrObjectBulk.push([`category:${cid}`, { post_count: +posts.length }]);
+
+[Survived] ArrowFunction
+src/posts/delete.js:113:44
+-   		const postsByTopic = _.groupBy(postData, p => String(p.tid));
++   		const postsByTopic = _.groupBy(postData, () => undefined);
+
+[Survived] ArrayDeclaration
+src/posts/delete.js:114:31
+-   		const topicPostCountTasks = [];
++   		const topicPostCountTasks = ["Stryker was here"];
+
+[Survived] ArrayDeclaration
+src/posts/delete.js:116:24
+-   		const zsetIncrBulk = [];
++   		const zsetIncrBulk = ["Stryker was here"];
+
+[Survived] ArrayDeclaration
+src/posts/delete.js:115:22
+-   		const topicTasks = [];
++   		const topicTasks = ["Stryker was here"];
+
+[Survived] ArrayDeclaration
+src/posts/delete.js:117:16
+-   		const tids = [];
++   		const tids = ["Stryker was here"];
+
+[Survived] BlockStatement
+src/posts/delete.js:118:60
+-   		for (const [tid, posts] of Object.entries(postsByTopic)) {
+-   			tids.push(tid);
+-   			incrObjectBulk.push([`topic:${tid}`, { postcount: -posts.length }]);
+-   			if (posts.length && posts[0]) {
+-   				const topicData = posts[0].topic;
+-   				const newPostCount = topicData.postcount - posts.length;
+-   				topicPostCountTasks.push(['topics:posts', newPostCount, tid]);
+-   				if (!topicData.pinned) {
+-   					zsetIncrBulk.push([`cid:${topicData.cid}:tids:posts`, -posts.length, tid]);
+-   				}
+-   			}
+-   			topicTasks.push(topics.updateTeaser(tid));
+-   			topicTasks.push(topics.updateLastPostTimeFromLastPid(tid));
+-   			const postsByUid = _.groupBy(posts, p => parseInt(p.uid, 10));
+-   			for (const [uid, uidPosts] of Object.entries(postsByUid)) {
+-   				zsetIncrBulk.push([`tid:${tid}:posters`, -uidPosts.length, uid]);
+-   			}
+-   			topicTasks.push(db.sortedSetIncrByBulk(zsetIncrBulk));
+-   		}
++   		for (const [tid, posts] of Object.entries(postsByTopic)) {}
+
+[Survived] ArrayDeclaration
+src/posts/delete.js:120:24
+-   			incrObjectBulk.push([`topic:${tid}`, { postcount: -posts.length }]);
++   			incrObjectBulk.push([]);
+
+[Survived] StringLiteral
+src/posts/delete.js:120:25
+-   			incrObjectBulk.push([`topic:${tid}`, { postcount: -posts.length }]);
++   			incrObjectBulk.push([``, { postcount: -posts.length }]);
+
+[Survived] ObjectLiteral
+src/posts/delete.js:120:41
+-   			incrObjectBulk.push([`topic:${tid}`, { postcount: -posts.length }]);
++   			incrObjectBulk.push([`topic:${tid}`, {}]);
+
+[Survived] UnaryOperator
+src/posts/delete.js:120:54
+-   			incrObjectBulk.push([`topic:${tid}`, { postcount: -posts.length }]);
++   			incrObjectBulk.push([`topic:${tid}`, { postcount: +posts.length }]);
+
+[Survived] ConditionalExpression
+src/posts/delete.js:121:8
+-   			if (posts.length && posts[0]) {
++   			if (true) {
+
+[Survived] ConditionalExpression
+src/posts/delete.js:121:8
+-   			if (posts.length && posts[0]) {
++   			if (false) {
+
+[Survived] LogicalOperator
+src/posts/delete.js:121:8
+-   			if (posts.length && posts[0]) {
++   			if (posts.length || posts[0]) {
+
+[Survived] BlockStatement
+src/posts/delete.js:121:34
+-   			if (posts.length && posts[0]) {
+-   				const topicData = posts[0].topic;
+-   				const newPostCount = topicData.postcount - posts.length;
+-   				topicPostCountTasks.push(['topics:posts', newPostCount, tid]);
+-   				if (!topicData.pinned) {
+-   					zsetIncrBulk.push([`cid:${topicData.cid}:tids:posts`, -posts.length, tid]);
+-   				}
+-   			}
++   			if (posts.length && posts[0]) {}
+
+[Survived] ArithmeticOperator
+src/posts/delete.js:123:26
+-   				const newPostCount = topicData.postcount - posts.length;
++   				const newPostCount = topicData.postcount + posts.length;
+
+[Survived] ArrayDeclaration
+src/posts/delete.js:124:30
+-   				topicPostCountTasks.push(['topics:posts', newPostCount, tid]);
++   				topicPostCountTasks.push([]);
+
+[Survived] StringLiteral
+src/posts/delete.js:124:31
+-   				topicPostCountTasks.push(['topics:posts', newPostCount, tid]);
++   				topicPostCountTasks.push(["", newPostCount, tid]);
+
+[Survived] BooleanLiteral
+src/posts/delete.js:125:9
+-   				if (!topicData.pinned) {
++   				if (topicData.pinned) {
+
+[Survived] ConditionalExpression
+src/posts/delete.js:125:9
+-   				if (!topicData.pinned) {
++   				if (true) {
+
+[Survived] ConditionalExpression
+src/posts/delete.js:125:9
+-   				if (!topicData.pinned) {
++   				if (false) {
+
+[Survived] BlockStatement
+src/posts/delete.js:125:28
+-   				if (!topicData.pinned) {
+-   					zsetIncrBulk.push([`cid:${topicData.cid}:tids:posts`, -posts.length, tid]);
+-   				}
++   				if (!topicData.pinned) {}
+
+[Survived] ArrayDeclaration
+src/posts/delete.js:126:24
+-   					zsetIncrBulk.push([`cid:${topicData.cid}:tids:posts`, -posts.length, tid]);
++   					zsetIncrBulk.push([]);
+
+[Survived] StringLiteral
+src/posts/delete.js:126:25
+-   					zsetIncrBulk.push([`cid:${topicData.cid}:tids:posts`, -posts.length, tid]);
++   					zsetIncrBulk.push([``, -posts.length, tid]);
+
+[Survived] UnaryOperator
+src/posts/delete.js:126:60
+-   					zsetIncrBulk.push([`cid:${topicData.cid}:tids:posts`, -posts.length, tid]);
++   					zsetIncrBulk.push([`cid:${topicData.cid}:tids:posts`, +posts.length, tid]);
+
+[Survived] ArrowFunction
+src/posts/delete.js:131:40
+-   			const postsByUid = _.groupBy(posts, p => parseInt(p.uid, 10));
++   			const postsByUid = _.groupBy(posts, () => undefined);
+
+[Survived] BlockStatement
+src/posts/delete.js:132:62
+-   			for (const [uid, uidPosts] of Object.entries(postsByUid)) {
+-   				zsetIncrBulk.push([`tid:${tid}:posters`, -uidPosts.length, uid]);
+-   			}
++   			for (const [uid, uidPosts] of Object.entries(postsByUid)) {}
+
+[Survived] ArrayDeclaration
+src/posts/delete.js:133:23
+-   				zsetIncrBulk.push([`tid:${tid}:posters`, -uidPosts.length, uid]);
++   				zsetIncrBulk.push([]);
+
+[Survived] UnaryOperator
+src/posts/delete.js:133:46
+-   				zsetIncrBulk.push([`tid:${tid}:posters`, -uidPosts.length, uid]);
++   				zsetIncrBulk.push([`tid:${tid}:posters`, +uidPosts.length, uid]);
+
+[Survived] StringLiteral
+src/posts/delete.js:133:24
+-   				zsetIncrBulk.push([`tid:${tid}:posters`, -uidPosts.length, uid]);
++   				zsetIncrBulk.push([``, -uidPosts.length, uid]);
+
+[Survived] ArrayDeclaration
+src/posts/delete.js:138:21
+-   		await Promise.all([
+-   			db.incrObjectFieldByBulk(incrObjectBulk),
+-   			db.sortedSetAddBulk(topicPostCountTasks),
+-   			...topicTasks,
+-   			user.updatePostCount(_.uniq(postData.map(p => p.uid))),
+-   			notifications.rescind(...postData.map(p => `new_post:tid:${p.tid}:pid:${p.pid}:uid:${p.uid}`)),
+-   		]);
++   		await Promise.all([]);
+
+[Survived] ArrowFunction
+src/posts/delete.js:142:45
+-   			user.updatePostCount(_.uniq(postData.map(p => p.uid))),
++   			user.updatePostCount(_.uniq(postData.map(() => undefined))),
+
+[Survived] ArrowFunction
+src/posts/delete.js:143:42
+-   			notifications.rescind(...postData.map(p => `new_post:tid:${p.tid}:pid:${p.pid}:uid:${p.uid}`)),
++   			notifications.rescind(...postData.map(() => undefined)),
+
+[Survived] StringLiteral
+src/posts/delete.js:143:47
+-   			notifications.rescind(...postData.map(p => `new_post:tid:${p.tid}:pid:${p.pid}:uid:${p.uid}`)),
++   			notifications.rescind(...postData.map(p => ``)),
+
+[Survived] ArrowFunction
+src/posts/delete.js:145:35
+-   		const tidPosterZsets = tids.map(tid => `tid:${tid}:posters`);
++   		const tidPosterZsets = tids.map(() => undefined);
+
+[Survived] StringLiteral
+src/posts/delete.js:145:42
+-   		const tidPosterZsets = tids.map(tid => `tid:${tid}:posters`);
++   		const tidPosterZsets = tids.map(tid => ``);
+
+[Survived] StringLiteral
+src/posts/delete.js:146:57
+-   		await db.sortedSetsRemoveRangeByScore(tidPosterZsets, '-inf', 0);
++   		await db.sortedSetsRemoveRangeByScore(tidPosterZsets, "", 0);
+
+[Survived] ArrowFunction
+src/posts/delete.js:149:13
+-   			tids.map((tid, idx) => (
+-   				[`topic:${tid}`, { postercount: posterCounts[idx] || 0 }]
+-   			))
++   			tids.map(() => undefined)
+
+[Survived] ArrayDeclaration
+src/posts/delete.js:150:5
+-   				[`topic:${tid}`, { postercount: posterCounts[idx] || 0 }]
++   				[]
+
+[Survived] StringLiteral
+src/posts/delete.js:150:6
+-   				[`topic:${tid}`, { postercount: posterCounts[idx] || 0 }]
++   				[``, { postercount: posterCounts[idx] || 0 }]
+
+[Survived] ObjectLiteral
+src/posts/delete.js:150:22
+-   				[`topic:${tid}`, { postercount: posterCounts[idx] || 0 }]
++   				[`topic:${tid}`, {}]
+
+[Survived] ConditionalExpression
+src/posts/delete.js:150:37
+-   				[`topic:${tid}`, { postercount: posterCounts[idx] || 0 }]
++   				[`topic:${tid}`, { postercount: true }]
+
+[Survived] ConditionalExpression
+src/posts/delete.js:150:37
+-   				[`topic:${tid}`, { postercount: posterCounts[idx] || 0 }]
++   				[`topic:${tid}`, { postercount: false }]
+
+[Survived] LogicalOperator
+src/posts/delete.js:150:37
+-   				[`topic:${tid}`, { postercount: posterCounts[idx] || 0 }]
++   				[`topic:${tid}`, { postercount: posterCounts[idx] && 0 }]
+
+[Survived] BlockStatement
+src/posts/delete.js:155:57
+-   	async function deleteFromCategoryRecentPosts(postData) {
+-   		const uniqCids = _.uniq(postData.map(p => p.cid));
+-   		const sets = uniqCids.map(cid => `cid:${cid}:pids`);
+-   		await db.sortedSetRemove(sets, postData.map(p => p.pid));
+-   		await Promise.all(uniqCids.map(categories.updateRecentTidForCid));
+-   	}
++   	async function deleteFromCategoryRecentPosts(postData) {}
+
+[Survived] ArrowFunction
+src/posts/delete.js:156:40
+-   		const uniqCids = _.uniq(postData.map(p => p.cid));
++   		const uniqCids = _.uniq(postData.map(() => undefined));
+
+[Survived] ArrowFunction
+src/posts/delete.js:157:29
+-   		const sets = uniqCids.map(cid => `cid:${cid}:pids`);
++   		const sets = uniqCids.map(() => undefined);
+
+[Survived] StringLiteral
+src/posts/delete.js:157:36
+-   		const sets = uniqCids.map(cid => `cid:${cid}:pids`);
++   		const sets = uniqCids.map(cid => ``);
+
+[Survived] ArrowFunction
+src/posts/delete.js:158:47
+-   		await db.sortedSetRemove(sets, postData.map(p => p.pid));
++   		await db.sortedSetRemove(sets, postData.map(() => undefined));
+
+[Survived] BlockStatement
+src/posts/delete.js:162:48
+-   	async function deleteFromUsersBookmarks(pids) {
+-   		const arrayOfUids = await db.getSetsMembers(pids.map(pid => `pid:${pid}:users_bookmarked`));
+-   		const bulkRemove = [];
+-   		pids.forEach((pid, index) => {
+-   			arrayOfUids[index].forEach((uid) => {
+-   				bulkRemove.push([`uid:${uid}:bookmarks`, pid]);
+-   			});
+-   		});
+-   		await db.sortedSetRemoveBulk(bulkRemove);
+-   		await db.deleteAll(pids.map(pid => `pid:${pid}:users_bookmarked`));
+-   	}
++   	async function deleteFromUsersBookmarks(pids) {}
+
+[Survived] StringLiteral
+src/posts/delete.js:163:63
+-   		const arrayOfUids = await db.getSetsMembers(pids.map(pid => `pid:${pid}:users_bookmarked`));
++   		const arrayOfUids = await db.getSetsMembers(pids.map(pid => ``));
+
+[Survived] ArrowFunction
+src/posts/delete.js:163:56
+-   		const arrayOfUids = await db.getSetsMembers(pids.map(pid => `pid:${pid}:users_bookmarked`));
++   		const arrayOfUids = await db.getSetsMembers(pids.map(() => undefined));
+
+[Survived] ArrayDeclaration
+src/posts/delete.js:164:22
+-   		const bulkRemove = [];
++   		const bulkRemove = ["Stryker was here"];
+
+[Survived] BlockStatement
+src/posts/delete.js:165:32
+-   		pids.forEach((pid, index) => {
+-   			arrayOfUids[index].forEach((uid) => {
+-   				bulkRemove.push([`uid:${uid}:bookmarks`, pid]);
+-   			});
+-   		});
++   		pids.forEach((pid, index) => {});
+
+[Survived] BlockStatement
+src/posts/delete.js:166:40
+-   			arrayOfUids[index].forEach((uid) => {
+-   				bulkRemove.push([`uid:${uid}:bookmarks`, pid]);
+-   			});
++   			arrayOfUids[index].forEach((uid) => {});
+
+[Survived] ArrayDeclaration
+src/posts/delete.js:167:21
+-   				bulkRemove.push([`uid:${uid}:bookmarks`, pid]);
++   				bulkRemove.push([]);
+
+[Survived] StringLiteral
+src/posts/delete.js:167:22
+-   				bulkRemove.push([`uid:${uid}:bookmarks`, pid]);
++   				bulkRemove.push([``, pid]);
+
+[Survived] ArrowFunction
+src/posts/delete.js:171:31
+-   		await db.deleteAll(pids.map(pid => `pid:${pid}:users_bookmarked`));
++   		await db.deleteAll(pids.map(() => undefined));
+
+[Survived] StringLiteral
+src/posts/delete.js:171:38
+-   		await db.deleteAll(pids.map(pid => `pid:${pid}:users_bookmarked`));
++   		await db.deleteAll(pids.map(pid => ``));
+
+[Survived] BlockStatement
+src/posts/delete.js:174:44
+-   	async function deleteFromUsersVotes(pids) {
+-   		const [upvoters, downvoters] = await Promise.all([
+-   			db.getSetsMembers(pids.map(pid => `pid:${pid}:upvote`)),
+-   			db.getSetsMembers(pids.map(pid => `pid:${pid}:downvote`)),
+-   		]);
+-   		const bulkRemove = [];
+-   		pids.forEach((pid, index) => {
+-   			upvoters[index].forEach((upvoterUid) => {
+-   				bulkRemove.push([`uid:${upvoterUid}:upvote`, pid]);
+-   			});
+-   			downvoters[index].forEach((downvoterUid) => {
+-   				bulkRemove.push([`uid:${downvoterUid}:downvote`, pid]);
+-   			});
+-   		});
+-   		await Promise.all([
+-   			db.sortedSetRemoveBulk(bulkRemove),
+-   			db.deleteAll([
+-   				...pids.map(pid => `pid:${pid}:upvote`),
+-   				...pids.map(pid => `pid:${pid}:downvote`),
+-   			]),
+-   		]);
+-   	}
++   	async function deleteFromUsersVotes(pids) {}
+
+[Survived] ArrayDeclaration
+src/posts/delete.js:175:52
+-   		const [upvoters, downvoters] = await Promise.all([
+-   			db.getSetsMembers(pids.map(pid => `pid:${pid}:upvote`)),
+-   			db.getSetsMembers(pids.map(pid => `pid:${pid}:downvote`)),
+-   		]);
++   		const [upvoters, downvoters] = await Promise.all([]);
+
+[Survived] ArrowFunction
+src/posts/delete.js:176:31
+-   			db.getSetsMembers(pids.map(pid => `pid:${pid}:upvote`)),
++   			db.getSetsMembers(pids.map(() => undefined)),
+
+[Survived] StringLiteral
+src/posts/delete.js:176:38
+-   			db.getSetsMembers(pids.map(pid => `pid:${pid}:upvote`)),
++   			db.getSetsMembers(pids.map(pid => ``)),
+
+[Survived] ArrowFunction
+src/posts/delete.js:177:31
+-   			db.getSetsMembers(pids.map(pid => `pid:${pid}:downvote`)),
++   			db.getSetsMembers(pids.map(() => undefined)),
+
+[Survived] StringLiteral
+src/posts/delete.js:177:38
+-   			db.getSetsMembers(pids.map(pid => `pid:${pid}:downvote`)),
++   			db.getSetsMembers(pids.map(pid => ``)),
+
+[Survived] ArrayDeclaration
+src/posts/delete.js:179:22
+-   		const bulkRemove = [];
++   		const bulkRemove = ["Stryker was here"];
+
+[Survived] BlockStatement
+src/posts/delete.js:180:32
+-   		pids.forEach((pid, index) => {
+-   			upvoters[index].forEach((upvoterUid) => {
+-   				bulkRemove.push([`uid:${upvoterUid}:upvote`, pid]);
+-   			});
+-   			downvoters[index].forEach((downvoterUid) => {
+-   				bulkRemove.push([`uid:${downvoterUid}:downvote`, pid]);
+-   			});
+-   		});
++   		pids.forEach((pid, index) => {});
+
+[Survived] BlockStatement
+src/posts/delete.js:181:44
+-   			upvoters[index].forEach((upvoterUid) => {
+-   				bulkRemove.push([`uid:${upvoterUid}:upvote`, pid]);
+-   			});
++   			upvoters[index].forEach((upvoterUid) => {});
+
+[Survived] ArrayDeclaration
+src/posts/delete.js:182:21
+-   				bulkRemove.push([`uid:${upvoterUid}:upvote`, pid]);
++   				bulkRemove.push([]);
+
+[Survived] StringLiteral
+src/posts/delete.js:182:22
+-   				bulkRemove.push([`uid:${upvoterUid}:upvote`, pid]);
++   				bulkRemove.push([``, pid]);
+
+[Survived] BlockStatement
+src/posts/delete.js:184:48
+-   			downvoters[index].forEach((downvoterUid) => {
+-   				bulkRemove.push([`uid:${downvoterUid}:downvote`, pid]);
+-   			});
++   			downvoters[index].forEach((downvoterUid) => {});
+
+[Survived] StringLiteral
+src/posts/delete.js:185:22
+-   				bulkRemove.push([`uid:${downvoterUid}:downvote`, pid]);
++   				bulkRemove.push([``, pid]);
+
+[Survived] ArrayDeclaration
+src/posts/delete.js:185:21
+-   				bulkRemove.push([`uid:${downvoterUid}:downvote`, pid]);
++   				bulkRemove.push([]);
+
+[Survived] ArrayDeclaration
+src/posts/delete.js:189:21
+-   		await Promise.all([
+-   			db.sortedSetRemoveBulk(bulkRemove),
+-   			db.deleteAll([
+-   				...pids.map(pid => `pid:${pid}:upvote`),
+-   				...pids.map(pid => `pid:${pid}:downvote`),
+-   			]),
+-   		]);
++   		await Promise.all([]);
+
+[Survived] ArrayDeclaration
+src/posts/delete.js:191:17
+-   			db.deleteAll([
+-   				...pids.map(pid => `pid:${pid}:upvote`),
+-   				...pids.map(pid => `pid:${pid}:downvote`),
+-   			]),
++   			db.deleteAll([]),
+
+[Survived] ArrowFunction
+src/posts/delete.js:192:17
+-   				...pids.map(pid => `pid:${pid}:upvote`),
++   				...pids.map(() => undefined),
+
+[Survived] StringLiteral
+src/posts/delete.js:192:24
+-   				...pids.map(pid => `pid:${pid}:upvote`),
++   				...pids.map(pid => ``),
+
+[Survived] ArrowFunction
+src/posts/delete.js:193:17
+-   				...pids.map(pid => `pid:${pid}:downvote`),
++   				...pids.map(() => undefined),
+
+[Survived] StringLiteral
+src/posts/delete.js:193:24
+-   				...pids.map(pid => `pid:${pid}:downvote`),
++   				...pids.map(pid => ``),
+
+[Survived] BlockStatement
+src/posts/delete.js:198:45
+-   	async function deleteFromReplies(postData) {
+-   		const arrayOfReplyPids = await db.getSortedSetsMembers(postData.map(p => `pid:${p.pid}:replies`));
+-   		const allReplyPids = _.flatten(arrayOfReplyPids);
+-   		const promises = [
+-   			db.deleteObjectFields(
+-   				allReplyPids.map(pid => `post:${pid}`), ['toPid']
+-   			),
+-   			db.deleteAll(postData.map(p => `pid:${p.pid}:replies`)),
+-   		];
+-   		const postsWithParents = postData.filter(p => parseInt(p.toPid, 10));
+-   		const bulkRemove = postsWithParents.map(p => [`pid:${p.toPid}:replies`, p.pid]);
+-   		promises.push(db.sortedSetRemoveBulk(bulkRemove));
+-   		await Promise.all(promises);
+-   		const parentPids = _.uniq(postsWithParents.map(p => p.toPid));
+-   		const counts = await db.sortedSetsCard(parentPids.map(pid => `pid:${pid}:replies`));
+-   		await db.setObjectBulk(parentPids.map((pid, index) => [`post:${pid}`, { replies: counts[index] }]));
+-   	}
++   	async function deleteFromReplies(postData) {}
+
+[Survived] ArrowFunction
+src/posts/delete.js:199:71
+-   		const arrayOfReplyPids = await db.getSortedSetsMembers(postData.map(p => `pid:${p.pid}:replies`));
++   		const arrayOfReplyPids = await db.getSortedSetsMembers(postData.map(() => undefined));
+
+[Survived] StringLiteral
+src/posts/delete.js:199:76
+-   		const arrayOfReplyPids = await db.getSortedSetsMembers(postData.map(p => `pid:${p.pid}:replies`));
++   		const arrayOfReplyPids = await db.getSortedSetsMembers(postData.map(p => ``));
+
+[Survived] ArrayDeclaration
+src/posts/delete.js:201:20
+-   		const promises = [
+-   			db.deleteObjectFields(
+-   				allReplyPids.map(pid => `post:${pid}`), ['toPid']
+-   			),
+-   			db.deleteAll(postData.map(p => `pid:${p.pid}:replies`)),
+-   		];
++   		const promises = [];
+
+[Survived] ArrowFunction
+src/posts/delete.js:203:22
+-   				allReplyPids.map(pid => `post:${pid}`), ['toPid']
++   				allReplyPids.map(() => undefined), ['toPid']
+
+[Survived] StringLiteral
+src/posts/delete.js:203:29
+-   				allReplyPids.map(pid => `post:${pid}`), ['toPid']
++   				allReplyPids.map(pid => ``), ['toPid']
+
+[Survived] StringLiteral
+src/posts/delete.js:203:46
+-   				allReplyPids.map(pid => `post:${pid}`), ['toPid']
++   				allReplyPids.map(pid => `post:${pid}`), [""]
+
+[Survived] ArrayDeclaration
+src/posts/delete.js:203:45
+-   				allReplyPids.map(pid => `post:${pid}`), ['toPid']
++   				allReplyPids.map(pid => `post:${pid}`), []
+
+[Survived] ArrowFunction
+src/posts/delete.js:205:30
+-   			db.deleteAll(postData.map(p => `pid:${p.pid}:replies`)),
++   			db.deleteAll(postData.map(() => undefined)),
+
+[Survived] StringLiteral
+src/posts/delete.js:205:35
+-   			db.deleteAll(postData.map(p => `pid:${p.pid}:replies`)),
++   			db.deleteAll(postData.map(p => ``)),
+
+[Survived] MethodExpression
+src/posts/delete.js:208:28
+-   		const postsWithParents = postData.filter(p => parseInt(p.toPid, 10));
++   		const postsWithParents = postData;
+
+[Survived] ArrowFunction
+src/posts/delete.js:208:44
+-   		const postsWithParents = postData.filter(p => parseInt(p.toPid, 10));
++   		const postsWithParents = postData.filter(() => undefined);
+
+[Survived] ArrowFunction
+src/posts/delete.js:209:43
+-   		const bulkRemove = postsWithParents.map(p => [`pid:${p.toPid}:replies`, p.pid]);
++   		const bulkRemove = postsWithParents.map(() => undefined);
+
+[Survived] ArrayDeclaration
+src/posts/delete.js:209:48
+-   		const bulkRemove = postsWithParents.map(p => [`pid:${p.toPid}:replies`, p.pid]);
++   		const bulkRemove = postsWithParents.map(p => []);
+
+[Survived] StringLiteral
+src/posts/delete.js:209:49
+-   		const bulkRemove = postsWithParents.map(p => [`pid:${p.toPid}:replies`, p.pid]);
++   		const bulkRemove = postsWithParents.map(p => [``, p.pid]);
+
+[Survived] ArrowFunction
+src/posts/delete.js:213:50
+-   		const parentPids = _.uniq(postsWithParents.map(p => p.toPid));
++   		const parentPids = _.uniq(postsWithParents.map(() => undefined));
+
+[Survived] ArrowFunction
+src/posts/delete.js:214:57
+-   		const counts = await db.sortedSetsCard(parentPids.map(pid => `pid:${pid}:replies`));
++   		const counts = await db.sortedSetsCard(parentPids.map(() => undefined));
+
+[Survived] StringLiteral
+src/posts/delete.js:214:64
+-   		const counts = await db.sortedSetsCard(parentPids.map(pid => `pid:${pid}:replies`));
++   		const counts = await db.sortedSetsCard(parentPids.map(pid => ``));
+
+[Survived] ArrowFunction
+src/posts/delete.js:215:41
+-   		await db.setObjectBulk(parentPids.map((pid, index) => [`post:${pid}`, { replies: counts[index] }]));
++   		await db.setObjectBulk(parentPids.map(() => undefined));
+
+[Survived] ArrayDeclaration
+src/posts/delete.js:215:57
+-   		await db.setObjectBulk(parentPids.map((pid, index) => [`post:${pid}`, { replies: counts[index] }]));
++   		await db.setObjectBulk(parentPids.map((pid, index) => []));
+
+[Survived] StringLiteral
+src/posts/delete.js:215:58
+-   		await db.setObjectBulk(parentPids.map((pid, index) => [`post:${pid}`, { replies: counts[index] }]));
++   		await db.setObjectBulk(parentPids.map((pid, index) => [``, { replies: counts[index] }]));
+
+[Survived] ObjectLiteral
+src/posts/delete.js:215:73
+-   		await db.setObjectBulk(parentPids.map((pid, index) => [`post:${pid}`, { replies: counts[index] }]));
++   		await db.setObjectBulk(parentPids.map((pid, index) => [`post:${pid}`, {}]));
+
+[Survived] BlockStatement
+src/posts/delete.js:218:40
+-   	async function deleteFromGroups(pids) {
+-   		const groupNames = await db.getSortedSetMembers('groups:visible:createtime');
+-   		const keys = groupNames.map(groupName => `group:${groupName}:member:pids`);
+-   		await db.sortedSetRemove(keys, pids);
+-   	}
++   	async function deleteFromGroups(pids) {}
+
+[Survived] StringLiteral
+src/posts/delete.js:219:51
+-   		const groupNames = await db.getSortedSetMembers('groups:visible:createtime');
++   		const groupNames = await db.getSortedSetMembers("");
+
+[Survived] ArrowFunction
+src/posts/delete.js:220:31
+-   		const keys = groupNames.map(groupName => `group:${groupName}:member:pids`);
++   		const keys = groupNames.map(() => undefined);
+
+[Survived] BlockStatement
+src/posts/delete.js:224:35
+-   	async function deleteDiffs(pids) {
+-   		const timestamps = await Promise.all(pids.map(pid => Posts.diffs.list(pid)));
+-   		await db.deleteAll([
+-   			...pids.map(pid => `post:${pid}:diffs`),
+-   			..._.flattenDeep(pids.map((pid, index) => timestamps[index].map(t => `diff:${pid}.${t}`))),
+-   		]);
+-   	}
++   	async function deleteDiffs(pids) {}
+
+[Survived] StringLiteral
+src/posts/delete.js:220:44
+-   		const keys = groupNames.map(groupName => `group:${groupName}:member:pids`);
++   		const keys = groupNames.map(groupName => ``);
+
+[Survived] ArrowFunction
+src/posts/delete.js:225:49
+-   		const timestamps = await Promise.all(pids.map(pid => Posts.diffs.list(pid)));
++   		const timestamps = await Promise.all(pids.map(() => undefined));
+
+[Survived] ArrayDeclaration
+src/posts/delete.js:226:22
+-   		await db.deleteAll([
+-   			...pids.map(pid => `post:${pid}:diffs`),
+-   			..._.flattenDeep(pids.map((pid, index) => timestamps[index].map(t => `diff:${pid}.${t}`))),
+-   		]);
++   		await db.deleteAll([]);
+
+[Survived] StringLiteral
+src/posts/delete.js:227:23
+-   			...pids.map(pid => `post:${pid}:diffs`),
++   			...pids.map(pid => ``),
+
+[Survived] ArrowFunction
+src/posts/delete.js:227:16
+-   			...pids.map(pid => `post:${pid}:diffs`),
++   			...pids.map(() => undefined),
+
+[Survived] ArrowFunction
+src/posts/delete.js:228:30
+-   			..._.flattenDeep(pids.map((pid, index) => timestamps[index].map(t => `diff:${pid}.${t}`))),
++   			..._.flattenDeep(pids.map(() => undefined)),
+
+[Survived] ArrowFunction
+src/posts/delete.js:228:68
+-   			..._.flattenDeep(pids.map((pid, index) => timestamps[index].map(t => `diff:${pid}.${t}`))),
++   			..._.flattenDeep(pids.map((pid, index) => timestamps[index].map(() => undefined))),
+
+[Survived] StringLiteral
+src/posts/delete.js:228:73
+-   			..._.flattenDeep(pids.map((pid, index) => timestamps[index].map(t => `diff:${pid}.${t}`))),
++   			..._.flattenDeep(pids.map((pid, index) => timestamps[index].map(t => ``))),
+
+[Survived] BlockStatement
+src/posts/delete.js:232:41
+-   	async function deleteFromUploads(pids) {
+-   		await Promise.all(pids.map(Posts.uploads.dissociateAll));
+-   	}
++   	async function deleteFromUploads(pids) {}
+
+[Survived] BlockStatement
+src/posts/delete.js:236:45
+-   	async function resolveFlags(postData, uid) {
+-   		const flaggedPosts = postData.filter(p => p && parseInt(p.flagId, 10));
+-   		await Promise.all(flaggedPosts.map(p => flags.update(p.flagId, uid, { state: 'resolved' })));
+-   	}
++   	async function resolveFlags(postData, uid) {}
+
+[Survived] MethodExpression
+src/posts/delete.js:237:24
+-   		const flaggedPosts = postData.filter(p => p && parseInt(p.flagId, 10));
++   		const flaggedPosts = postData;
+
+[Survived] ArrowFunction
+src/posts/delete.js:237:40
+-   		const flaggedPosts = postData.filter(p => p && parseInt(p.flagId, 10));
++   		const flaggedPosts = postData.filter(() => undefined);
+
+[Survived] ConditionalExpression
+src/posts/delete.js:237:45
+-   		const flaggedPosts = postData.filter(p => p && parseInt(p.flagId, 10));
++   		const flaggedPosts = postData.filter(p => true);
+
+[Survived] ConditionalExpression
+src/posts/delete.js:237:45
+-   		const flaggedPosts = postData.filter(p => p && parseInt(p.flagId, 10));
++   		const flaggedPosts = postData.filter(p => false);
+
+[Survived] LogicalOperator
+src/posts/delete.js:237:45
+-   		const flaggedPosts = postData.filter(p => p && parseInt(p.flagId, 10));
++   		const flaggedPosts = postData.filter(p => p || parseInt(p.flagId, 10));
+
+[Survived] ArrowFunction
+src/posts/delete.js:238:38
+-   		await Promise.all(flaggedPosts.map(p => flags.update(p.flagId, uid, { state: 'resolved' })));
++   		await Promise.all(flaggedPosts.map(() => undefined));
+
+[Survived] ObjectLiteral
+src/posts/delete.js:238:71
+-   		await Promise.all(flaggedPosts.map(p => flags.update(p.flagId, uid, { state: 'resolved' })));
++   		await Promise.all(flaggedPosts.map(p => flags.update(p.flagId, uid, {})));
+
+[Survived] StringLiteral
+src/posts/delete.js:238:80
+-   		await Promise.all(flaggedPosts.map(p => flags.update(p.flagId, uid, { state: 'resolved' })));
++   		await Promise.all(flaggedPosts.map(p => flags.update(p.flagId, uid, { state: "" })));
+
+Ran 1.00 tests per mutant on average.
+-----------|------------------|----------|-----------|------------|----------|----------|
+           | % Mutation score |          |           |            |          |          |
+File       |  total | covered | # killed | # timeout | # survived | # no cov | # errors |
+-----------|--------|---------|----------|-----------|------------|----------|----------|
+All files  |   0.00 |    0.00 |        0 |         0 |        433 |        0 |        0 |
+ create.js |   0.00 |    0.00 |        0 |         0 |        131 |        0 |        0 |
+ data.js   |   0.00 |    0.00 |        0 |         0 |         84 |        0 |        0 |
+ delete.js |   0.00 |    0.00 |        0 |         0 |        218 |        0 |        0 |
+-----------|--------|---------|----------|-----------|------------|----------|----------|
+[32m22:45:25 (26768) INFO HtmlReporter[39m Your report can be found at: file:///workspaces/nodebb-fall-2025-piplup-party/reports/mutation/html/index.html
+[32m22:45:25 (26768) INFO MutationTestExecutor[39m Done in 15 seconds.
