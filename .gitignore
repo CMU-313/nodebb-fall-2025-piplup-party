@@ -67,8 +67,14 @@ coverage
 *.log
 test/files/normalise.jpg.png
 test/files/normalise-resized.jpg
-package-lock.json
-/package.json
+# Ignore all package.json and package-lock.json except the ones in root
+**/package.json
+**/package-lock.json
+
+# Re-include the root ones
+!/package.json
+!/package-lock.json
+
 *.mongodb
 link-plugins.sh
 test.sh
