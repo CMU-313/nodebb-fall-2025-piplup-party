@@ -1,0 +1,1000 @@
+src/activitypub/actors.js: line 1, col 1, Use the function form of "use strict".
+src/activitypub/actors.js: line 3, col 1, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/actors.js: line 4, col 1, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/actors.js: line 5, col 1, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/actors.js: line 7, col 1, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/actors.js: line 8, col 1, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/actors.js: line 9, col 1, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/actors.js: line 10, col 1, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/actors.js: line 11, col 1, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/actors.js: line 12, col 1, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/actors.js: line 13, col 1, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/actors.js: line 14, col 1, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/actors.js: line 16, col 1, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/actors.js: line 21, col 1, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/actors.js: line 23, col 1, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/actors.js: line 25, col 18, 'async functions' is only available in ES8 (use 'esversion: 8').
+src/activitypub/actors.js: line 25, col 38, 'default parameters' is only available in ES6 (use 'esversion: 6').
+src/activitypub/actors.js: line 25, col 42, 'arrow function syntax (=>)' is only available in ES6 (use 'esversion: 6').
+src/activitypub/actors.js: line 41, col 21, 'arrow function syntax (=>)' is only available in ES6 (use 'esversion: 6').
+src/activitypub/actors.js: line 46, col 25, 'arrow function syntax (=>)' is only available in ES6 (use 'esversion: 6').
+src/activitypub/actors.js: line 49, col 38, 'async functions' is only available in ES8 (use 'esversion: 8').
+src/activitypub/actors.js: line 49, col 47, 'arrow function syntax (=>)' is only available in ES6 (use 'esversion: 6').
+src/activitypub/actors.js: line 50, col 9, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/actors.js: line 52, col 13, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/actors.js: line 57, col 14, 'destructuring assignment' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/actors.js: line 74, col 30, 'arrow function syntax (=>)' is only available in ES6 (use 'esversion: 6').
+src/activitypub/actors.js: line 78, col 5, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/actors.js: line 80, col 9, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/actors.js: line 80, col 54, 'template literal syntax' is only available in ES6 (use 'esversion: 6').
+src/activitypub/actors.js: line 80, col 51, 'arrow function syntax (=>)' is only available in ES6 (use 'esversion: 6').
+src/activitypub/actors.js: line 81, col 29, 'arrow function syntax (=>)' is only available in ES6 (use 'esversion: 6').
+src/activitypub/actors.js: line 90, col 9, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/actors.js: line 91, col 9, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/actors.js: line 91, col 92, 'arrow function syntax (=>)' is only available in ES6 (use 'esversion: 6').
+src/activitypub/actors.js: line 92, col 34, 'arrow function syntax (=>)' is only available in ES6 (use 'esversion: 6').
+src/activitypub/actors.js: line 93, col 13, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/actors.js: line 101, col 17, 'async functions' is only available in ES8 (use 'esversion: 8').
+src/activitypub/actors.js: line 101, col 37, 'default parameters' is only available in ES6 (use 'esversion: 6').
+src/activitypub/actors.js: line 101, col 41, 'arrow function syntax (=>)' is only available in ES6 (use 'esversion: 6').
+src/activitypub/actors.js: line 117, col 29, 'template literal syntax' is only available in ES6 (use 'esversion: 6').
+src/activitypub/actors.js: line 121, col 5, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/actors.js: line 122, col 5, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/actors.js: line 123, col 5, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/actors.js: line 124, col 5, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/actors.js: line 125, col 5, 'let' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/actors.js: line 125, col 44, 'async functions' is only available in ES8 (use 'esversion: 8').
+src/activitypub/actors.js: line 125, col 53, 'arrow function syntax (=>)' is only available in ES6 (use 'esversion: 6').
+src/activitypub/actors.js: line 127, col 37, 'template literal syntax' is only available in ES6 (use 'esversion: 6').
+src/activitypub/actors.js: line 128, col 13, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/actors.js: line 131, col 13, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/actors.js: line 131, col 13, 'destructuring binding' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/actors.js: line 132, col 13, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/actors.js: line 132, col 13, 'destructuring binding' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/actors.js: line 132, col 79, 'template literal syntax' is only available in ES6 (use 'esversion: 6').
+src/activitypub/actors.js: line 137, col 13, 'let' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/actors.js: line 139, col 47, 'arrow function syntax (=>)' is only available in ES6 (use 'esversion: 6').
+src/activitypub/actors.js: line 140, col 53, 'arrow function syntax (=>)' is only available in ES6 (use 'esversion: 6').
+src/activitypub/actors.js: line 152, col 71, 'arrow function syntax (=>)' is only available in ES6 (use 'esversion: 6').
+src/activitypub/actors.js: line 159, col 17, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/actors.js: line 159, col 17, 'destructuring binding' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/actors.js: line 167, col 41, 'template literal syntax' is only available in ES6 (use 'esversion: 6').
+src/activitypub/actors.js: line 171, col 13, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/actors.js: line 187, col 17, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/actors.js: line 206, col 5, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/actors.js: line 207, col 5, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/actors.js: line 209, col 5, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/actors.js: line 209, col 51, 'arrow function syntax (=>)' is only available in ES6 (use 'esversion: 6').
+src/activitypub/actors.js: line 210, col 9, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/actors.js: line 210, col 21, 'template literal syntax' is only available in ES6 (use 'esversion: 6').
+src/activitypub/actors.js: line 211, col 36, 'template literal syntax' is only available in ES6 (use 'esversion: 6').
+src/activitypub/actors.js: line 221, col 5, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/actors.js: line 221, col 90, 'arrow function syntax (=>)' is only available in ES6 (use 'esversion: 6').
+src/activitypub/actors.js: line 222, col 5, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/actors.js: line 222, col 48, 'arrow function syntax (=>)' is only available in ES6 (use 'esversion: 6').
+src/activitypub/actors.js: line 223, col 5, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/actors.js: line 224, col 5, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/actors.js: line 224, col 56, 'arrow function syntax (=>)' is only available in ES6 (use 'esversion: 6').
+src/activitypub/actors.js: line 225, col 9, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/actors.js: line 225, col 9, 'destructuring binding' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/actors.js: line 229, col 72, 'template literal syntax' is only available in ES6 (use 'esversion: 6').
+src/activitypub/actors.js: line 233, col 68, 'template literal syntax' is only available in ES6 (use 'esversion: 6').
+src/activitypub/actors.js: line 239, col 59, 'template literal syntax' is only available in ES6 (use 'esversion: 6').
+src/activitypub/actors.js: line 242, col 55, 'template literal syntax' is only available in ES6 (use 'esversion: 6').
+src/activitypub/actors.js: line 257, col 66, 'arrow function syntax (=>)' is only available in ES6 (use 'esversion: 6').
+src/activitypub/actors.js: line 257, col 92, 'arrow function syntax (=>)' is only available in ES6 (use 'esversion: 6').
+src/activitypub/actors.js: line 264, col 9, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/actors.js: line 268, col 21, 'spread operator' is only available in ES6 (use 'esversion: 6').
+src/activitypub/actors.js: line 268, col 32, 'spread operator' is only available in ES6 (use 'esversion: 6').
+src/activitypub/actors.js: line 277, col 22, 'async functions' is only available in ES8 (use 'esversion: 8').
+src/activitypub/actors.js: line 277, col 42, 'default parameters' is only available in ES6 (use 'esversion: 6').
+src/activitypub/actors.js: line 277, col 46, 'arrow function syntax (=>)' is only available in ES6 (use 'esversion: 6').
+src/activitypub/actors.js: line 290, col 9, 'spread operator' is only available in ES6 (use 'esversion: 6').
+src/activitypub/actors.js: line 290, col 12, 'object spread property' is only available in ES9 (use 'esversion: 9').
+src/activitypub/actors.js: line 296, col 29, 'template literal syntax' is only available in ES6 (use 'esversion: 6').
+src/activitypub/actors.js: line 300, col 5, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/actors.js: line 301, col 5, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/actors.js: line 302, col 5, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/actors.js: line 303, col 5, 'let' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/actors.js: line 303, col 44, 'async functions' is only available in ES8 (use 'esversion: 8').
+src/activitypub/actors.js: line 303, col 53, 'arrow function syntax (=>)' is only available in ES6 (use 'esversion: 6').
+src/activitypub/actors.js: line 305, col 37, 'template literal syntax' is only available in ES6 (use 'esversion: 6').
+src/activitypub/actors.js: line 306, col 13, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/actors.js: line 309, col 13, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/actors.js: line 309, col 13, 'destructuring binding' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/actors.js: line 310, col 13, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/actors.js: line 310, col 13, 'destructuring binding' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/actors.js: line 310, col 79, 'template literal syntax' is only available in ES6 (use 'esversion: 6').
+src/activitypub/actors.js: line 315, col 13, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/actors.js: line 316, col 38, 'arrow function syntax (=>)' is only available in ES6 (use 'esversion: 6').
+src/activitypub/actors.js: line 321, col 71, 'arrow function syntax (=>)' is only available in ES6 (use 'esversion: 6').
+src/activitypub/actors.js: line 327, col 13, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/actors.js: line 343, col 17, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/actors.js: line 355, col 5, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/actors.js: line 356, col 5, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/actors.js: line 358, col 5, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/actors.js: line 358, col 56, 'arrow function syntax (=>)' is only available in ES6 (use 'esversion: 6').
+src/activitypub/actors.js: line 359, col 9, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/actors.js: line 359, col 21, 'template literal syntax' is only available in ES6 (use 'esversion: 6').
+src/activitypub/actors.js: line 360, col 37, 'template literal syntax' is only available in ES6 (use 'esversion: 6').
+src/activitypub/actors.js: line 370, col 5, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/actors.js: line 370, col 94, 'arrow function syntax (=>)' is only available in ES6 (use 'esversion: 6').
+src/activitypub/actors.js: line 371, col 5, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/actors.js: line 371, col 52, 'arrow function syntax (=>)' is only available in ES6 (use 'esversion: 6').
+src/activitypub/actors.js: line 372, col 5, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/actors.js: line 373, col 5, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/actors.js: line 373, col 60, 'arrow function syntax (=>)' is only available in ES6 (use 'esversion: 6').
+src/activitypub/actors.js: line 374, col 9, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/actors.js: line 374, col 9, 'destructuring binding' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/actors.js: line 382, col 56, 'template literal syntax' is only available in ES6 (use 'esversion: 6').
+src/activitypub/actors.js: line 388, col 60, 'template literal syntax' is only available in ES6 (use 'esversion: 6').
+src/activitypub/actors.js: line 391, col 56, 'template literal syntax' is only available in ES6 (use 'esversion: 6').
+src/activitypub/actors.js: line 405, col 64, 'arrow function syntax (=>)' is only available in ES6 (use 'esversion: 6').
+src/activitypub/actors.js: line 405, col 88, 'arrow function syntax (=>)' is only available in ES6 (use 'esversion: 6').
+src/activitypub/actors.js: line 414, col 1, 'async functions' is only available in ES8 (use 'esversion: 8').
+src/activitypub/actors.js: line 416, col 5, 'let' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/actors.js: line 416, col 41, 'arrow function syntax (=>)' is only available in ES6 (use 'esversion: 6').
+src/activitypub/actors.js: line 417, col 5, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/actors.js: line 417, col 45, 'arrow function syntax (=>)' is only available in ES6 (use 'esversion: 6').
+src/activitypub/actors.js: line 418, col 5, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/actors.js: line 419, col 30, 'arrow function syntax (=>)' is only available in ES6 (use 'esversion: 6').
+src/activitypub/actors.js: line 424, col 31, 'async functions' is only available in ES8 (use 'esversion: 8').
+src/activitypub/actors.js: line 424, col 40, 'arrow function syntax (=>)' is only available in ES6 (use 'esversion: 6').
+src/activitypub/actors.js: line 425, col 9, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/actors.js: line 425, col 53, 'template literal syntax' is only available in ES6 (use 'esversion: 6').
+src/activitypub/actors.js: line 426, col 9, 'let' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/actors.js: line 427, col 27, 'arrow function syntax (=>)' is only available in ES6 (use 'esversion: 6').
+src/activitypub/actors.js: line 428, col 38, 'async functions' is only available in ES8 (use 'esversion: 8').
+src/activitypub/actors.js: line 428, col 55, 'arrow function syntax (=>)' is only available in ES6 (use 'esversion: 6').
+src/activitypub/actors.js: line 429, col 13, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/actors.js: line 438, col 9, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/actors.js: line 438, col 66, 'template literal syntax' is only available in ES6 (use 'esversion: 6').
+src/activitypub/actors.js: line 440, col 13, 'template literal syntax' is only available in ES6 (use 'esversion: 6').
+src/activitypub/actors.js: line 441, col 28, 'arrow function syntax (=>)' is only available in ES6 (use 'esversion: 6').
+src/activitypub/actors.js: line 442, col 27, 'destructuring binding' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/actors.js: line 442, col 37, 'arrow function syntax (=>)' is only available in ES6 (use 'esversion: 6').
+src/activitypub/actors.js: line 442, col 48, 'Trailing comma in arguments lists' is only available in ES8 (use 'esversion: 8').
+src/activitypub/actors.js: line 449, col 28, 'async functions' is only available in ES8 (use 'esversion: 8').
+src/activitypub/actors.js: line 449, col 37, 'arrow function syntax (=>)' is only available in ES6 (use 'esversion: 6').
+src/activitypub/actors.js: line 451, col 5, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/actors.js: line 460, col 5, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/actors.js: line 460, col 5, 'destructuring binding' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/actors.js: line 466, col 9, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/actors.js: line 466, col 54, 'template literal syntax' is only available in ES6 (use 'esversion: 6').
+src/activitypub/actors.js: line 468, col 28, 'arrow function syntax (=>)' is only available in ES6 (use 'esversion: 6').
+src/activitypub/actors.js: line 476, col 9, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/actors.js: line 476, col 59, 'template literal syntax' is only available in ES6 (use 'esversion: 6').
+src/activitypub/actors.js: line 477, col 29, 'arrow function syntax (=>)' is only available in ES6 (use 'esversion: 6').
+src/activitypub/actors.js: line 485, col 31, 'async functions' is only available in ES8 (use 'esversion: 8').
+src/activitypub/actors.js: line 485, col 44, 'arrow function syntax (=>)' is only available in ES6 (use 'esversion: 6').
+src/activitypub/actors.js: line 486, col 5, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/actors.js: line 491, col 5, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/actors.js: line 491, col 45, 'arrow function syntax (=>)' is only available in ES6 (use 'esversion: 6').
+src/activitypub/actors.js: line 492, col 5, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/actors.js: line 492, col 51, 'template literal syntax' is only available in ES6 (use 'esversion: 6').
+src/activitypub/actors.js: line 492, col 48, 'arrow function syntax (=>)' is only available in ES6 (use 'esversion: 6').
+src/activitypub/actors.js: line 493, col 5, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/actors.js: line 493, col 52, 'template literal syntax' is only available in ES6 (use 'esversion: 6').
+src/activitypub/actors.js: line 493, col 49, 'arrow function syntax (=>)' is only available in ES6 (use 'esversion: 6').
+src/activitypub/actors.js: line 495, col 5, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/actors.js: line 495, col 5, 'destructuring binding' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/actors.js: line 499, col 5, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/actors.js: line 500, col 16, 'arrow function syntax (=>)' is only available in ES6 (use 'esversion: 6').
+src/activitypub/actors.js: line 502, col 5, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/actors.js: line 502, col 38, 'arrow function syntax (=>)' is only available in ES6 (use 'esversion: 6').
+src/activitypub/actors.js: line 515, col 17, 'async functions' is only available in ES8 (use 'esversion: 8').
+src/activitypub/actors.js: line 515, col 26, 'arrow function syntax (=>)' is only available in ES6 (use 'esversion: 6').
+src/activitypub/actors.js: line 521, col 5, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/actors.js: line 526, col 5, 'let' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/actors.js: line 526, col 5, 'destructuring binding' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/actors.js: line 529, col 5, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/actors.js: line 530, col 41, 'template literal syntax' is only available in ES6 (use 'esversion: 6').
+src/activitypub/actors.js: line 533, col 44, 'template literal syntax' is only available in ES6 (use 'esversion: 6').
+src/activitypub/actors.js: line 541, col 19, 'template literal syntax' is only available in ES6 (use 'esversion: 6').
+src/activitypub/actors.js: line 545, col 19, 'template literal syntax' is only available in ES6 (use 'esversion: 6').
+src/activitypub/actors.js: line 550, col 22, 'async functions' is only available in ES8 (use 'esversion: 8').
+src/activitypub/actors.js: line 550, col 31, 'arrow function syntax (=>)' is only available in ES6 (use 'esversion: 6').
+src/activitypub/actors.js: line 556, col 5, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/actors.js: line 561, col 5, 'let' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/actors.js: line 561, col 5, 'destructuring binding' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/actors.js: line 564, col 5, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/actors.js: line 565, col 29, 'template literal syntax' is only available in ES6 (use 'esversion: 6').
+src/activitypub/actors.js: line 568, col 45, 'template literal syntax' is only available in ES6 (use 'esversion: 6').
+src/activitypub/actors.js: line 576, col 19, 'template literal syntax' is only available in ES6 (use 'esversion: 6').
+src/activitypub/actors.js: line 580, col 19, 'template literal syntax' is only available in ES6 (use 'esversion: 6').
+src/activitypub/actors.js: line 585, col 16, 'async functions' is only available in ES8 (use 'esversion: 8').
+src/activitypub/actors.js: line 585, col 23, 'arrow function syntax (=>)' is only available in ES6 (use 'esversion: 6').
+src/activitypub/actors.js: line 591, col 5, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/actors.js: line 592, col 5, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/actors.js: line 593, col 5, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/actors.js: line 606, col 29, 'template literal syntax' is only available in ES6 (use 'esversion: 6').
+src/activitypub/actors.js: line 607, col 5, 'let' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/actors.js: line 608, col 5, 'let' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/actors.js: line 609, col 5, 'let' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/actors.js: line 610, col 5, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/actors.js: line 611, col 35, 'async functions' is only available in ES8 (use 'esversion: 8').
+src/activitypub/actors.js: line 611, col 45, 'arrow function syntax (=>)' is only available in ES6 (use 'esversion: 6').
+src/activitypub/actors.js: line 612, col 9, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/actors.js: line 613, col 37, 'template literal syntax' is only available in ES6 (use 'esversion: 6').
+src/activitypub/actors.js: line 613, col 34, 'arrow function syntax (=>)' is only available in ES6 (use 'esversion: 6').
+src/activitypub/actors.js: line 614, col 37, 'template literal syntax' is only available in ES6 (use 'esversion: 6').
+src/activitypub/actors.js: line 614, col 34, 'arrow function syntax (=>)' is only available in ES6 (use 'esversion: 6').
+src/activitypub/actors.js: line 617, col 9, 'let' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/actors.js: line 618, col 9, 'let' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/actors.js: line 619, col 9, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/actors.js: line 620, col 29, 'arrow function syntax (=>)' is only available in ES6 (use 'esversion: 6').
+src/activitypub/actors.js: line 642, col 9, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/actors.js: line 642, col 9, 'destructuring binding' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/actors.js: line 643, col 47, 'template literal syntax' is only available in ES6 (use 'esversion: 6').
+src/activitypub/actors.js: line 643, col 44, 'arrow function syntax (=>)' is only available in ES6 (use 'esversion: 6').
+src/activitypub/actors.js: line 644, col 47, 'template literal syntax' is only available in ES6 (use 'esversion: 6').
+src/activitypub/actors.js: line 644, col 44, 'arrow function syntax (=>)' is only available in ES6 (use 'esversion: 6').
+src/activitypub/actors.js: line 648, col 36, 'async functions' is only available in ES8 (use 'esversion: 8').
+src/activitypub/actors.js: line 648, col 51, 'arrow function syntax (=>)' is only available in ES6 (use 'esversion: 6').
+src/activitypub/actors.js: line 649, col 13, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/actors.js: line 649, col 13, 'destructuring binding' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/actors.js: line 650, col 13, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/actors.js: line 651, col 13, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/actors.js: line 652, col 75, 'arrow function syntax (=>)' is only available in ES6 (use 'esversion: 6').
+src/activitypub/actors.js: line 666, col 9, 'let' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/actors.js: line 667, col 35, 'arrow function syntax (=>)' is only available in ES6 (use 'esversion: 6').
+src/activitypub/actors.js: line 668, col 36, 'async functions' is only available in ES8 (use 'esversion: 8').
+src/activitypub/actors.js: line 668, col 51, 'arrow function syntax (=>)' is only available in ES6 (use 'esversion: 6').
+src/activitypub/actors.js: line 669, col 13, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/actors.js: line 687, col 9, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/actors.js: line 688, col 76, 'arrow function syntax (=>)' is only available in ES6 (use 'esversion: 6').
+src/activitypub/actors.js: line 694, col 29, 'template literal syntax' is only available in ES6 (use 'esversion: 6').
+src/activitypub/actors.js: line 3, col 15, 'require' is not defined.
+src/activitypub/actors.js: line 4, col 17, 'require' is not defined.
+src/activitypub/actors.js: line 5, col 11, 'require' is not defined.
+src/activitypub/actors.js: line 7, col 12, 'require' is not defined.
+src/activitypub/actors.js: line 8, col 14, 'require' is not defined.
+src/activitypub/actors.js: line 9, col 15, 'require' is not defined.
+src/activitypub/actors.js: line 10, col 20, 'require' is not defined.
+src/activitypub/actors.js: line 11, col 14, 'require' is not defined.
+src/activitypub/actors.js: line 12, col 16, 'require' is not defined.
+src/activitypub/actors.js: line 13, col 15, 'require' is not defined.
+src/activitypub/actors.js: line 14, col 18, 'require' is not defined.
+src/activitypub/actors.js: line 21, col 21, 'module' is not defined.
+src/activitypub/actors.js: line 23, col 16, 'module' is not defined.
+src/activitypub/actors.js: line 49, col 18, 'Promise' is not defined.
+src/activitypub/actors.js: line 125, col 24, 'Promise' is not defined.
+src/activitypub/actors.js: line 159, col 54, 'Promise' is not defined.
+src/activitypub/actors.js: line 249, col 11, 'Promise' is not defined.
+src/activitypub/actors.js: line 255, col 11, 'Promise' is not defined.
+src/activitypub/actors.js: line 303, col 24, 'Promise' is not defined.
+src/activitypub/actors.js: line 398, col 11, 'Promise' is not defined.
+src/activitypub/actors.js: line 403, col 11, 'Promise' is not defined.
+src/activitypub/actors.js: line 424, col 11, 'Promise' is not defined.
+src/activitypub/actors.js: line 428, col 15, 'Promise' is not defined.
+src/activitypub/actors.js: line 460, col 40, 'Promise' is not defined.
+src/activitypub/actors.js: line 495, col 54, 'Promise' is not defined.
+src/activitypub/actors.js: line 536, col 11, 'Promise' is not defined.
+src/activitypub/actors.js: line 544, col 11, 'Promise' is not defined.
+src/activitypub/actors.js: line 571, col 11, 'Promise' is not defined.
+src/activitypub/actors.js: line 579, col 11, 'Promise' is not defined.
+src/activitypub/actors.js: line 612, col 30, 'Promise' is not defined.
+src/activitypub/actors.js: line 642, col 62, 'Promise' is not defined.
+src/activitypub/actors.js: line 648, col 15, 'Promise' is not defined.
+src/activitypub/actors.js: line 668, col 15, 'Promise' is not defined.
+src/activitypub/actors.js: line 74, col 59, 'URL' is not defined.
+src/activitypub/actors.js: line 131, col 46, 'URL' is not defined.
+src/activitypub/actors.js: line 309, col 46, 'URL' is not defined.
+src/activitypub/actors.js: line 78, col 25, 'Set' is not defined.
+src/activitypub/actors.js: line 124, col 28, 'Set' is not defined.
+src/activitypub/actors.js: line 452, col 19, 'Set' is not defined.
+src/activitypub/actors.js: line 453, col 19, 'Set' is not defined.
+src/activitypub/actors.js: line 602, col 28, 'Set' is not defined.
+src/activitypub/actors.js: line 617, col 24, 'Set' is not defined.
+src/activitypub/actors.js: line 618, col 24, 'Set' is not defined.
+src/activitypub/actors.js: line 619, col 29, 'Set' is not defined.
+src/activitypub/actors.js: line 701, col 24, 'Set' is not defined.
+src/activitypub/actors.js: line 121, col 24, 'Map' is not defined.
+src/activitypub/actors.js: line 122, col 33, 'Map' is not defined.
+src/activitypub/actors.js: line 123, col 28, 'Map' is not defined.
+src/activitypub/actors.js: line 300, col 24, 'Map' is not defined.
+src/activitypub/actors.js: line 301, col 33, 'Map' is not defined.
+src/activitypub/actors.js: line 302, col 28, 'Map' is not defined.
+src/activitypub/actors.js: line 128, col 131, 'process' is not defined.
+src/activitypub/actors.js: line 306, col 131, 'process' is not defined.
+
+src/activitypub/contexts.js: line 1, col 1, Use the function form of "use strict".
+src/activitypub/contexts.js: line 3, col 1, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/contexts.js: line 4, col 1, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/contexts.js: line 5, col 1, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/contexts.js: line 7, col 1, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/contexts.js: line 8, col 1, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/contexts.js: line 10, col 16, 'async functions' is only available in ES8 (use 'esversion: 8').
+src/activitypub/contexts.js: line 10, col 30, 'arrow function syntax (=>)' is only available in ES6 (use 'esversion: 6').
+src/activitypub/contexts.js: line 11, col 5, 'let' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/contexts.js: line 12, col 5, 'let' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/contexts.js: line 15, col 5, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/contexts.js: line 16, col 5, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/contexts.js: line 18, col 9, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/contexts.js: line 18, col 9, 'destructuring binding' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/contexts.js: line 20, col 36, 'template literal syntax' is only available in ES6 (use 'esversion: 6').
+src/activitypub/contexts.js: line 23, col 9, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/contexts.js: line 24, col 36, 'template literal syntax' is only available in ES6 (use 'esversion: 6').
+src/activitypub/contexts.js: line 28, col 10, 'destructuring assignment' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/contexts.js: line 28, col 74, 'object short notation' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/contexts.js: line 30, col 37, 'template literal syntax' is only available in ES6 (use 'esversion: 6').
+src/activitypub/contexts.js: line 33, col 37, 'template literal syntax' is only available in ES6 (use 'esversion: 6').
+src/activitypub/contexts.js: line 38, col 10, 'destructuring assignment' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/contexts.js: line 41, col 37, 'template literal syntax' is only available in ES6 (use 'esversion: 6').
+src/activitypub/contexts.js: line 42, col 22, 'object short notation' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/contexts.js: line 45, col 33, 'template literal syntax' is only available in ES6 (use 'esversion: 6').
+src/activitypub/contexts.js: line 50, col 18, 'object short notation' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/contexts.js: line 56, col 21, 'async functions' is only available in ES8 (use 'esversion: 8').
+src/activitypub/contexts.js: line 56, col 44, 'arrow function syntax (=>)' is only available in ES6 (use 'esversion: 6').
+src/activitypub/contexts.js: line 62, col 5, 'let' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/contexts.js: line 66, col 33, 'template literal syntax' is only available in ES6 (use 'esversion: 6').
+src/activitypub/contexts.js: line 73, col 5, 'let' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/contexts.js: line 73, col 5, 'destructuring binding' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/contexts.js: line 85, col 18, 'async functions' is only available in ES8 (use 'esversion: 8').
+src/activitypub/contexts.js: line 85, col 29, 'arrow function syntax (=>)' is only available in ES6 (use 'esversion: 6').
+src/activitypub/contexts.js: line 87, col 33, 'template literal syntax' is only available in ES6 (use 'esversion: 6').
+src/activitypub/contexts.js: line 90, col 5, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/contexts.js: line 102, col 9, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/contexts.js: line 105, col 17, 'spread operator' is only available in ES6 (use 'esversion: 6').
+src/activitypub/contexts.js: line 105, col 20, 'object spread property' is only available in ES9 (use 'esversion: 9').
+src/activitypub/contexts.js: line 109, col 27, 'arrow function syntax (=>)' is only available in ES6 (use 'esversion: 6').
+src/activitypub/contexts.js: line 117, col 5, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/contexts.js: line 118, col 5, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/contexts.js: line 118, col 50, 'arrow function syntax (=>)' is only available in ES6 (use 'esversion: 6').
+src/activitypub/contexts.js: line 120, col 9, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/contexts.js: line 132, col 1, 'async functions' is only available in ES8 (use 'esversion: 8').
+src/activitypub/contexts.js: line 133, col 5, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/contexts.js: line 133, col 5, 'destructuring binding' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/contexts.js: line 134, col 5, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/contexts.js: line 135, col 5, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/contexts.js: line 143, col 9, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/contexts.js: line 144, col 33, 'template literal syntax' is only available in ES6 (use 'esversion: 6').
+src/activitypub/contexts.js: line 149, col 33, 'template literal syntax' is only available in ES6 (use 'esversion: 6').
+src/activitypub/contexts.js: line 154, col 1, 'async functions' is only available in ES8 (use 'esversion: 8').
+src/activitypub/contexts.js: line 155, col 5, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/contexts.js: line 155, col 5, 'destructuring binding' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/contexts.js: line 156, col 5, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/contexts.js: line 157, col 5, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/contexts.js: line 174, col 29, 'template literal syntax' is only available in ES6 (use 'esversion: 6').
+src/activitypub/contexts.js: line 3, col 12, 'require' is not defined.
+src/activitypub/contexts.js: line 4, col 15, 'require' is not defined.
+src/activitypub/contexts.js: line 5, col 16, 'require' is not defined.
+src/activitypub/contexts.js: line 7, col 21, 'module' is not defined.
+src/activitypub/contexts.js: line 8, col 18, 'module' is not defined.
+src/activitypub/contexts.js: line 18, col 39, 'Promise' is not defined.
+src/activitypub/contexts.js: line 84, col 23, 'Promise' is not defined.
+src/activitypub/contexts.js: line 23, col 63, 'Set' is not defined.
+src/activitypub/contexts.js: line 90, col 23, 'Set' is not defined.
+src/activitypub/contexts.js: line 97, col 20, 'Set' is not defined.
+
+src/activitypub/feps.js: line 1, col 1, Use the function form of "use strict".
+src/activitypub/feps.js: line 3, col 1, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/feps.js: line 5, col 1, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/feps.js: line 6, col 1, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/feps.js: line 8, col 1, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/feps.js: line 9, col 1, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/feps.js: line 11, col 17, 'async functions' is only available in ES8 (use 'esversion: 8').
+src/activitypub/feps.js: line 12, col 5, 'let' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/feps.js: line 14, col 10, 'destructuring assignment' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/feps.js: line 16, col 5, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/feps.js: line 21, col 5, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/feps.js: line 26, col 5, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/feps.js: line 26, col 5, 'destructuring binding' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/feps.js: line 30, col 5, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/feps.js: line 32, col 9, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/feps.js: line 34, col 37, 'template literal syntax' is only available in ES6 (use 'esversion: 6').
+src/activitypub/feps.js: line 36, col 21, 'template literal syntax' is only available in ES6 (use 'esversion: 6').
+src/activitypub/feps.js: line 38, col 24, 'template literal syntax' is only available in ES6 (use 'esversion: 6').
+src/activitypub/feps.js: line 39, col 22, 'template literal syntax' is only available in ES6 (use 'esversion: 6').
+src/activitypub/feps.js: line 46, col 29, 'template literal syntax' is only available in ES6 (use 'esversion: 6').
+src/activitypub/feps.js: line 48, col 13, 'template literal syntax' is only available in ES6 (use 'esversion: 6').
+src/activitypub/feps.js: line 50, col 16, 'template literal syntax' is only available in ES6 (use 'esversion: 6').
+src/activitypub/feps.js: line 51, col 14, 'template literal syntax' is only available in ES6 (use 'esversion: 6').
+src/activitypub/feps.js: line 3, col 15, 'require' is not defined.
+src/activitypub/feps.js: line 5, col 15, 'require' is not defined.
+src/activitypub/feps.js: line 6, col 15, 'require' is not defined.
+src/activitypub/feps.js: line 8, col 21, 'module' is not defined.
+src/activitypub/feps.js: line 9, col 14, 'module' is not defined.
+
+src/activitypub/helpers.js: line 1, col 1, Use the function form of "use strict".
+src/activitypub/helpers.js: line 3, col 1, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/helpers.js: line 3, col 1, 'destructuring binding' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/helpers.js: line 4, col 1, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/helpers.js: line 5, col 1, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/helpers.js: line 6, col 1, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/helpers.js: line 7, col 1, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/helpers.js: line 9, col 1, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/helpers.js: line 11, col 1, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/helpers.js: line 12, col 1, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/helpers.js: line 13, col 1, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/helpers.js: line 14, col 1, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/helpers.js: line 15, col 1, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/helpers.js: line 16, col 1, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/helpers.js: line 17, col 1, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/helpers.js: line 18, col 1, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/helpers.js: line 19, col 1, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/helpers.js: line 20, col 1, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/helpers.js: line 22, col 1, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/helpers.js: line 23, col 1, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/helpers.js: line 27, col 1, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/helpers.js: line 27, col 24, 'arrow function syntax (=>)' is only available in ES6 (use 'esversion: 6').
+src/activitypub/helpers.js: line 29, col 1, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/helpers.js: line 33, col 30, 'arrow function syntax (=>)' is only available in ES6 (use 'esversion: 6').
+src/activitypub/helpers.js: line 35, col 16, 'async functions' is only available in ES8 (use 'esversion: 8').
+src/activitypub/helpers.js: line 35, col 23, 'arrow function syntax (=>)' is only available in ES6 (use 'esversion: 6').
+src/activitypub/helpers.js: line 42, col 1, 'let' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/helpers.js: line 43, col 23, 'arrow function syntax (=>)' is only available in ES6 (use 'esversion: 6').
+src/activitypub/helpers.js: line 54, col 23, 'arrow function syntax (=>)' is only available in ES6 (use 'esversion: 6').
+src/activitypub/helpers.js: line 68, col 31, 'arrow function syntax (=>)' is only available in ES6 (use 'esversion: 6').
+src/activitypub/helpers.js: line 68, col 74, 'arrow function syntax (=>)' is only available in ES6 (use 'esversion: 6').
+src/activitypub/helpers.js: line 69, col 5, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/helpers.js: line 69, col 42, 'arrow function syntax (=>)' is only available in ES6 (use 'esversion: 6').
+src/activitypub/helpers.js: line 73, col 29, 'arrow function syntax (=>)' is only available in ES6 (use 'esversion: 6').
+src/activitypub/helpers.js: line 88, col 17, 'async functions' is only available in ES8 (use 'esversion: 8').
+src/activitypub/helpers.js: line 88, col 26, 'arrow function syntax (=>)' is only available in ES6 (use 'esversion: 6').
+src/activitypub/helpers.js: line 89, col 5, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/helpers.js: line 91, col 5, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/helpers.js: line 91, col 47, 'template literal syntax' is only available in ES6 (use 'esversion: 6').
+src/activitypub/helpers.js: line 93, col 5, 'let' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/helpers.js: line 93, col 5, 'destructuring binding' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/helpers.js: line 100, col 5, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/helpers.js: line 105, col 5, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/helpers.js: line 108, col 5, 'let' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/helpers.js: line 109, col 5, 'let' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/helpers.js: line 111, col 10, 'destructuring assignment' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/helpers.js: line 111, col 49, 'template literal syntax' is only available in ES6 (use 'esversion: 6').
+src/activitypub/helpers.js: line 125, col 5, 'let' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/helpers.js: line 125, col 43, 'arrow function syntax (=>)' is only available in ES6 (use 'esversion: 6').
+src/activitypub/helpers.js: line 128, col 10, 'destructuring assignment' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/helpers.js: line 131, col 5, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/helpers.js: line 131, col 5, 'destructuring binding' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/helpers.js: line 132, col 5, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/helpers.js: line 132, col 23, 'object short notation' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/helpers.js: line 132, col 32, 'object short notation' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/helpers.js: line 132, col 42, 'object short notation' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/helpers.js: line 132, col 52, 'object short notation' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/helpers.js: line 132, col 62, 'object short notation' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/helpers.js: line 134, col 5, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/helpers.js: line 143, col 24, 'async functions' is only available in ES8 (use 'esversion: 8').
+src/activitypub/helpers.js: line 143, col 39, 'arrow function syntax (=>)' is only available in ES6 (use 'esversion: 6').
+src/activitypub/helpers.js: line 144, col 29, 'template literal syntax' is only available in ES6 (use 'esversion: 6').
+src/activitypub/helpers.js: line 145, col 5, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/helpers.js: line 145, col 5, 'destructuring binding' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/helpers.js: line 160, col 24, 'template literal syntax' is only available in ES6 (use 'esversion: 6').
+src/activitypub/helpers.js: line 160, col 48, 'object short notation' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/helpers.js: line 160, col 59, 'object short notation' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/helpers.js: line 161, col 14, 'object short notation' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/helpers.js: line 161, col 25, 'object short notation' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/helpers.js: line 164, col 26, 'async functions' is only available in ES8 (use 'esversion: 8').
+src/activitypub/helpers.js: line 164, col 38, 'arrow function syntax (=>)' is only available in ES6 (use 'esversion: 6').
+src/activitypub/helpers.js: line 166, col 9, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/helpers.js: line 166, col 9, 'destructuring binding' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/helpers.js: line 169, col 13, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/helpers.js: line 169, col 13, 'destructuring binding' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/helpers.js: line 171, col 13, 'let' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/helpers.js: line 173, col 17, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/helpers.js: line 173, col 17, 'destructuring binding' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/helpers.js: line 174, col 34, 'object short notation' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/helpers.js: line 174, col 44, 'object short notation' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/helpers.js: line 174, col 50, 'object short notation' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/helpers.js: line 179, col 55, 'spread operator' is only available in ES6 (use 'esversion: 6').
+src/activitypub/helpers.js: line 179, col 58, 'object spread property' is only available in ES9 (use 'esversion: 9').
+src/activitypub/helpers.js: line 182, col 55, 'spread operator' is only available in ES6 (use 'esversion: 6').
+src/activitypub/helpers.js: line 182, col 58, 'object spread property' is only available in ES9 (use 'esversion: 9').
+src/activitypub/helpers.js: line 186, col 59, 'spread operator' is only available in ES6 (use 'esversion: 6').
+src/activitypub/helpers.js: line 186, col 62, 'object spread property' is only available in ES9 (use 'esversion: 9').
+src/activitypub/helpers.js: line 189, col 21, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/helpers.js: line 190, col 53, 'spread operator' is only available in ES6 (use 'esversion: 6').
+src/activitypub/helpers.js: line 190, col 56, 'object spread property' is only available in ES9 (use 'esversion: 9').
+src/activitypub/helpers.js: line 194, col 58, 'spread operator' is only available in ES6 (use 'esversion: 6').
+src/activitypub/helpers.js: line 194, col 61, 'object spread property' is only available in ES9 (use 'esversion: 9').
+src/activitypub/helpers.js: line 197, col 44, 'spread operator' is only available in ES6 (use 'esversion: 6').
+src/activitypub/helpers.js: line 197, col 47, 'object spread property' is only available in ES9 (use 'esversion: 9').
+src/activitypub/helpers.js: line 203, col 9, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/helpers.js: line 203, col 9, 'destructuring binding' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/helpers.js: line 204, col 9, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/helpers.js: line 211, col 33, 'arrow function syntax (=>)' is only available in ES6 (use 'esversion: 6').
+src/activitypub/helpers.js: line 215, col 20, 'template literal syntax' is only available in ES6 (use 'esversion: 6').
+src/activitypub/helpers.js: line 215, col 51, 'template literal syntax' is only available in ES6 (use 'esversion: 6').
+src/activitypub/helpers.js: line 220, col 20, 'template literal syntax' is only available in ES6 (use 'esversion: 6').
+src/activitypub/helpers.js: line 228, col 27, 'async functions' is only available in ES8 (use 'esversion: 8').
+src/activitypub/helpers.js: line 228, col 62, 'arrow function syntax (=>)' is only available in ES6 (use 'esversion: 6').
+src/activitypub/helpers.js: line 231, col 13, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/helpers.js: line 232, col 13, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/helpers.js: line 232, col 13, 'destructuring binding' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/helpers.js: line 235, col 17, 'object short notation' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/helpers.js: line 236, col 17, 'object short notation' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/helpers.js: line 243, col 13, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/helpers.js: line 245, col 13, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/helpers.js: line 248, col 17, 'object short notation' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/helpers.js: line 249, col 17, 'object short notation' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/helpers.js: line 251, col 17, 'object short notation' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/helpers.js: line 260, col 31, 'arrow function syntax (=>)' is only available in ES6 (use 'esversion: 6').
+src/activitypub/helpers.js: line 275, col 26, 'async functions' is only available in ES8 (use 'esversion: 8').
+src/activitypub/helpers.js: line 275, col 36, 'arrow function syntax (=>)' is only available in ES6 (use 'esversion: 6').
+src/activitypub/helpers.js: line 279, col 5, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/helpers.js: line 279, col 47, 'async functions' is only available in ES8 (use 'esversion: 8').
+src/activitypub/helpers.js: line 279, col 56, 'arrow function syntax (=>)' is only available in ES6 (use 'esversion: 6').
+src/activitypub/helpers.js: line 281, col 9, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/helpers.js: line 281, col 9, 'destructuring binding' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/helpers.js: line 284, col 74, 'object short notation' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/helpers.js: line 295, col 17, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/helpers.js: line 320, col 17, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/helpers.js: line 322, col 58, 'object short notation' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/helpers.js: line 334, col 1, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/helpers.js: line 335, col 1, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/helpers.js: line 335, col 31, 'template literal syntax' is only available in ES6 (use 'esversion: 6').
+src/activitypub/helpers.js: line 336, col 30, 'arrow function syntax (=>)' is only available in ES6 (use 'esversion: 6').
+src/activitypub/helpers.js: line 338, col 5, 'let' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/helpers.js: line 341, col 5, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/helpers.js: line 356, col 5, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/helpers.js: line 358, col 43, 'arrow function syntax (=>)' is only available in ES6 (use 'esversion: 6').
+src/activitypub/helpers.js: line 360, col 27, 'template literal syntax' is only available in ES6 (use 'esversion: 6').
+src/activitypub/helpers.js: line 374, col 17, 'template literal syntax' is only available in ES6 (use 'esversion: 6').
+src/activitypub/helpers.js: line 380, col 38, 'async functions' is only available in ES8 (use 'esversion: 8').
+src/activitypub/helpers.js: line 380, col 65, 'default parameters' is only available in ES6 (use 'esversion: 6').
+src/activitypub/helpers.js: line 380, col 72, 'arrow function syntax (=>)' is only available in ES6 (use 'esversion: 6').
+src/activitypub/helpers.js: line 381, col 5, 'let' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/helpers.js: line 388, col 5, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/helpers.js: line 389, col 5, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/helpers.js: line 390, col 5, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/helpers.js: line 391, col 10, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/helpers.js: line 391, col 23, 'for of' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/helpers.js: line 392, col 9, 'let' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/helpers.js: line 393, col 9, 'let' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/helpers.js: line 395, col 13, 'destructuring assignment' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/helpers.js: line 397, col 13, 'destructuring assignment' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/helpers.js: line 407, col 5, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/helpers.js: line 408, col 5, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/helpers.js: line 411, col 5, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/helpers.js: line 411, col 44, 'arrow function syntax (=>)' is only available in ES6 (use 'esversion: 6').
+src/activitypub/helpers.js: line 412, col 37, 'async functions' is only available in ES8 (use 'esversion: 8').
+src/activitypub/helpers.js: line 412, col 47, 'arrow function syntax (=>)' is only available in ES6 (use 'esversion: 6').
+src/activitypub/helpers.js: line 413, col 9, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/helpers.js: line 413, col 9, 'destructuring binding' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/helpers.js: line 420, col 5, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/helpers.js: line 420, col 5, 'destructuring binding' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/helpers.js: line 424, col 34, 'arrow function syntax (=>)' is only available in ES6 (use 'esversion: 6').
+src/activitypub/helpers.js: line 430, col 5, 'let' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/helpers.js: line 431, col 23, 'destructuring binding' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/helpers.js: line 431, col 36, 'arrow function syntax (=>)' is only available in ES6 (use 'esversion: 6').
+src/activitypub/helpers.js: line 432, col 48, 'arrow function syntax (=>)' is only available in ES6 (use 'esversion: 6').
+src/activitypub/helpers.js: line 433, col 25, 'template literal syntax' is only available in ES6 (use 'esversion: 6').
+src/activitypub/helpers.js: line 437, col 21, 'destructuring binding' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/helpers.js: line 437, col 35, 'arrow function syntax (=>)' is only available in ES6 (use 'esversion: 6').
+src/activitypub/helpers.js: line 438, col 9, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/helpers.js: line 440, col 13, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/helpers.js: line 448, col 38, 'arrow function syntax (=>)' is only available in ES6 (use 'esversion: 6').
+src/activitypub/helpers.js: line 448, col 84, 'arrow function syntax (=>)' is only available in ES6 (use 'esversion: 6').
+src/activitypub/helpers.js: line 455, col 30, 'async functions' is only available in ES8 (use 'esversion: 8').
+src/activitypub/helpers.js: line 455, col 36, 'destructuring binding' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/helpers.js: line 455, col 79, 'arrow function syntax (=>)' is only available in ES6 (use 'esversion: 6').
+src/activitypub/helpers.js: line 462, col 5, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/helpers.js: line 463, col 5, 'let' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/helpers.js: line 464, col 5, 'let' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/helpers.js: line 472, col 9, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/helpers.js: line 477, col 9, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/helpers.js: line 478, col 9, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/helpers.js: line 482, col 5, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/helpers.js: line 492, col 46, 'template literal syntax' is only available in ES6 (use 'esversion: 6').
+src/activitypub/helpers.js: line 493, col 38, 'template literal syntax' is only available in ES6 (use 'esversion: 6').
+src/activitypub/helpers.js: line 498, col 24, 'template literal syntax' is only available in ES6 (use 'esversion: 6').
+src/activitypub/helpers.js: line 499, col 23, 'template literal syntax' is only available in ES6 (use 'esversion: 6').
+src/activitypub/helpers.js: line 505, col 30, 'arrow function syntax (=>)' is only available in ES6 (use 'esversion: 6').
+src/activitypub/helpers.js: line 512, col 19, 'arrow function syntax (=>)' is only available in ES6 (use 'esversion: 6').
+src/activitypub/helpers.js: line 513, col 27, 'arrow function syntax (=>)' is only available in ES6 (use 'esversion: 6').
+src/activitypub/helpers.js: line 514, col 13, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/helpers.js: line 515, col 13, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/helpers.js: line 517, col 13, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/helpers.js: line 517, col 39, 'arrow function syntax (=>)' is only available in ES6 (use 'esversion: 6').
+src/activitypub/helpers.js: line 3, col 33, 'require' is not defined.
+src/activitypub/helpers.js: line 4, col 17, 'require' is not defined.
+src/activitypub/helpers.js: line 5, col 15, 'require' is not defined.
+src/activitypub/helpers.js: line 6, col 17, 'require' is not defined.
+src/activitypub/helpers.js: line 7, col 19, 'require' is not defined.
+src/activitypub/helpers.js: line 9, col 16, 'require' is not defined.
+src/activitypub/helpers.js: line 11, col 14, 'require' is not defined.
+src/activitypub/helpers.js: line 12, col 15, 'require' is not defined.
+src/activitypub/helpers.js: line 13, col 20, 'require' is not defined.
+src/activitypub/helpers.js: line 14, col 19, 'require' is not defined.
+src/activitypub/helpers.js: line 15, col 17, 'require' is not defined.
+src/activitypub/helpers.js: line 16, col 12, 'require' is not defined.
+src/activitypub/helpers.js: line 17, col 13, 'require' is not defined.
+src/activitypub/helpers.js: line 18, col 14, 'require' is not defined.
+src/activitypub/helpers.js: line 19, col 15, 'require' is not defined.
+src/activitypub/helpers.js: line 20, col 21, 'require' is not defined.
+src/activitypub/helpers.js: line 29, col 17, 'module' is not defined.
+src/activitypub/helpers.js: line 35, col 5, 'setTimeout' is not defined.
+src/activitypub/helpers.js: line 36, col 9, 'console' is not defined.
+src/activitypub/helpers.js: line 91, col 29, 'URL' is not defined.
+src/activitypub/helpers.js: line 91, col 43, 'URL' is not defined.
+src/activitypub/helpers.js: line 134, col 27, 'URL' is not defined.
+src/activitypub/helpers.js: line 166, col 46, 'URL' is not defined.
+src/activitypub/helpers.js: line 105, col 23, 'URLSearchParams' is not defined.
+src/activitypub/helpers.js: line 279, col 27, 'Promise' is not defined.
+src/activitypub/helpers.js: line 412, col 11, 'Promise' is not defined.
+src/activitypub/helpers.js: line 420, col 45, 'Promise' is not defined.
+src/activitypub/helpers.js: line 389, col 22, 'Set' is not defined.
+src/activitypub/helpers.js: line 448, col 47, 'Set' is not defined.
+src/activitypub/helpers.js: line 506, col 26, 'Set' is not defined.
+src/activitypub/helpers.js: line 407, col 24, 'Map' is not defined.
+src/activitypub/helpers.js: line 514, col 23, 'Buffer' is not defined.
+src/activitypub/helpers.js: line 515, col 23, 'Buffer' is not defined.
+
+src/activitypub/inbox.js: line 1, col 1, Use the function form of "use strict".
+src/activitypub/inbox.js: line 3, col 1, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 4, col 1, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 6, col 1, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 7, col 1, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 8, col 1, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 9, col 1, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 10, col 1, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 11, col 1, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 12, col 1, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 13, col 1, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 14, col 1, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 15, col 1, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 16, col 1, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 18, col 1, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 19, col 1, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 21, col 1, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 23, col 50, 'default parameters' is only available in ES6 (use 'esversion: 6').
+src/activitypub/inbox.js: line 23, col 62, 'default parameters' is only available in ES6 (use 'esversion: 6').
+src/activitypub/inbox.js: line 25, col 13, 'template literal syntax' is only available in ES6 (use 'esversion: 6').
+src/activitypub/inbox.js: line 28, col 13, 'object short notation' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 29, col 13, 'object short notation' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 30, col 13, 'object short notation' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 32, col 18, 'arrow function syntax (=>)' is only available in ES6 (use 'esversion: 6').
+src/activitypub/inbox.js: line 35, col 16, 'async functions' is only available in ES8 (use 'esversion: 8').
+src/activitypub/inbox.js: line 35, col 26, 'arrow function syntax (=>)' is only available in ES6 (use 'esversion: 6').
+src/activitypub/inbox.js: line 36, col 5, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 36, col 5, 'destructuring binding' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 39, col 5, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 39, col 23, 'spread operator' is only available in ES6 (use 'esversion: 6').
+src/activitypub/inbox.js: line 39, col 45, 'spread operator' is only available in ES6 (use 'esversion: 6').
+src/activitypub/inbox.js: line 45, col 5, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 45, col 5, 'destructuring binding' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 46, col 5, 'let' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 51, col 5, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 51, col 66, 'object short notation' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 58, col 13, 'async functions' is only available in ES8 (use 'esversion: 8').
+src/activitypub/inbox.js: line 58, col 23, 'arrow function syntax (=>)' is only available in ES6 (use 'esversion: 6').
+src/activitypub/inbox.js: line 59, col 5, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 59, col 5, 'destructuring binding' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 62, col 5, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 62, col 5, 'destructuring binding' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 65, col 9, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 66, col 9, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 68, col 13, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 68, col 13, 'destructuring binding' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 70, col 41, 'template literal syntax' is only available in ES6 (use 'esversion: 6').
+src/activitypub/inbox.js: line 77, col 16, 'async functions' is only available in ES8 (use 'esversion: 8').
+src/activitypub/inbox.js: line 77, col 26, 'arrow function syntax (=>)' is only available in ES6 (use 'esversion: 6').
+src/activitypub/inbox.js: line 78, col 5, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 78, col 5, 'destructuring binding' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 79, col 5, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 79, col 23, 'spread operator' is only available in ES6 (use 'esversion: 6').
+src/activitypub/inbox.js: line 79, col 45, 'spread operator' is only available in ES6 (use 'esversion: 6').
+src/activitypub/inbox.js: line 82, col 5, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 83, col 5, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 90, col 13, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 90, col 13, 'destructuring binding' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 98, col 25, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 99, col 25, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 104, col 25, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 107, col 25, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 115, col 25, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 115, col 25, 'destructuring binding' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 128, col 25, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 128, col 25, 'destructuring binding' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 129, col 25, 'let' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 134, col 25, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 134, col 89, 'object short notation' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 153, col 13, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 153, col 13, 'destructuring binding' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 179, col 16, 'async functions' is only available in ES8 (use 'esversion: 8').
+src/activitypub/inbox.js: line 179, col 26, 'arrow function syntax (=>)' is only available in ES6 (use 'esversion: 6').
+src/activitypub/inbox.js: line 180, col 5, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 180, col 5, 'destructuring binding' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 182, col 9, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 182, col 9, 'destructuring binding' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 187, col 5, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 188, col 5, 'let' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 191, col 5, 'let' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 194, col 14, 'destructuring assignment' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 205, col 5, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 207, col 5, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 212, col 5, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 212, col 5, 'destructuring binding' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 219, col 13, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 220, col 13, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 225, col 13, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 227, col 39, 'object short notation' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 227, col 48, 'object short notation' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 237, col 37, 'template literal syntax' is only available in ES6 (use 'esversion: 6').
+src/activitypub/inbox.js: line 243, col 14, 'async functions' is only available in ES8 (use 'esversion: 8').
+src/activitypub/inbox.js: line 243, col 24, 'arrow function syntax (=>)' is only available in ES6 (use 'esversion: 6').
+src/activitypub/inbox.js: line 244, col 5, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 244, col 5, 'destructuring binding' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 245, col 5, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 245, col 5, 'destructuring binding' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 251, col 5, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 253, col 33, 'template literal syntax' is only available in ES6 (use 'esversion: 6').
+src/activitypub/inbox.js: line 257, col 29, 'template literal syntax' is only available in ES6 (use 'esversion: 6').
+src/activitypub/inbox.js: line 259, col 5, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 264, col 18, 'async functions' is only available in ES8 (use 'esversion: 8').
+src/activitypub/inbox.js: line 264, col 28, 'arrow function syntax (=>)' is only available in ES6 (use 'esversion: 6').
+src/activitypub/inbox.js: line 265, col 5, 'let' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 265, col 5, 'destructuring binding' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 266, col 29, 'template literal syntax' is only available in ES6 (use 'esversion: 6').
+src/activitypub/inbox.js: line 267, col 5, 'let' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 270, col 5, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 275, col 5, 'let' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 276, col 5, 'let' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 279, col 5, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 279, col 5, 'destructuring binding' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 280, col 5, 'let' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 286, col 5, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 293, col 13, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 294, col 13, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 294, col 13, 'destructuring binding' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 295, col 13, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 298, col 21, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 319, col 9, Expected a 'break' statement before 'case'.
+src/activitypub/inbox.js: line 324, col 17, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 324, col 17, 'destructuring binding' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 337, col 21, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 337, col 21, 'destructuring binding' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 339, col 41, 'template literal syntax' is only available in ES6 (use 'esversion: 6').
+src/activitypub/inbox.js: line 351, col 17, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 351, col 76, 'object short notation' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 356, col 18, 'destructuring assignment' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 357, col 70, 'object short notation' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 357, col 74, 'object short notation' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 368, col 16, 'async functions' is only available in ES8 (use 'esversion: 8').
+src/activitypub/inbox.js: line 368, col 26, 'arrow function syntax (=>)' is only available in ES6 (use 'esversion: 6').
+src/activitypub/inbox.js: line 369, col 5, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 369, col 5, 'destructuring binding' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 371, col 5, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 371, col 5, 'destructuring binding' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 376, col 5, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 380, col 5, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 383, col 9, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 383, col 9, 'destructuring binding' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 391, col 9, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 397, col 9, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 398, col 31, 'template literal syntax' is only available in ES6 (use 'esversion: 6').
+src/activitypub/inbox.js: line 399, col 31, 'template literal syntax' is only available in ES6 (use 'esversion: 6').
+src/activitypub/inbox.js: line 401, col 9, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 401, col 60, 'template literal syntax' is only available in ES6 (use 'esversion: 6').
+src/activitypub/inbox.js: line 406, col 17, 'template literal syntax' is only available in ES6 (use 'esversion: 6').
+src/activitypub/inbox.js: line 411, col 17, 'object short notation' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 414, col 22, 'arrow function syntax (=>)' is only available in ES6 (use 'esversion: 6').
+src/activitypub/inbox.js: line 416, col 9, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 416, col 9, 'destructuring binding' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 427, col 9, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 433, col 17, 'template literal syntax' is only available in ES6 (use 'esversion: 6').
+src/activitypub/inbox.js: line 438, col 17, 'object short notation' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 441, col 22, 'arrow function syntax (=>)' is only available in ES6 (use 'esversion: 6').
+src/activitypub/inbox.js: line 445, col 20, 'async functions' is only available in ES8 (use 'esversion: 8').
+src/activitypub/inbox.js: line 445, col 39, 'arrow function syntax (=>)' is only available in ES6 (use 'esversion: 6').
+src/activitypub/inbox.js: line 449, col 39, 'template literal syntax' is only available in ES6 (use 'esversion: 6').
+src/activitypub/inbox.js: line 452, col 16, 'async functions' is only available in ES8 (use 'esversion: 8').
+src/activitypub/inbox.js: line 452, col 26, 'arrow function syntax (=>)' is only available in ES6 (use 'esversion: 6').
+src/activitypub/inbox.js: line 453, col 5, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 453, col 5, 'destructuring binding' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 454, col 5, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 454, col 5, 'destructuring binding' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 456, col 5, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 456, col 5, 'destructuring binding' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 461, col 5, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 468, col 45, 'template literal syntax' is only available in ES6 (use 'esversion: 6').
+src/activitypub/inbox.js: line 469, col 48, 'template literal syntax' is only available in ES6 (use 'esversion: 6').
+src/activitypub/inbox.js: line 472, col 13, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 472, col 55, 'template literal syntax' is only available in ES6 (use 'esversion: 6').
+src/activitypub/inbox.js: line 474, col 36, 'template literal syntax' is only available in ES6 (use 'esversion: 6').
+src/activitypub/inbox.js: line 475, col 33, 'template literal syntax' is only available in ES6 (use 'esversion: 6').
+src/activitypub/inbox.js: line 476, col 33, 'template literal syntax' is only available in ES6 (use 'esversion: 6').
+src/activitypub/inbox.js: line 478, col 13, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 478, col 65, 'template literal syntax' is only available in ES6 (use 'esversion: 6').
+src/activitypub/inbox.js: line 481, col 45, 'template literal syntax' is only available in ES6 (use 'esversion: 6').
+src/activitypub/inbox.js: line 482, col 48, 'template literal syntax' is only available in ES6 (use 'esversion: 6').
+src/activitypub/inbox.js: line 485, col 13, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 485, col 55, 'template literal syntax' is only available in ES6 (use 'esversion: 6').
+src/activitypub/inbox.js: line 487, col 36, 'template literal syntax' is only available in ES6 (use 'esversion: 6').
+src/activitypub/inbox.js: line 488, col 33, 'template literal syntax' is only available in ES6 (use 'esversion: 6').
+src/activitypub/inbox.js: line 489, col 33, 'template literal syntax' is only available in ES6 (use 'esversion: 6').
+src/activitypub/inbox.js: line 489, col 72, 'template literal syntax' is only available in ES6 (use 'esversion: 6').
+src/activitypub/inbox.js: line 495, col 14, 'async functions' is only available in ES8 (use 'esversion: 8').
+src/activitypub/inbox.js: line 495, col 24, 'arrow function syntax (=>)' is only available in ES6 (use 'esversion: 6').
+src/activitypub/inbox.js: line 497, col 5, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 497, col 5, 'destructuring binding' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 498, col 5, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 498, col 5, 'destructuring binding' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 504, col 5, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 509, col 5, 'let' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 509, col 5, 'destructuring binding' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 511, col 21, 'template literal syntax' is only available in ES6 (use 'esversion: 6').
+src/activitypub/inbox.js: line 511, col 75, 'template literal syntax' is only available in ES6 (use 'esversion: 6').
+src/activitypub/inbox.js: line 517, col 21, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 523, col 44, 'template literal syntax' is only available in ES6 (use 'esversion: 6').
+src/activitypub/inbox.js: line 524, col 44, 'template literal syntax' is only available in ES6 (use 'esversion: 6').
+src/activitypub/inbox.js: line 526, col 21, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 526, col 72, 'template literal syntax' is only available in ES6 (use 'esversion: 6').
+src/activitypub/inbox.js: line 528, col 43, 'template literal syntax' is only available in ES6 (use 'esversion: 6').
+src/activitypub/inbox.js: line 533, col 21, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 547, col 13, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 553, col 13, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 555, col 33, 'template literal syntax' is only available in ES6 (use 'esversion: 6').
+src/activitypub/inbox.js: line 562, col 35, 'template literal syntax' is only available in ES6 (use 'esversion: 6').
+src/activitypub/inbox.js: line 568, col 13, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 570, col 41, 'template literal syntax' is only available in ES6 (use 'esversion: 6').
+src/activitypub/inbox.js: line 575, col 35, 'template literal syntax' is only available in ES6 (use 'esversion: 6').
+src/activitypub/inbox.js: line 582, col 49, 'async functions' is only available in ES8 (use 'esversion: 8').
+src/activitypub/inbox.js: line 582, col 63, 'arrow function syntax (=>)' is only available in ES6 (use 'esversion: 6').
+src/activitypub/inbox.js: line 583, col 17, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 583, col 17, 'destructuring binding' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 594, col 14, 'async functions' is only available in ES8 (use 'esversion: 8').
+src/activitypub/inbox.js: line 594, col 24, 'arrow function syntax (=>)' is only available in ES6 (use 'esversion: 6').
+src/activitypub/inbox.js: line 595, col 5, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 595, col 5, 'destructuring binding' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 596, col 5, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 603, col 35, 'async functions' is only available in ES8 (use 'esversion: 8').
+src/activitypub/inbox.js: line 603, col 56, 'arrow function syntax (=>)' is only available in ES6 (use 'esversion: 6').
+src/activitypub/inbox.js: line 604, col 9, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 604, col 9, 'destructuring binding' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 613, col 16, 'async functions' is only available in ES8 (use 'esversion: 8').
+src/activitypub/inbox.js: line 613, col 26, 'arrow function syntax (=>)' is only available in ES6 (use 'esversion: 6').
+src/activitypub/inbox.js: line 614, col 5, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 614, col 5, 'destructuring binding' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 615, col 5, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 615, col 5, 'destructuring binding' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 616, col 5, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 616, col 5, 'destructuring binding' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 617, col 5, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/inbox.js: line 617, col 21, 'template literal syntax' is only available in ES6 (use 'esversion: 6').
+src/activitypub/inbox.js: line 3, col 17, 'require' is not defined.
+src/activitypub/inbox.js: line 4, col 15, 'require' is not defined.
+src/activitypub/inbox.js: line 6, col 12, 'require' is not defined.
+src/activitypub/inbox.js: line 7, col 20, 'require' is not defined.
+src/activitypub/inbox.js: line 8, col 14, 'require' is not defined.
+src/activitypub/inbox.js: line 9, col 15, 'require' is not defined.
+src/activitypub/inbox.js: line 10, col 16, 'require' is not defined.
+src/activitypub/inbox.js: line 11, col 20, 'require' is not defined.
+src/activitypub/inbox.js: line 12, col 23, 'require' is not defined.
+src/activitypub/inbox.js: line 13, col 19, 'require' is not defined.
+src/activitypub/inbox.js: line 14, col 15, 'require' is not defined.
+src/activitypub/inbox.js: line 15, col 13, 'require' is not defined.
+src/activitypub/inbox.js: line 16, col 21, 'require' is not defined.
+src/activitypub/inbox.js: line 18, col 23, 'require' is not defined.
+src/activitypub/inbox.js: line 19, col 17, 'require' is not defined.
+src/activitypub/inbox.js: line 21, col 15, 'module' is not defined.
+src/activitypub/inbox.js: line 82, col 31, 'URL' is not defined.
+src/activitypub/inbox.js: line 83, col 32, 'URL' is not defined.
+src/activitypub/inbox.js: line 205, col 31, 'URL' is not defined.
+src/activitypub/inbox.js: line 207, col 32, 'URL' is not defined.
+src/activitypub/inbox.js: line 616, col 30, 'URL' is not defined.
+src/activitypub/inbox.js: line 90, col 47, 'Promise' is not defined.
+src/activitypub/inbox.js: line 153, col 62, 'Promise' is not defined.
+src/activitypub/inbox.js: line 212, col 43, 'Promise' is not defined.
+src/activitypub/inbox.js: line 383, col 41, 'Promise' is not defined.
+src/activitypub/inbox.js: line 416, col 41, 'Promise' is not defined.
+src/activitypub/inbox.js: line 473, col 19, 'Promise' is not defined.
+src/activitypub/inbox.js: line 486, col 19, 'Promise' is not defined.
+src/activitypub/inbox.js: line 522, col 27, 'Promise' is not defined.
+src/activitypub/inbox.js: line 582, col 19, 'Promise' is not defined.
+src/activitypub/inbox.js: line 603, col 11, 'Promise' is not defined.
+src/activitypub/inbox.js: line 620, col 5, 'clearTimeout' is not defined.
+
+src/activitypub/index.js: line 1, col 1, Use the function form of "use strict".
+src/activitypub/index.js: line 3, col 1, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/index.js: line 4, col 1, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/index.js: line 5, col 1, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/index.js: line 5, col 1, 'destructuring binding' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/index.js: line 6, col 1, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/index.js: line 6, col 1, 'destructuring binding' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/index.js: line 8, col 1, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/index.js: line 9, col 1, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/index.js: line 10, col 1, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/index.js: line 11, col 1, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/index.js: line 12, col 1, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/index.js: line 13, col 1, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/index.js: line 14, col 1, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/index.js: line 15, col 1, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/index.js: line 16, col 1, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/index.js: line 17, col 1, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/index.js: line 18, col 1, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/index.js: line 19, col 1, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/index.js: line 20, col 1, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/index.js: line 22, col 1, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/index.js: line 26, col 1, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/index.js: line 30, col 1, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/index.js: line 34, col 1, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/index.js: line 49, col 34, 'spread operator' is only available in ES6 (use 'esversion: 6').
+src/activitypub/index.js: line 67, col 26, 'arrow function syntax (=>)' is only available in ES6 (use 'esversion: 6').
+src/activitypub/index.js: line 69, col 30, 'async functions' is only available in ES8 (use 'esversion: 8').
+src/activitypub/index.js: line 69, col 37, 'arrow function syntax (=>)' is only available in ES6 (use 'esversion: 6').
+src/activitypub/index.js: line 81, col 33, 'async functions' is only available in ES8 (use 'esversion: 8').
+src/activitypub/index.js: line 81, col 40, 'arrow function syntax (=>)' is only available in ES6 (use 'esversion: 6').
+src/activitypub/index.js: line 93, col 25, 'async functions' is only available in ES8 (use 'esversion: 8').
+src/activitypub/index.js: line 93, col 39, 'arrow function syntax (=>)' is only available in ES6 (use 'esversion: 6').
+src/activitypub/index.js: line 95, col 9, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/index.js: line 96, col 10, 'destructuring assignment' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/index.js: line 97, col 9, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/index.js: line 100, col 26, 'template literal syntax' is only available in ES6 (use 'esversion: 6').
+src/activitypub/index.js: line 110, col 30, 'async functions' is only available in ES8 (use 'esversion: 8').
+src/activitypub/index.js: line 110, col 40, 'arrow function syntax (=>)' is only available in ES6 (use 'esversion: 6').
+src/activitypub/index.js: line 111, col 5, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/index.js: line 114, col 29, 'arrow function syntax (=>)' is only available in ES6 (use 'esversion: 6').
+src/activitypub/index.js: line 115, col 13, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/index.js: line 115, col 13, 'destructuring binding' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/index.js: line 123, col 5, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/index.js: line 124, col 29, 'arrow function syntax (=>)' is only available in ES6 (use 'esversion: 6').
+src/activitypub/index.js: line 126, col 35, 'async functions' is only available in ES8 (use 'esversion: 8').
+src/activitypub/index.js: line 126, col 52, 'arrow function syntax (=>)' is only available in ES6 (use 'esversion: 6').
+src/activitypub/index.js: line 127, col 9, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/index.js: line 127, col 65, 'template literal syntax' is only available in ES6 (use 'esversion: 6').
+src/activitypub/index.js: line 127, col 62, 'arrow function syntax (=>)' is only available in ES6 (use 'esversion: 6').
+src/activitypub/index.js: line 128, col 9, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/index.js: line 128, col 9, 'destructuring binding' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/index.js: line 128, col 48, 'destructuring binding' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/index.js: line 128, col 70, 'arrow function syntax (=>)' is only available in ES6 (use 'esversion: 6').
+src/activitypub/index.js: line 129, col 13, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/index.js: line 133, col 9, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/index.js: line 134, col 9, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/index.js: line 136, col 31, 'arrow function syntax (=>)' is only available in ES6 (use 'esversion: 6').
+src/activitypub/index.js: line 138, col 17, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/index.js: line 141, col 17, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/index.js: line 152, col 28, 'async functions' is only available in ES8 (use 'esversion: 8').
+src/activitypub/index.js: line 152, col 43, 'arrow function syntax (=>)' is only available in ES6 (use 'esversion: 6').
+src/activitypub/index.js: line 153, col 5, 'let' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/index.js: line 156, col 10, 'destructuring assignment' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/index.js: line 156, col 45, 'template literal syntax' is only available in ES6 (use 'esversion: 6').
+src/activitypub/index.js: line 158, col 10, 'destructuring assignment' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/index.js: line 164, col 29, 'async functions' is only available in ES8 (use 'esversion: 8').
+src/activitypub/index.js: line 164, col 44, 'arrow function syntax (=>)' is only available in ES6 (use 'esversion: 6').
+src/activitypub/index.js: line 170, col 5, 'let' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/index.js: line 173, col 10, 'destructuring assignment' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/index.js: line 173, col 46, 'template literal syntax' is only available in ES6 (use 'esversion: 6').
+src/activitypub/index.js: line 175, col 10, 'destructuring assignment' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/index.js: line 178, col 5, 'let' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/index.js: line 180, col 17, 'template literal syntax' is only available in ES6 (use 'esversion: 6').
+src/activitypub/index.js: line 180, col 48, 'template literal syntax' is only available in ES6 (use 'esversion: 6').
+src/activitypub/index.js: line 182, col 17, 'template literal syntax' is only available in ES6 (use 'esversion: 6').
+src/activitypub/index.js: line 185, col 31, 'object short notation' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/index.js: line 188, col 30, 'async functions' is only available in ES8 (use 'esversion: 8').
+src/activitypub/index.js: line 188, col 40, 'arrow function syntax (=>)' is only available in ES6 (use 'esversion: 6').
+src/activitypub/index.js: line 190, col 5, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/index.js: line 199, col 20, 'async functions' is only available in ES8 (use 'esversion: 8').
+src/activitypub/index.js: line 199, col 26, 'destructuring binding' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/index.js: line 199, col 55, 'arrow function syntax (=>)' is only available in ES6 (use 'esversion: 6').
+src/activitypub/index.js: line 201, col 5, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/index.js: line 201, col 5, 'destructuring binding' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/index.js: line 202, col 5, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/index.js: line 203, col 5, 'let' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/index.js: line 205, col 5, 'let' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/index.js: line 206, col 5, 'let' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/index.js: line 206, col 25, 'template literal syntax' is only available in ES6 (use 'esversion: 6').
+src/activitypub/index.js: line 210, col 9, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/index.js: line 212, col 18, 'template literal syntax' is only available in ES6 (use 'esversion: 6').
+src/activitypub/index.js: line 214, col 26, 'template literal syntax' is only available in ES6 (use 'esversion: 6').
+src/activitypub/index.js: line 218, col 5, 'let' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/index.js: line 225, col 9, 'object short notation' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/index.js: line 226, col 9, 'object short notation' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/index.js: line 227, col 20, 'template literal syntax' is only available in ES6 (use 'esversion: 6').
+src/activitypub/index.js: line 231, col 22, 'async functions' is only available in ES8 (use 'esversion: 8').
+src/activitypub/index.js: line 231, col 32, 'arrow function syntax (=>)' is only available in ES6 (use 'esversion: 6').
+src/activitypub/index.js: line 241, col 9, 'let' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/index.js: line 241, col 9, 'destructuring binding' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/index.js: line 241, col 124, 'arrow function syntax (=>)' is only available in ES6 (use 'esversion: 6').
+src/activitypub/index.js: line 242, col 13, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/index.js: line 243, col 13, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/index.js: line 244, col 13, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/index.js: line 249, col 9, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/index.js: line 255, col 9, 'const' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).
+src/activitypub/index.js: line 255, col 67, 'arrow function syntax (=>)' is only available in ES6 (use 'esversion: 6').
+src/activitypub/index.js: line 258, col 31, 'template literal syntax' is only available in ES6 (use 'esversion: 6').
+src/activitypub/index.js: line 263, col 31, 'template literal syntax' is only available in ES6 (use 'esversion: 6').
+src/activitypub/index.js: line 268, col 31, 'template literal syntax' is only available in ES6 (use 'esversion: 6').
+src/activitypub/index.js: line 273, col 31, 'template literal syntax' is only available in ES6 (use 'esversion: 6').
+src/activitypub/index.js: line 282, col 33, 'template literal syntax' is only available in ES6 (use 'esversion: 6').
