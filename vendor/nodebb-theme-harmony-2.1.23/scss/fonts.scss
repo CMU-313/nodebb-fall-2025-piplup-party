@@ -1,24 +1,19 @@
-@use "./fonts/fontsource-utils/src/mixins.scss" as fontsource;
-@use "./fonts/inter/mixins.scss" as inter;
-@use "./fonts/poppins/mixins.scss" as poppins;
+@use "@fontsource/inter/scss/mixins" as Inter;
+@use "@fontsource/poppins/scss/mixins" as Poppins;
 
 $weights: $font-weight-light, $font-weight-normal, $font-weight-semibold, $font-weight-bold;
 $subsets: (latin, latin-ext);
 $font-path: "./plugins/nodebb-theme-harmony" !default;
 
-
-@include fontsource.faces(
-	$metadata: inter.$metadata,
-	$subsets: $subsets,
+@include Inter.faces(
 	$weights: $weights,
-	$styles: all,
+	$subsets: $subsets,
+	$display: fallback,
 	$directory: "#{$font-path}/inter"
 );
-
-@include fontsource.faces(
-  $metadata: poppins.$metadata,
-  $subsets: $subsets,
-  $weights: $weights,
-  $styles: all,
-  $directory: "#{$font-path}/poppins"
+@include Poppins.faces(
+	$weights: $weights,
+	$subsets: $subsets,
+	$display: fallback,
+	$directory: "#{$font-path}/poppins"
 );
