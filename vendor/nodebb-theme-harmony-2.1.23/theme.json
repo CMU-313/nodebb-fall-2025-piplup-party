@@ -1,7 +1,12 @@
 {
-    "id": "nodebb-theme-harmony",
-    "name": "Harmony",
-    "description": "The default theme for NodeBB. Uses a standard approach to forum design.",
-    "url": "https://github.com/nodebb/nodebb-theme-harmony",
-    "screenshot": "screenshot.png"
+  "id": "nodebb-theme-harmony",
+  "name": "Harmony",
+  "description": "The default theme for NodeBB",
+  "url": "https://github.com/NodeBB/nodebb-theme-harmony",
+  "screenshot": "screenshot.png",
+  "templates": "templates",
+  "staticDir": "static",
+  "scss": "scss/theme.scss",
+  "version": "2.1.23",
+  "baseTheme": false
 }
