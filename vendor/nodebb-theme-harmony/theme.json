@@ -1,0 +1,11 @@
+{
+  "id": "nodebb-theme-harmony",
+  "name": "Harmony",
+  "description": "Default modern theme for NodeBB",
+  "screenshot": "screenshot.png",
+  "staticDir": "static",
+  "templates": "templates",
+  "scss": "scss/theme.scss",
+  "version": "2.1.23",
+  "baseTheme": "nodebb-theme-persona"
+}
