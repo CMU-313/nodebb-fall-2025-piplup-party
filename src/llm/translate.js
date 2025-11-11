@@ -96,7 +96,7 @@ async function callOllama(text) {
 	const ollamaUrl = nconf.get('translateApiUrl') || 'http://127.0.0.1:11434/api/generate';
 
 	// Construct translation prompt
-	const prompt = `Translate the following text into English:\n${text}`;
+	const prompt = `Translate the following text into English. Output ONLY the translated text with no explanations, no formatting, no extra commentary, and no additional information:\n\n${text}`;
 
 	const requestBody = {
 		model: 'mistral',
