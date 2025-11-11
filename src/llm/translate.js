@@ -33,10 +33,10 @@ function isEnglish(text) {
 	// Strategy 1: Check for non-ASCII characters
 	// This catches Chinese, Japanese, Arabic, etc.
 	let nonAsciiCount = 0;
-	for (let i = 0; i < trimmed.length; i++) {
+	for (let i = 0; i < trimmed.length; i += 1) {
 		const code = trimmed.charCodeAt(i);
 		if (code > 126) {
-			nonAsciiCount++;
+			nonAsciiCount += 1;
 		}
 	}
 	
@@ -53,19 +53,19 @@ function isEnglish(text) {
 	const spanishWords = [
 		'hola', 'como', 'estas', 'que', 'muy', 'bien', 'gracias', 'por favor',
 		'buenos', 'dias', 'noches', 'donde', 'cuando', 'porque', 'este', 'esta',
-		'señor', 'señora', 'año', 'años'
+		'señor', 'señora', 'año', 'años',
 	];
 	
 	// Common French words
 	const frenchWords = [
 		'bonjour', 'merci', 'vous', 'nous', 'dans', 'avec', 'pour', 'mais',
-		'tout', 'est', 'sont', 'était', 'ça', 'où', 'être', 'avoir'
+		'tout', 'est', 'sont', 'était', 'ça', 'où', 'être', 'avoir',
 	];
 	
 	// Common German words
 	const germanWords = [
 		'der', 'die', 'das', 'und', 'ist', 'ich', 'nicht', 'sie', 'mit',
-		'sich', 'auf', 'für', 'von', 'dem', 'werden', 'über', 'können'
+		'sich', 'auf', 'für', 'von', 'dem', 'werden', 'über', 'können',
 	];
 	
 	// Combine all non-English words
