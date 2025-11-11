@@ -1,9 +1,0 @@
-.docker/**
-node_modules/**
-.git/**
-build/**
-public/**
-*.log
-*.tmp
-coverage/**
-test/**
